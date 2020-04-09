@@ -41,3 +41,7 @@ body{
   border: 1px solid lightgray;
 }
 
+button{
+  display: none;
+}
+

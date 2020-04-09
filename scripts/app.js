@@ -34,15 +34,23 @@ function init() {
 
   // Remove Welcome Screen
   function removeWelcomeScreen() {
-    welcomeScreen.classList.remove('welcome-screen')
+    welcomeScreen.remove()
     playImage.remove()
   }
 
-  //
+  // Storing Customer Ship Position in customerShipPositionArray
   function customerShipPositions(event) {
-    return customerShipPositionsArray.push(event.target.textContent)
+    customerShipPositionsArray.push(event.target.textContent)
+    if (customerShipPositionsArray.length - 1 >= 4) {
+      return  btn.style.display = 'inline'
+    }
   }
   
+  // Transferring Customer to Battlefield
+  function transferToBattlefield(){
+    gridWrapper.remove()
+    btn.remove()
+  }
   
    
   // EVENTS
@@ -56,7 +64,8 @@ function init() {
     cell.addEventListener('click', customerShipPositions)
   })
 
- 
+  // Click on a Next Button Which transfer Customer to a Battlefield
+  btn.addEventListener('click', transferToBattlefield)
 
 
 
