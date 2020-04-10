@@ -41,7 +41,35 @@ body{
   border: 1px solid lightgray;
 }
 
+.battlefield-grid{
+  width: 400px;
+  height: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 100px;
+}
+.battlefield-grid div{
+  width: 7.14%;
+  height: 7.14%;
+  border: 1px solid lightgray;
+}
+.battlefield-grid-two{
+  width: 400px;
+  height: 400px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.battlefield-grid-two div{
+  width: 7.14%;
+  height: 7.14%;
+  border: 1px solid lightgray;
+}
+
 button{
   display: none;
+}
+
+.customer-ships{
+  background: black;
 }
 

@@ -20,17 +20,17 @@ function init() {
   // FUNCTIONS
 
   // Create a Grid Function
-  function createCells() {
+  function createCells(element) {
     for ( let i = 0; i < cellCounts; i++){
       const cell = document.createElement('div')
-      grid.appendChild(cell)
+      element.appendChild(cell)
       cell.textContent = i
       cells.push(cell)
     }  
   }
 
   // Invoking Grid Function
-  createCells()
+  createCells(grid)
 
   // Remove Welcome Screen
   function removeWelcomeScreen() {
@@ -48,8 +48,22 @@ function init() {
   
   // Transferring Customer to Battlefield
   function transferToBattlefield(){
-    gridWrapper.remove()
     btn.remove()
+    grid.classList.remove('grid')
+    grid.classList.add('battlefield-grid')
+    const customerGrid = document.createElement('div')
+    customerGrid.classList.add('battlefield-grid')
+    gridWrapper.appendChild(customerGrid)
+    createCells(customerGrid)
+    let customerPositions
+    customerShipPositionsArray.forEach( position => {
+      customerPositions = cells[parseInt(position)]
+      customerPositions.classList.add('customer-ships')
+      
+      
+      
+    })
+    
   }
   
    
