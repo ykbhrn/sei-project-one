@@ -50,13 +50,17 @@ function init() {
   }
 
   // Storing Customer Ship Position in customerShipPositionArray
+  const ind = 0
   function customerShipPositions(event) {
-    customerShipPositionsArray.push(event.target.textContent)
-    event.target.classList.add('ships-positions')
-    if (customerShipPositionsArray.length >= 4) {
-      return btn.style.display = 'inline'
+  
+    if (customerShipPositionsArray.length === 4){
+      btn.style.display = 'inline'
     }
-
+    if (customerShipPositionsArray.length <= 3) {
+      customerShipPositionsArray.push(event.target.textContent)
+      event.target.classList.add('ships-positions') 
+    }
+    
   }
   // BATTLEFIELD
 
