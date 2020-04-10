@@ -52,21 +52,26 @@ function init() {
   // Storing Customer Ship Position in customerShipPositionArray
   
   function customerShipPositions(event) {
-    const shipPosition = customerCells[parseInt(event.target.textContent)]
-    const secondPosition = customerCells[parseInt(event.target.textContent) + 1]
-    const thirdPosition = customerCells[parseInt(event.target.textContent) - 1]
-    if (customerShipPositionsArray.length === 9){
-      btn.style.display = 'inline'
-    }
-    if (customerShipPositionsArray.length <= 9) {
-      customerShipPositionsArray.push(shipPosition, (shipPosition + 1), (shipPosition - 1))
-      shipPosition.classList.add('ships-positions') 
-      secondPosition.classList.add('ships-positions')
-      thirdPosition.classList.add('ships-positions')
+    if ( (parseInt(event.target.textContent) % width === 0) || ((parseInt(event.target.textContent) + 1) % width === 0) 
+    || ( parseInt(event.target.textContent) >= 1  &&  parseInt(event.target.textContent) <= 13 ) 
+    || ( parseInt(event.target.textContent) >= 182  &&  parseInt(event.target.textContent) <= 195 )
+    || (event.target.className === 'ships-positions')   ) {
+      return
+    } else {
 
-
+      const shipPosition = customerCells[parseInt(event.target.textContent)]
+      const secondPosition = customerCells[parseInt(event.target.textContent) + 1]
+      const thirdPosition = customerCells[parseInt(event.target.textContent) - 1]
+      if (customerShipPositionsArray.length === 9){
+        btn.style.display = 'inline'
+      }
+      if (customerShipPositionsArray.length <= 9) {
+        customerShipPositionsArray.push(shipPosition, (shipPosition + 1), (shipPosition - 1))
+        shipPosition.classList.add('ships-positions') 
+        secondPosition.classList.add('ships-positions')
+        thirdPosition.classList.add('ships-positions')
+      }
     }
-    console.log(shipPosition)
     
 
   }
@@ -100,11 +105,23 @@ function init() {
     const computerThirdPosition = Math.floor(Math.random() * computerCells.length)
     const computerFourthPosition = Math.floor(Math.random() * computerCells.length)
 
+
     computerCells[computerFirstPosition].classList.add('ships-positions')
+    computerCells[computerFirstPosition + 1].classList.add('ships-positions')
+    computerCells[computerFirstPosition - 1].classList.add('ships-positions')
+
     computerCells[computerSecondPosition].classList.add('ships-positions')
+    computerCells[computerSecondPosition + 1].classList.add('ships-positions')
+    computerCells[computerSecondPosition - 1].classList.add('ships-positions')
+
     computerCells[computerThirdPosition].classList.add('ships-positions')
+    computerCells[computerThirdPosition + 1].classList.add('ships-positions')
+    computerCells[computerThirdPosition - 1].classList.add('ships-positions')
+
     computerCells[computerFourthPosition].classList.add('ships-positions')
-    computerShipPositionsArray.push(computerCells[computerFirstPosition], computerCells[computerSecondPosition], computerCells[computerThirdPosition], computerCells[computerFourthPosition])   
+    computerCells[computerFourthPosition + 1].classList.add('ships-positions')
+    computerCells[computerFourthPosition - 1].classList.add('ships-positions')
+    computerShipPositionsArray.push(computerCells[computerFirstPosition], computerCells[computerFirstPosition + 1], computerCells[computerFirstPosition - 1], computerCells[computerSecondPosition], computerCells[computerSecondPosition + 1], computerCells[computerSecondPosition - 1], computerCells[computerThirdPosition], computerCells[computerThirdPosition + 1], computerCells[computerThirdPosition - 1],computerCells[computerFourthPosition], computerCells[computerFourthPosition + 1], computerCells[computerFourthPosition - 1])   
     
     // Hit Ship Position
     computerCells.forEach( cell => {
@@ -141,9 +158,9 @@ function init() {
       //Displaying Computer Score
       computerScore.textContent = displayComputerScore
       
-      if (parseInt(computerScore.textContent) >= 4){
+      if (parseInt(computerScore.textContent) >= 12){
         result = 'Your Opponent Win'
-      } else if (parseInt(customerScore.textContent) >= 4){
+      } else if (parseInt(customerScore.textContent) >= 12){
         result = 'You Win'
       }
       resultDisplay.textContent = result
