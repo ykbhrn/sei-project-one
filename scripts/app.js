@@ -52,14 +52,22 @@ function init() {
   // Storing Customer Ship Position in customerShipPositionArray
   
   function customerShipPositions(event) {
-
-    if (customerShipPositionsArray.length === 3){
+    const shipPosition = customerCells[parseInt(event.target.textContent)]
+    const secondPosition = customerCells[parseInt(event.target.textContent) + 1]
+    const thirdPosition = customerCells[parseInt(event.target.textContent) - 1]
+    if (customerShipPositionsArray.length === 9){
       btn.style.display = 'inline'
     }
-    if (customerShipPositionsArray.length <= 3) {
-      customerShipPositionsArray.push(event.target.textContent)
-      event.target.classList.add('ships-positions') 
+    if (customerShipPositionsArray.length <= 9) {
+      customerShipPositionsArray.push(shipPosition, (shipPosition + 1), (shipPosition - 1))
+      shipPosition.classList.add('ships-positions') 
+      secondPosition.classList.add('ships-positions')
+      thirdPosition.classList.add('ships-positions')
+
+
     }
+    console.log(shipPosition)
+    
 
   }
   // BATTLEFIELD
@@ -80,11 +88,11 @@ function init() {
     createCells(computerGrid, computerCells)
 
     // Storing Customer Ship Positions
-    let customerPositions
-    customerShipPositionsArray.forEach(position => {
-      customerPositions = customerCells[parseInt(position)]
-      customerPositions.classList.add('ships-positions')
-    })
+    // let customerPositions
+    // customerShipPositionsArray.forEach(position => {
+    //   customerPositions = customerCells[parseInt(position)]
+    //   customerPositions.classList.add('ships-positions')
+    // })
 
     // Storing Computer Ship Positions
     const computerFirstPosition = Math.floor(Math.random() * computerCells.length)
@@ -139,10 +147,6 @@ function init() {
         result = 'You Win'
       }
       resultDisplay.textContent = result
-      console.log(customerScore.textContent)
-      
-      
-      
       
       
 
@@ -168,7 +172,7 @@ function init() {
   btn.addEventListener('click', Battlefield)
 
   
-  
+ 
   
 
 }
