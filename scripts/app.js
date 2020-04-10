@@ -20,8 +20,12 @@ function init() {
   const customerShipPositionsArray = []
   const computerShipPositionsArray = []
   let computerMoveCell
-  const computerScore = []
-  const customerScore = []
+  const computerScoreArray = []
+  const customerScoreArray = []
+  const customerScore = document.querySelector('.customer-score')
+  const computerScore = document.querySelector('.computer-score')
+  const resultDisplay = document.querySelector('.result')
+  let result
   
 
   // FUNCTIONS
@@ -54,10 +58,11 @@ function init() {
     }
 
   }
+  // BATTLEFIELD
 
-  // Transferring Customer to Battlefield and Storing Computer and Customer Positions
+  // Transferring Customer to Battlefield
 
-  function transferToBattlefield() {
+  function Battlefield() {
     // Removing Strategy Panel
     btn.remove()
     grid.classList.remove('grid')
@@ -96,12 +101,12 @@ function init() {
     function hitShipPosition(event) {
       if (event.target.className === 'ships-positions'){
         event.target.classList.add('ship-hit')
-        customerScore.push(event.target)
+        customerScoreArray.push(event.target)
       }
 
       // Counting Computer Score
-      const displayCustomerScore = customerScore.length
-      console.log(displayCustomerScore)
+      const displayCustomerScore = customerScoreArray.length
+      customerScore.textContent = displayCustomerScore
       
 
 
@@ -112,24 +117,34 @@ function init() {
         computerMoveCell = customerCells[Math.floor(Math.random() * customerCells.length)]
         // computerMoveCell.classList.add('missed-hit')
         if (computerMoveCell.className === 'ships-positions'){
-          computerScore.push(computerMoveCell)
+          computerScoreArray.push(computerMoveCell)
           
         }
         
       }, 1000)
 
       // Counting Computer Score
-      const displayComputerScore = computerScore.length
+      const displayComputerScore = computerScoreArray.length
 
       //Displaying Computer Score
-      console.log(displayComputerScore)
+      computerScore.textContent = displayComputerScore
+      
+      if (parseInt(computerScore.textContent) >= 4){
+        result = 'Your Opponent Win'
+      } else if (parseInt(customerScore.textContent) >= 4){
+        result = 'You Win'
+      }
+      resultDisplay.textContent = result
+      console.log(customerScore.textContent)
+      
+      
       
       
       
 
     }
   }
-
+  // End of BATTLEFIELD
   
   
 
@@ -146,7 +161,7 @@ function init() {
   })
 
   // Click on a Next Button Which transfer Customer to a Battlefield
-  btn.addEventListener('click', transferToBattlefield)
+  btn.addEventListener('click', Battlefield)
 
   
   
