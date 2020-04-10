@@ -8,8 +8,9 @@ function init() {
 
   //Grid variables
   const grid = document.querySelector('.grid')
-  const customerGrid = document.createElement('div')
-  const cells = []
+  const computerGrid = document.createElement('div')
+  const customerCells = []
+  const computerCells = []
   const gridWrapper = document.querySelector('.grid-wrapper')
   const width = 14
   const cellCounts = width * width
@@ -22,17 +23,17 @@ function init() {
   // FUNCTIONS
 
   // Create a Grid Function
-  function createCells(element) {
+  function createCells(element, array) {
     for (let i = 0; i < cellCounts; i++) {
       const cell = document.createElement('div')
       element.appendChild(cell)
       cell.textContent = i
-      cells.push(cell)
+      array.push(cell)
     }
   }
 
   // Invoking Grid Function
-  createCells(grid)
+  createCells(grid, customerCells)
 
   // Remove Welcome Screen
   function removeWelcomeScreen() {
@@ -57,39 +58,37 @@ function init() {
     btn.remove()
     grid.classList.remove('grid')
 
-    // Creating Computer Grid
-    grid.classList.add('computer-grid')
+    // Editing Grid to make it Customer Grid...so Grid is Customer Grid Now
+    grid.classList.add('customer-grid')
 
-    // Creating Customer Grid
-    customerGrid.classList.add('customer-grid')
-    gridWrapper.appendChild(customerGrid)
-    createCells(customerGrid)
+    // Creating Computer Grid
+    computerGrid.classList.add('computer-grid')
+    gridWrapper.appendChild(computerGrid)
+    createCells(computerGrid, computerCells)
 
     // Storing Customer Ship Positions
     let customerPositions
     customerShipPositionsArray.forEach(position => {
-      customerPositions = cells[parseInt(position)]
+      customerPositions = customerCells[parseInt(position)]
       customerPositions.classList.add('ships-positions')
     })
 
     // Storing Computer Ship Positions
-    const computerFirstPosition = Math.floor((Math.random() * cells.length / 2) + 196)
-    const computerSecondPosition = Math.floor((Math.random() * cells.length / 2) + 196)
-    const computerThirdPosition = Math.floor((Math.random() * cells.length / 2) + 196)
-    const computerFourthPosition = Math.floor((Math.random() * cells.length / 2) + 196)
+    const computerFirstPosition = Math.floor(Math.random() * computerCells.length)
+    const computerSecondPosition = Math.floor(Math.random() * computerCells.length)
+    const computerThirdPosition = Math.floor(Math.random() * computerCells.length)
+    const computerFourthPosition = Math.floor(Math.random() * computerCells.length)
 
-    cells[computerFirstPosition].classList.add('ships-positions')
-    cells[computerSecondPosition].classList.add('ships-positions')
-    cells[computerThirdPosition].classList.add('ships-positions')
-    cells[computerFourthPosition].classList.add('ships-positions')
-    computerShipPositionsArray.push(cells[computerFirstPosition], cells[computerSecondPosition], cells[computerThirdPosition], cells[computerFourthPosition])
-    console.log(computerShipPositionsArray)
-    
+    computerCells[computerFirstPosition].classList.add('ships-positions')
+    computerCells[computerSecondPosition].classList.add('ships-positions')
+    computerCells[computerThirdPosition].classList.add('ships-positions')
+    computerCells[computerFourthPosition].classList.add('ships-positions')
+    computerShipPositionsArray.push(computerCells[computerFirstPosition], computerCells[computerSecondPosition], computerCells[computerThirdPosition], computerCells[computerFourthPosition])   
   }
 
   // Hit Ship Position
   function hitShipPosition() {
-    console.log('jej')
+    comput
    
   }
 
@@ -100,8 +99,8 @@ function init() {
   playImage.addEventListener('click', removeWelcomeScreen)
 
 
-  //Remembering Customer Positions
-  cells.forEach(cell => {
+  //Storing Customer Positions
+  customerCells.forEach(cell => {
     cell.addEventListener('click', customerShipPositions)
   })
 
