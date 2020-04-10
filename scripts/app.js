@@ -19,6 +19,10 @@ function init() {
 
   const customerShipPositionsArray = []
   const computerShipPositionsArray = []
+  let computerMoveCell
+  const computerScore = []
+  const customerScore = []
+  
 
   // FUNCTIONS
 
@@ -91,9 +95,38 @@ function init() {
     })
     function hitShipPosition(event) {
       if (event.target.className === 'ships-positions'){
-        event.target.style.background = 'red'
+        event.target.classList.add('ship-hit')
+        customerScore.push(event.target)
       }
+
+      // Counting Computer Score
+      const displayCustomerScore = customerScore.length
+      console.log(displayCustomerScore)
       
+
+
+      // Computer Move
+
+      setTimeout(() => {
+        
+        computerMoveCell = customerCells[Math.floor(Math.random() * customerCells.length)]
+        // computerMoveCell.classList.add('missed-hit')
+        if (computerMoveCell.className === 'ships-positions'){
+          computerScore.push(computerMoveCell)
+          
+        }
+        
+      }, 1000)
+
+      // Counting Computer Score
+      const displayComputerScore = computerScore.length
+
+      //Displaying Computer Score
+      console.log(displayComputerScore)
+      
+      
+      
+
     }
   }
 

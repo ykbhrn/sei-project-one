@@ -82,4 +82,11 @@ button{
   background: black;
   
 }
+.missed-hit{
+  background: grey;
+}
+
+.ship-hit{
+  background: red;
+}
 
