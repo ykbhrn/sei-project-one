@@ -84,13 +84,21 @@ function init() {
     computerCells[computerThirdPosition].classList.add('ships-positions')
     computerCells[computerFourthPosition].classList.add('ships-positions')
     computerShipPositionsArray.push(computerCells[computerFirstPosition], computerCells[computerSecondPosition], computerCells[computerThirdPosition], computerCells[computerFourthPosition])   
+    
+    // Hit Ship Position
+    computerCells.forEach( cell => {
+      cell.addEventListener('click', hitShipPosition)
+    })
+    function hitShipPosition(event) {
+      if (event.target.className === 'ships-positions'){
+        event.target.style.background = 'red'
+      }
+      
+    }
   }
 
-  // Hit Ship Position
-  function hitShipPosition() {
-    comput
-   
-  }
+  
+  
 
 
   // EVENTS
@@ -107,11 +115,9 @@ function init() {
   // Click on a Next Button Which transfer Customer to a Battlefield
   btn.addEventListener('click', transferToBattlefield)
 
-  // Click on a Ship Position
-  computerShipPositionsArray.forEach(cell => {
-    cell.addEventListener('click', hitShipPosition)
-  })
-
+  
+  
+  
 
 }
 
