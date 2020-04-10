@@ -33,6 +33,8 @@ body{
   height: 500px;
   display: flex;
   flex-wrap: wrap; 
+  color: white;
+  order: 1;
 }
 
 .grid div{
@@ -41,35 +43,43 @@ body{
   border: 1px solid lightgray;
 }
 
-.battlefield-grid{
+.customer-grid{
   width: 400px;
   height: 400px;
   display: flex;
   flex-wrap: wrap;
   margin: 100px;
+  color: white;
+  order: 1;
 }
-.battlefield-grid div{
+.customer-grid div{
   width: 7.14%;
   height: 7.14%;
   border: 1px solid lightgray;
+  
 }
-.battlefield-grid-two{
+.computer-grid{
   width: 400px;
   height: 400px;
   display: flex;
   flex-wrap: wrap;
+  margin: 100px;
+  color: white;
+  order: 2;
 }
-.battlefield-grid-two div{
+.computer-grid div{
   width: 7.14%;
   height: 7.14%;
   border: 1px solid lightgray;
+  
 }
 
 button{
   display: none;
 }
 
-.customer-ships{
+.ships-positions{
   background: black;
+  
 }
 
