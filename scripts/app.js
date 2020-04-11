@@ -26,7 +26,7 @@ function init() {
   const computerScore = document.querySelector('.computer-score')
   const resultDisplay = document.querySelector('.result')
   let result
-  
+  let isPlaying = false
 
   // FUNCTIONS
 
@@ -163,6 +163,7 @@ function init() {
       cell.addEventListener('click', customerMove)
     })
     function customerMove(event) {
+      if (isPlaying) return
       event.target.classList.add('missed-hit')
       if (event.target.className === 'ships-positions missed-hit'){
         event.target.classList.add('ship-hit')
@@ -174,12 +175,14 @@ function init() {
       customerScore.textContent = displayCustomerScore
       
       // Computer Move
-
+      isPlaying = true
       setTimeout(() => {
-        
+      
         computerMoveCell = customerCells[Math.floor(Math.random() * customerCells.length)]
         if (computerMoveCell.classList.contains('missed-hit')) {
-          console.log('jjkh')
+          
+          console.log('it happens')
+          
         }
         // Add class ship-hit to the attacked cell which contains customer ship and also pushing this cell to the array of attacked ships
         if (computerMoveCell.classList.contains('ships-positions')){
@@ -202,7 +205,8 @@ function init() {
           result = 'You Win'
         }
         resultDisplay.textContent = result
-      }, 1000)
+        isPlaying = false
+      }, 7000)
   
       
       
