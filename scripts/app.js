@@ -69,7 +69,7 @@ function init() {
         thirdPosition.classList.add('ships-positions')
       }
     }
-    console.log(event.target.nextSibling, event.target.previousSibling)
+    
     
 
   }
@@ -179,26 +179,27 @@ function init() {
       setTimeout(() => {
         
         computerMoveCell = customerCells[Math.floor(Math.random() * customerCells.length)]
-        // computerMoveCell.classList.add('missed-hit')
-        if (computerMoveCell.className === 'ships-positions'){
-          computerScoreArray.push(computerMoveCell)
-          
+        computerMoveCell.classList.add('missed-hit')
+        if (computerMoveCell.className === 'ships-positions missed-hit'){
+          computerMoveCell.classList.add('ship-hit') 
+          computerScoreArray.push(computerMoveCell)   
         }
-        
-      }, 1000)
-
-      // Counting Computer Score
-      const displayComputerScore = computerScoreArray.length
-
-      //Displaying Computer Score
-      computerScore.textContent = displayComputerScore
+        console.log(computerMoveCell)
       
-      if (parseInt(computerScore.textContent) >= 12){
-        result = 'Your Opponent Win'
-      } else if (parseInt(customerScore.textContent) >= 12){
-        result = 'You Win'
-      }
-      resultDisplay.textContent = result
+        // Counting Computer Score
+        const displayComputerScore = computerScoreArray.length
+
+        //Displaying Computer Score
+        computerScore.textContent = displayComputerScore
+      
+        if (parseInt(computerScore.textContent) >= 12){
+          result = 'Your Opponent Win'
+        } else if (parseInt(customerScore.textContent) >= 12){
+          result = 'You Win'
+        }
+        resultDisplay.textContent = result
+      }, 1000)
+  
       
       
 
