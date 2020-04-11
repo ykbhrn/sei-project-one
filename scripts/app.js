@@ -52,7 +52,7 @@ function init() {
   // Storing Customer Ship Position in customerShipPositionArray
   
   function customerShipPositions(event) {
-    if ( (parseInt(event.target.textContent) % width === 0) || ((parseInt(event.target.textContent) + 1) % width === 0) || (event.target.className === 'ships-positions') ) {
+    if ( (parseInt(event.target.textContent) % width === 0) || ((parseInt(event.target.textContent) + 1) % width === 0) || (event.target.className === 'ships-positions') || (event.target.nextSibling.className === 'ships-positions') || (event.target.previousSibling.className === 'ships-positions')) {
       return
     } else {
 
@@ -69,6 +69,7 @@ function init() {
         thirdPosition.classList.add('ships-positions')
       }
     }
+    console.log(event.target.nextSibling, event.target.previousSibling)
     
 
   }
