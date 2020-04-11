@@ -178,21 +178,25 @@ function init() {
       // Computer Move
       isComputerPlaying = true
       setTimeout(() => {
-      
-        computerMoveCell = customerCells[Math.floor(Math.random() * customerCells.length)]
-        if (computerMoveCell.classList.contains('missed-hit')) {
-          
-          console.log('it happens')
-          
-        }
-        // Add class ship-hit to the attacked cell which contains customer ship and also pushing this cell to the array of attacked ships
-        if (computerMoveCell.classList.contains('ships-positions')){
-          computerMoveCell.classList.add('ship-hit') 
-          computerScoreArray.push(computerMoveCell)   
-        }
-        // Add missed-hit class to a cell which was already attacked
-        computerMoveCell.classList.add('missed-hit')
-        console.log(computerMoveCell)
+        const computerMoveInterval = setInterval(() => {
+          computerMoveCell = customerCells[Math.floor(Math.random() * customerCells.length)]
+          if (computerMoveCell.classList.contains('missed-hit')) return 
+          // Add class ship-hit to the attacked cell which contains customer ship and also pushing this cell to the array of attacked ships
+          else {
+            if (computerMoveCell.classList.contains('ships-positions')){
+              computerMoveCell.classList.add('ship-hit') 
+              computerScoreArray.push(computerMoveCell)   
+            }
+            // Add missed-hit class to a cell which was already attacked
+            computerMoveCell.classList.add('missed-hit')
+            console.log(computerMoveCell)
+            clearInterval(computerMoveInterval)
+            
+          }
+        }, 1)
+        
+       
+       
       
         // Counting Computer Score
         const displayComputerScore = computerScoreArray.length
@@ -207,7 +211,7 @@ function init() {
         }
         resultDisplay.textContent = result
         isComputerPlaying = false
-      }, 70)
+      }, 5000)
   
       
       
