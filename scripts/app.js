@@ -26,7 +26,7 @@ function init() {
   const computerScore = document.querySelector('.computer-score')
   const resultDisplay = document.querySelector('.result')
   let result
-  let isPlaying = false
+  let isComputerPlaying = false
 
   // FUNCTIONS
 
@@ -163,19 +163,20 @@ function init() {
       cell.addEventListener('click', customerMove)
     })
     function customerMove(event) {
-      if (isPlaying) return
+      if (isComputerPlaying) return
+      if (event.target.classList.contains('missed-hit')) return
       event.target.classList.add('missed-hit')
-      if (event.target.className === 'ships-positions missed-hit'){
+      if (event.target.classList.contains('ships-positions')){
         event.target.classList.add('ship-hit')
         customerScoreArray.push(event.target)
       }
 
-      // Counting Computer Score
+      // Counting Customer Score
       const displayCustomerScore = customerScoreArray.length
       customerScore.textContent = displayCustomerScore
       
       // Computer Move
-      isPlaying = true
+      isComputerPlaying = true
       setTimeout(() => {
       
         computerMoveCell = customerCells[Math.floor(Math.random() * customerCells.length)]
@@ -205,8 +206,8 @@ function init() {
           result = 'You Win'
         }
         resultDisplay.textContent = result
-        isPlaying = false
-      }, 7000)
+        isComputerPlaying = false
+      }, 70)
   
       
       
