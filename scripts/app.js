@@ -178,11 +178,16 @@ function init() {
       setTimeout(() => {
         
         computerMoveCell = customerCells[Math.floor(Math.random() * customerCells.length)]
-        computerMoveCell.classList.add('missed-hit')
-        if (computerMoveCell.className === 'ships-positions missed-hit'){
+        if (computerMoveCell.classList.contains('missed-hit')) {
+          console.log('jjkh')
+        }
+        // Add class ship-hit to the attacked cell which contains customer ship and also pushing this cell to the array of attacked ships
+        if (computerMoveCell.classList.contains('ships-positions')){
           computerMoveCell.classList.add('ship-hit') 
           computerScoreArray.push(computerMoveCell)   
         }
+        // Add missed-hit class to a cell which was already attacked
+        computerMoveCell.classList.add('missed-hit')
         console.log(computerMoveCell)
       
         // Counting Computer Score
