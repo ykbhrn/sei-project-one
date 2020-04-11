@@ -96,17 +96,13 @@ function init() {
     //   customerPositions.classList.add('ships-positions')
     // })
 
-    // Storing Computer Ship Positions
+    // COMPUTER SHIP POSITIONS
     let computerFirstPosition = Math.floor(Math.random() * computerCells.length)
     let computerSecondPosition = Math.floor(Math.random() * computerCells.length)
     let computerThirdPosition = Math.floor(Math.random() * computerCells.length)
     let computerFourthPosition = Math.floor(Math.random() * computerCells.length)
-    // (computerFirstPosition % width === 0) || ((computerFirstPosition + 1) % width === 0) 
-    //  || ( computerFirstPosition >= 1  &&  computerFirstPosition <= 13 ) 
-    //  || ( computerFirstPosition >= 182  &&  computerFirstPosition <= 195 )
-    //  || (computerFirstPosition === 'ships-positions')  
   
-
+    // Determining First Computer Ship Position
     if ( computerCells[computerFirstPosition].className === 'ships-positions'){
       computerFirstPosition = computerFirstPosition + width
     }
@@ -119,7 +115,7 @@ function init() {
     computerCells[computerFirstPosition + 1].classList.add('ships-positions')
     computerCells[computerFirstPosition - 1].classList.add('ships-positions')
     computerShipPositionsArray.push(computerCells[computerFirstPosition], computerCells[computerFirstPosition + 1], computerCells[computerFirstPosition - 1])
-   
+    // Determining Second Computer Ship Position
     if ( computerCells[computerSecondPosition].className === 'ships-positions'){
       computerSecondPosition = computerSecondPosition + width
     }
@@ -132,7 +128,7 @@ function init() {
     computerCells[computerSecondPosition + 1].classList.add('ships-positions')
     computerCells[computerSecondPosition - 1].classList.add('ships-positions')
     computerShipPositionsArray.push(computerCells[computerSecondPosition], computerCells[computerSecondPosition + 1], computerCells[computerSecondPosition - 1])   
-    
+    // Determining Third Computer Ship Position
     if ( computerCells[computerThirdPosition].className === 'ships-positions'){
       computerThirdPosition = computerThirdPosition + width
     }
@@ -145,7 +141,7 @@ function init() {
     computerCells[computerThirdPosition + 1].classList.add('ships-positions')
     computerCells[computerThirdPosition - 1].classList.add('ships-positions')
     computerShipPositionsArray.push(computerCells[computerThirdPosition], computerCells[computerThirdPosition + 1], computerCells[computerThirdPosition - 1])
-      
+    // Determining Fourth Computer Ship Position
     if ( computerCells[computerFourthPosition].className === 'ships-positions'){
       computerFourthPosition = computerFourthPosition + width
     }
@@ -159,22 +155,7 @@ function init() {
     computerCells[computerFourthPosition - 1].classList.add('ships-positions')
     computerShipPositionsArray.push(computerCells[computerFourthPosition], computerCells[computerFourthPosition + 1], computerCells[computerFourthPosition - 1])
     
-    // computerCells[computerFirstPosition].classList.add('ships-positions')
-    // computerCells[computerFirstPosition + 1].classList.add('ships-positions')
-    // computerCells[computerFirstPosition - 1].classList.add('ships-positions')
-
-    // computerCells[computerSecondPosition].classList.add('ships-positions')
-    // computerCells[computerSecondPosition + 1].classList.add('ships-positions')
-    // computerCells[computerSecondPosition - 1].classList.add('ships-positions')
-
-    // computerCells[computerThirdPosition].classList.add('ships-positions')
-    // computerCells[computerThirdPosition + 1].classList.add('ships-positions')
-    // computerCells[computerThirdPosition - 1].classList.add('ships-positions')
-
-    // computerCells[computerFourthPosition].classList.add('ships-positions')
-    // computerCells[computerFourthPosition + 1].classList.add('ships-positions')
-    // computerCells[computerFourthPosition - 1].classList.add('ships-positions')
-    // computerShipPositionsArray.push(computerCells[computerFirstPosition], computerCells[computerFirstPosition + 1], computerCells[computerFirstPosition - 1], computerCells[computerSecondPosition], computerCells[computerSecondPosition + 1], computerCells[computerSecondPosition - 1], computerCells[computerThirdPosition], computerCells[computerThirdPosition + 1], computerCells[computerThirdPosition - 1],computerCells[computerFourthPosition], computerCells[computerFourthPosition + 1], computerCells[computerFourthPosition - 1])   
+    
     
     // Hit Ship Position
     computerCells.forEach( cell => {
