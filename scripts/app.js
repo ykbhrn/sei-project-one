@@ -158,12 +158,13 @@ function init() {
     
     
     
-    // Hit Ship Position
+    // Customer Move
     computerCells.forEach( cell => {
-      cell.addEventListener('click', hitShipPosition)
+      cell.addEventListener('click', customerMove)
     })
-    function hitShipPosition(event) {
-      if (event.target.className === 'ships-positions'){
+    function customerMove(event) {
+      event.target.classList.add('missed-hit')
+      if (event.target.className === 'ships-positions missed-hit'){
         event.target.classList.add('ship-hit')
         customerScoreArray.push(event.target)
       }
@@ -172,8 +173,6 @@ function init() {
       const displayCustomerScore = customerScoreArray.length
       customerScore.textContent = displayCustomerScore
       
-
-
       // Computer Move
 
       setTimeout(() => {
