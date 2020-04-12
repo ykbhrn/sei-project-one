@@ -77,6 +77,9 @@ body{
 button{
   display: none;
 }
+.not-available-cell{
+  background: brown;
+}
 
 .ships-positions{
   background: black;

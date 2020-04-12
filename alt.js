@@ -49,83 +49,32 @@ function init() {
     playImage.remove()
   }
 
-  // Storing Customer Ships Positions in customerShipPositionArray
+  // Storing Customer Ship Position in customerShipPositionArray
   
   function customerShipPositions(event) {
-    // First Ship
-    if (customerShipPositionsArray.length < 3){
-      if ( ((parseInt(event.target.textContent) + 1) % width === 0) || ((parseInt(event.target.textContent) + 2) % width === 0)
-    || ((parseInt(event.target.textContent) + 3) % width === 0) ) {
-        return 
-      } else {
-        const shipPosition = customerCells[parseInt(event.target.textContent)]
-        const secondPosition = customerCells[grid.children[parseInt(event.target.textContent) + 1].textContent]
-        const thirdPosition = customerCells[grid.children[parseInt(event.target.textContent) + 2].textContent]
-        const fourthPosition = customerCells[grid.children[parseInt(event.target.textContent) + 3].textContent]
-        
-        shipPosition.classList.add('ships-positions') 
-        secondPosition.classList.add('ships-positions') 
-        thirdPosition.classList.add('ships-positions')
-        fourthPosition.classList.add('ships-positions') 
-        customerShipPositionsArray.push(shipPosition, secondPosition, thirdPosition, fourthPosition) 
-        console.log(customerShipPositionsArray.length)
-      }  // Second Ship
-    } else if (customerShipPositionsArray.length > 3 && customerShipPositionsArray.length < 5 ) {
-      if ( ((parseInt(event.target.textContent) + 1) % width === 0) || (event.target.classList.contains('ships-positions')) 
-    || (customerCells[grid.children[parseInt(event.target.textContent) + 1].textContent].classList.contains('ships-positions'))) {
-        return 
-      } else {
-        const shipPosition = customerCells[parseInt(event.target.textContent)]
-        const secondPosition = customerCells[grid.children[parseInt(event.target.textContent) + 1].textContent]
+    if ( (parseInt(event.target.textContent) % width === 0) || ((parseInt(event.target.textContent) + 1) % width === 0) || (event.target.classList.contains('ships-positions')) || (event.target.nextSibling.classList.contains('ships-positions')) || (event.target.previousSibling.classList.contains('ships-positions'))) {
+      return
+    } else {
 
-        shipPosition.classList.add('ships-positions') 
-        secondPosition.classList.add('ships-positions')      
-        customerShipPositionsArray.push(shipPosition, secondPosition) 
-        console.log(customerShipPositionsArray.length)
-      }  // Third Ship
-    } else if (customerShipPositionsArray.length > 5 && customerShipPositionsArray.length < 7){
-      if ( ((parseInt(event.target.textContent) + 1) % width === 0) || ((parseInt(event.target.textContent) + 2) % width === 0)
-    || (event.target.classList.contains('ships-positions')) 
-    || (customerCells[grid.children[parseInt(event.target.textContent) + 1].textContent].classList.contains('ships-positions'))
-    || (customerCells[grid.children[parseInt(event.target.textContent) + 2].textContent].classList.contains('ships-positions'))) {
-        return 
-      } else {
-        const shipPosition = customerCells[parseInt(event.target.textContent)]
-        const secondPosition = customerCells[grid.children[parseInt(event.target.textContent) + 1].textContent]
-        const thirdPosition = customerCells[grid.children[parseInt(event.target.textContent) + 2].textContent]
-
-        shipPosition.classList.add('ships-positions') 
-        secondPosition.classList.add('ships-positions') 
-        thirdPosition.classList.add('ships-positions')
-        customerShipPositionsArray.push(shipPosition, secondPosition, thirdPosition)   
-        console.log(customerShipPositionsArray.length)
-      } // Fourth Ship
-    } else if (customerShipPositionsArray.length > 8 && customerShipPositionsArray.length < 11){
-      if ( ((parseInt(event.target.textContent) + 1) % width === 0) || ((parseInt(event.target.textContent) + 2) % width === 0)
-     || ((parseInt(event.target.textContent) + 3) % width === 0)
-     || ((parseInt(event.target.textContent) + 4) % width === 0)
-     || (event.target.classList.contains('ships-positions')) 
-     || (customerCells[grid.children[parseInt(event.target.textContent) + 1].textContent].classList.contains('ships-positions'))
-     || (customerCells[grid.children[parseInt(event.target.textContent) + 2].textContent].classList.contains('ships-positions'))
-     || (customerCells[grid.children[parseInt(event.target.textContent) + 3].textContent].classList.contains('ships-positions'))
-     || (customerCells[grid.children[parseInt(event.target.textContent) + 4].textContent].classList.contains('ships-positions'))) {
-        return 
-      } else {
-        const shipPosition = customerCells[parseInt(event.target.textContent)]
-        const secondPosition = customerCells[grid.children[parseInt(event.target.textContent) + 1].textContent]
-        const thirdPosition = customerCells[grid.children[parseInt(event.target.textContent) + 2].textContent]
-        const fourthPosition = customerCells[grid.children[parseInt(event.target.textContent) + 3].textContent]
-        const fifthPosition = customerCells[grid.children[parseInt(event.target.textContent) + 4].textContent]
- 
-        shipPosition.classList.add('ships-positions') 
-        secondPosition.classList.add('ships-positions') 
-        thirdPosition.classList.add('ships-positions')
-        fourthPosition.classList.add('ships-positions') 
-        fifthPosition.classList.add('ships-positions')
-        customerShipPositionsArray.push(shipPosition, secondPosition, thirdPosition, fourthPosition, fifthPosition)
+      const shipPosition = customerCells[parseInt(event.target.textContent)]
+      const secondPosition = customerCells[parseInt(event.target.textContent) + 1]
+      const thirdPosition = customerCells[parseInt(event.target.textContent) - 1]
+      if (customerShipPositionsArray.length === 9){
         btn.style.display = 'inline'
-      } 
+      }
+      if (customerShipPositionsArray.length <= 9) {
+        shipPosition.classList.add('ships-positions') 
+        shipPosition.classList.add('middle-ship-part') 
+        secondPosition.classList.add('ships-positions')
+        secondPosition.classList.add('front-ship-part')
+        thirdPosition.classList.add('ships-positions')
+        thirdPosition.classList.add('back-ship-part')
+        customerShipPositionsArray.push(shipPosition, (shipPosition + 1), (shipPosition - 1))
+      }
     }
+    
+    
+
   }
   // BATTLEFIELD
 
@@ -184,7 +133,6 @@ function init() {
     computerCells[computerSecondPosition - 1].classList.add('ships-positions')
     computerShipPositionsArray.push(computerCells[computerSecondPosition], computerCells[computerSecondPosition + 1], computerCells[computerSecondPosition - 1])   
     // Determining Third Computer Ship Position
-    
     if ( computerCells[computerThirdPosition].classList.contains('ships-positions')){
       computerThirdPosition = computerThirdPosition + width
     }
@@ -249,6 +197,10 @@ function init() {
             
           }
         }, 1)
+        
+       
+       
+      
         // Counting Computer Score
         const displayComputerScore = computerScoreArray.length
 
