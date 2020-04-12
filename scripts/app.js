@@ -5,13 +5,32 @@ function init() {
   const welcomeScreen = document.querySelector('.welcome-screen')
   const btn = document.querySelector('button')
   const choiceWrapper = document.querySelector('.side-choice-wrapper')
-  const europeanUnion = document.createElement('div')
-  const america = document.createElement('div')
-  const china = document.createElement('div')
-  const unitedKingdom = document.createElement('div')
-  const russia = document.createElement('div')
-  const choicesArray = []
   let customerChoice
+  const playAnthem = document.querySelector('.audio-file')
+
+  const anthems = [
+    {
+      name: 'European Union',
+      src: './audios/euanthem.mp3'
+    },
+    {
+      name: 'America',
+      src: './audios/americananthem.mp3'
+    },
+    {
+      name: 'China',
+      src: './audios/chinaanthem.mp3'
+    },
+    {
+      name: 'United Kingdom',
+      src: './audios/ukanthem.mp3'
+    },
+    {
+      name: 'Russia',
+      src: './audios/russiananthem.mp3'
+    }
+  ]
+  const audios = []
 
   //Grid variables
   const grid = document.querySelector('.grid')
@@ -53,32 +72,24 @@ function init() {
   function removeWelcomeScreen() {
     welcomeScreen.remove()
     playImage.remove()
-    europeanUnion.classList.add('side-choice')
-    europeanUnion.textContent = 'European Union'
-    america.classList.add('side-choice')
-    america.textContent = 'America'
-    china.classList.add('side-choice')
-    china.textContent = 'China'
-    unitedKingdom.classList.add('side-choice')
-    unitedKingdom.textContent = 'United Kingdom'
-    russia.classList.add('side-choice')
-    russia.textContent = 'Russia'
-    choiceWrapper.appendChild(europeanUnion)
-    choiceWrapper.appendChild(america)
-    choiceWrapper.appendChild(china)
-    choiceWrapper.appendChild(unitedKingdom)
-    choiceWrapper.appendChild(russia)
-    choicesArray.push(europeanUnion, america, china, unitedKingdom, russia)  
+    for (let i = 0; i < anthems.length; i++){
+      const anthem = document.createElement('div')
+      choiceWrapper.appendChild(anthem)
+      anthem.textContent = anthems[i].name
+      anthem.classList.add('side-choice')
+      audios.push(anthem)
+    }
 
     // Remove Side Choice
     function removeSideChoice(event) {
       customerChoice = event.target
       choiceWrapper.style.display = 'none'
+      console.log(event.target)
       
     }
     // Event --- Transferring customer from Side Choice to Strategy Panel
-    choicesArray.forEach(choice => {
-      choice.addEventListener('click', removeSideChoice)
+    audios.forEach( audio => {
+      audio.addEventListener('click', removeSideChoice)
     })
 
   }
@@ -252,6 +263,7 @@ function init() {
 
       // Counting Customer Score
       const displayCustomerScore = customerScoreArray.length
+      // Displaying Customer Score
       customerScore.textContent = displayCustomerScore
 
       // Computer Move
@@ -279,14 +291,18 @@ function init() {
         //Displaying Computer Score
         computerScore.textContent = displayComputerScore
 
-        if (parseInt(computerScore.textContent) >= 12) {
+        if (parseInt(computerScore.textContent) >= 14) {
           result = 'Your Opponent Win'
-        } else if (parseInt(customerScore.textContent) >= 12) {
+
+        } else if (parseInt(customerScore.textContent) >= 14) {
+          playAnthem.src = './audios/russiananthem.mp3'
+          playAnthem.play()
           result = 'You Win'
         }
+        //Displaying The Winner
         resultDisplay.textContent = result
         isComputerPlaying = false
-      }, 5000)
+      }, 5)
 
 
 
