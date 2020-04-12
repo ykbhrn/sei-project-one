@@ -110,3 +110,19 @@ button{
   background: red;
   color: red;
 }
+
+.side-choice-wrapper{
+  height: 100vh;
+  width: 100vh;
+  display: flex;
+  justify-content: center;
+
+  align-items: center;
+}
+
+.side-choice{
+ width: 200px;
+ height: 200px;
+ background: yellow;
+ border: 2px solid black;
+}
