@@ -52,7 +52,7 @@ function init() {
   // Storing Customer Ship Position in customerShipPositionArray
   
   function customerShipPositions(event) {
-    if ( (parseInt(event.target.textContent) % width === 0) || ((parseInt(event.target.textContent) + 1) % width === 0) || (event.target.className === 'ships-positions') || (event.target.nextSibling.className === 'ships-positions') || (event.target.previousSibling.className === 'ships-positions')) {
+    if ( (parseInt(event.target.textContent) % width === 0) || ((parseInt(event.target.textContent) + 1) % width === 0) || (event.target.classList.contains('ships-positions')) || (event.target.nextSibling.classList.contains('ships-positions')) || (event.target.previousSibling.classList.contains('ships-positions'))) {
       return
     } else {
 
@@ -63,10 +63,13 @@ function init() {
         btn.style.display = 'inline'
       }
       if (customerShipPositionsArray.length <= 9) {
-        customerShipPositionsArray.push(shipPosition, (shipPosition + 1), (shipPosition - 1))
         shipPosition.classList.add('ships-positions') 
+        shipPosition.classList.add('middle-ship-part') 
         secondPosition.classList.add('ships-positions')
+        secondPosition.classList.add('front-ship-part')
         thirdPosition.classList.add('ships-positions')
+        thirdPosition.classList.add('back-ship-part')
+        customerShipPositionsArray.push(shipPosition, (shipPosition + 1), (shipPosition - 1))
       }
     }
     
@@ -104,7 +107,7 @@ function init() {
     let computerFourthPosition = Math.floor(Math.random() * computerCells.length)
   
     // Determining First Computer Ship Position
-    if ( computerCells[computerFirstPosition].className === 'ships-positions'){
+    if ( computerCells[computerFirstPosition].classList.contains('ships-positions')){
       computerFirstPosition = computerFirstPosition + width
     }
     if (computerFirstPosition % width === 0){
@@ -117,7 +120,7 @@ function init() {
     computerCells[computerFirstPosition - 1].classList.add('ships-positions')
     computerShipPositionsArray.push(computerCells[computerFirstPosition], computerCells[computerFirstPosition + 1], computerCells[computerFirstPosition - 1])
     // Determining Second Computer Ship Position
-    if ( computerCells[computerSecondPosition].className === 'ships-positions'){
+    if ( computerCells[computerSecondPosition].classList.contains('ships-positions')){
       computerSecondPosition = computerSecondPosition + width
     }
     if (computerSecondPosition % width === 0){
@@ -130,7 +133,7 @@ function init() {
     computerCells[computerSecondPosition - 1].classList.add('ships-positions')
     computerShipPositionsArray.push(computerCells[computerSecondPosition], computerCells[computerSecondPosition + 1], computerCells[computerSecondPosition - 1])   
     // Determining Third Computer Ship Position
-    if ( computerCells[computerThirdPosition].className === 'ships-positions'){
+    if ( computerCells[computerThirdPosition].classList.contains('ships-positions')){
       computerThirdPosition = computerThirdPosition + width
     }
     if (computerThirdPosition % width === 0){
@@ -143,7 +146,7 @@ function init() {
     computerCells[computerThirdPosition - 1].classList.add('ships-positions')
     computerShipPositionsArray.push(computerCells[computerThirdPosition], computerCells[computerThirdPosition + 1], computerCells[computerThirdPosition - 1])
     // Determining Fourth Computer Ship Position
-    if ( computerCells[computerFourthPosition].className === 'ships-positions'){
+    if ( computerCells[computerFourthPosition].classList.contains('ships-positions')){
       computerFourthPosition = computerFourthPosition + width
     }
     if (computerFourthPosition % width === 0){

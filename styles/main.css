@@ -80,13 +80,30 @@ button{
 
 .ships-positions{
   background: black;
+  color: black;
   
 }
 .missed-hit{
   background: grey;
+  color: grey;
+}
+
+.front-ship-part
+{
+  background: blue;
+}
+
+.middle-ship-part
+{
+  background: yellow;
+}
+
+.back-ship-part
+{
+  background: pink;
 }
 
 .ship-hit{
   background: red;
+  color: red;
 }
-
