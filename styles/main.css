@@ -4,7 +4,7 @@
 body{
   height: 100vh;
   margin: 0;
-  overflow: hidden;
+
 }
 
 .welcome-screen{
@@ -21,10 +21,9 @@ body{
 .grid-wrapper{
   
  height: 100vh;
- display: flex;
+ display: none;
   align-items: center;
   justify-content: center;
-  
 }
 
 
@@ -114,17 +113,20 @@ button{
 .side-choice-wrapper{
   height: 100vh;
   width: 100vw;
-  display: flex;
+  display: none;
   justify-content: center;
   flex-wrap: wrap;
   align-items: center;
 }
 
 .side-choice{
- width: 200px;
+ width: 350px;
  height: 200px;
- border: 2px solid black;
  margin: 40px;
+}
+
+.side-choice:hover{
+  opacity: 0.5;
 }
 
 .flag{
@@ -134,5 +136,13 @@ button{
 }
 
 .score{
+  display: none;
+}
+
+.superpower{
+  display: none;
+}
+
+.enemy{
   display: none;
 }

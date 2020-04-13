@@ -6,6 +6,8 @@ function init() {
   const btn = document.querySelector('button')
   const choiceWrapper = document.querySelector('.side-choice-wrapper')
   const main = document.querySelector('main')
+  const superpower = document.querySelector('.superpower')
+  const enemy = document.querySelector('.enemy')
   let anthem
   let wavingFlagGif
   let chosenCountryName
@@ -45,7 +47,6 @@ function init() {
 
   //Grid variables
   const grid = document.querySelector('.grid')
-  const score = document.querySelector('.score')
   const computerGrid = document.createElement('div')
   const customerCells = []
   const computerCells = []
@@ -62,6 +63,7 @@ function init() {
   const customerScore = document.querySelector('.customer-score')
   const computerScore = document.querySelector('.computer-score')
   const resultDisplay = document.querySelector('.result')
+  const score = document.querySelector('.score')
   let result
   let isComputerPlaying = false
 
@@ -84,6 +86,8 @@ function init() {
   function removeWelcomeScreen() {
     welcomeScreen.remove()
     playImage.remove()
+    choiceWrapper.style.display = 'flex'
+    superpower.style.display = 'block'
     for (let i = 0; i < countries.length; i++){
       const country = document.createElement('div')
       choiceWrapper.appendChild(country)
@@ -97,6 +101,8 @@ function init() {
 
     // Remove Side Choice an Storing Customer Side Choice
     function removeSideChoice(event) {
+      gridWrapper.style.display = 'flex'
+      superpower.style.display = 'none'
       const customerChoice = document.createElement('audio')
       customerChoice.src = event.target.src
       event.target.appendChild(customerChoice)
