@@ -5,10 +5,10 @@ function init() {
   const welcomeScreen = document.querySelector('.welcome-screen')
   const btn = document.querySelector('button')
   const choiceWrapper = document.querySelector('.side-choice-wrapper')
-  let customerChoice
   const main = document.querySelector('main')
   let anthem
   let wavingFlagGif
+  let chosenCountryName
   const countries = [
     {
       name: 'EU',
@@ -45,6 +45,7 @@ function init() {
 
   //Grid variables
   const grid = document.querySelector('.grid')
+  const score = document.querySelector('.score')
   const computerGrid = document.createElement('div')
   const customerCells = []
   const computerCells = []
@@ -79,7 +80,7 @@ function init() {
   // Invoking Grid Function
   createCells(grid, customerCells)
 
-  // Remove Welcome Screen
+  // Remove Welcome Screen and Creating Country Divs
   function removeWelcomeScreen() {
     welcomeScreen.remove()
     playImage.remove()
@@ -102,6 +103,7 @@ function init() {
       anthem = customerChoice
       choiceWrapper.style.display = 'none'
       wavingFlagGif = event.target.id
+      chosenCountryName = event.target.textContent
     }
     // Event --- Transferring customer from Side Choice to Strategy Panel
     countriesDivs.forEach( audio => {
@@ -195,6 +197,8 @@ function init() {
     grid.classList.remove('grid')
     // Editing Grid to make it Customer Grid...so Grid is Customer Grid Now
     grid.classList.add('customer-grid')
+    // Showing score
+    score.style.display = 'block'
 
     // Creating Computer Grid
     computerGrid.classList.add('computer-grid')
@@ -316,12 +320,13 @@ function init() {
           flag.src = wavingFlagGif
           main.appendChild(flag)
           anthem.play()
+          result = chosenCountryName + ' Win'
         
-          result = 'You Win'
+          //Displaying The Winner
+          resultDisplay.textContent = result
           return
         }
-        //Displaying The Winner
-        resultDisplay.textContent = result
+      
         isComputerPlaying = false
       }, 5)
 
