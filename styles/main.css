@@ -4,7 +4,6 @@
 body{
   height: 100vh;
   margin: 0;
-
 }
 
 .welcome-screen{
@@ -99,6 +98,10 @@ button{
   color: grey;
 }
 
+.missed-hit:active{
+  cursor: not-allowed;
+}
+
 .ship-hit{
   background: red;
   color: red;
@@ -122,6 +125,14 @@ button{
 .side-choice:hover{
   opacity: 0.6;
   cursor: pointer;
+}
+
+.customer-country{
+  opacity: 0.5;
+}
+
+.customer-country:hover{
+  cursor: not-allowed;
 }
 
 .flag{

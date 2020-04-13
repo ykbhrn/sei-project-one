@@ -11,6 +11,7 @@ function init() {
   let anthem
   let wavingFlagGif
   let chosenCountryName
+  let clickCounter = 0
   const countries = [
     {
       name: 'EU',
@@ -118,20 +119,26 @@ function init() {
           anthemArray.push(anthem)
           chosenCountryNameArray.push(chosenCountryName)
           wavingFlagArray.push(wavingFlagGif)
+          clickCounter++
+          if (clickCounter < 2 ){
+            event.target.classList.add('customer-country')
+          }
+          
         }, 200)
-    
 
         // Storing Enemy Side Choice and Transferring to Strategy Panel
-        function enemyChoice(eventTwo) {
+        function enemyChoice(ev) {
           setTimeout(() => {
-            gridWrapper.style.display = 'flex'
-            superpower.style.display = 'none'
-            choiceWrapper.style.display = 'none'
-            enemy.style.display = 'none'
-            choiceWrapper.style.display = 'none'
-            const enemyChoice = document.createElement('audio')
-            enemyChoice.src = eventTwo.target.src
-            eventTwo.target.appendChild(enemyChoice)
+            if (ev.target.classList.contains('customer-country')) {
+              return 
+            } else {
+              gridWrapper.style.display = 'flex'
+              superpower.style.display = 'none'
+              choiceWrapper.style.display = 'none'
+              enemy.style.display = 'none'
+              choiceWrapper.style.display = 'none'
+              
+            }
           }, 200)
         }
         // Event --- Transferring customer from Enemy Side Choice to Strategy Panel
