@@ -2,8 +2,14 @@
   box-sizing: border-box;
 }
 body{
-  height: 100vh;
   margin: 0;
+}
+
+main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .welcome-screen{
@@ -109,30 +115,32 @@ button{
 
 .side-choice-wrapper{
   height: 100vh;
-  width: 100vw;
+  width: 1100px;
   display: none;
-  justify-content: center;
+  justify-content: space-evenly;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-start;
+
 }
 
 .side-choice{
- width: 350px;
- height: 200px;
- margin: 40px;
+ width: 270px;
+ height: 160px;
+ margin-right: 50px;
 }
 
 .side-choice:hover{
-  opacity: 0.6;
+  filter: drop-shadow(0 0 0.75rem grey);
   cursor: pointer;
 }
 
 .customer-country{
-  opacity: 0.5;
+  filter: brightness(50%);
 }
 
 .customer-country:hover{
   cursor: not-allowed;
+  filter: brightness(50%);
 }
 
 .flag{
