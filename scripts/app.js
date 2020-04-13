@@ -99,21 +99,41 @@ function init() {
       countriesDivs.push(country)
     }
 
-    // Remove Side Choice an Storing Customer Side Choice
-    function removeSideChoice(event) {
-      gridWrapper.style.display = 'flex'
+    
+    // Storing Customer Side Choice and remove it
+    function superPowerChoice(event) {
       superpower.style.display = 'none'
+      enemy.style.display = 'block'
       const customerChoice = document.createElement('audio')
       customerChoice.src = event.target.src
       event.target.appendChild(customerChoice)
       anthem = customerChoice
-      choiceWrapper.style.display = 'none'
       wavingFlagGif = event.target.id
       chosenCountryName = event.target.textContent
+
+      // Storing Enemy Side Choice and Transferring to Strategy Panel
+      function enemyChoice(event) {
+        gridWrapper.style.display = 'flex'
+        superpower.style.display = 'none'
+        choiceWrapper.style.display = 'none'
+        enemy.style.display = 'none'
+        const customerChoice = document.createElement('audio')
+        customerChoice.src = event.target.src
+        event.target.appendChild(customerChoice)
+        anthem = customerChoice
+        choiceWrapper.style.display = 'none'
+        wavingFlagGif = event.target.id
+        chosenCountryName = event.target.textContent
+      }
+      // Event --- Transferring customer from Enemy Side Choice to Strategy Panel
+      countriesDivs.forEach( country => {
+        country.addEventListener('click', enemyChoice)
+      })
+      
     }
-    // Event --- Transferring customer from Side Choice to Strategy Panel
-    countriesDivs.forEach( audio => {
-      audio.addEventListener('click', removeSideChoice)
+    // Event --- Transferring customer from his SuperPower choice to Enemy SuperPower choice
+    countriesDivs.forEach( country => {
+      country.addEventListener('click', superPowerChoice)
     })
 
   }
