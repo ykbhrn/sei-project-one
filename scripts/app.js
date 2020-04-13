@@ -7,10 +7,10 @@ function init() {
   const choiceWrapper = document.querySelector('.side-choice-wrapper')
   let customerChoice
   const playAnthem = document.querySelector('.audio-file')
-
+  const main = document.querySelector('main')
   const anthems = [
     {
-      name: 'European Union',
+      name: 'EU',
       src: './audios/euanthem.mp3'
     },
     {
@@ -22,7 +22,7 @@ function init() {
       src: './audios/chinaanthem.mp3'
     },
     {
-      name: 'United Kingdom',
+      name: 'UK',
       src: './audios/ukanthem.mp3'
     },
     {
@@ -82,10 +82,8 @@ function init() {
 
     // Remove Side Choice
     function removeSideChoice(event) {
-      customerChoice = event.target
+      customerChoice = event.target.textContent
       choiceWrapper.style.display = 'none'
-      console.log(event.target)
-      
     }
     // Event --- Transferring customer from Side Choice to Strategy Panel
     audios.forEach( audio => {
@@ -225,7 +223,7 @@ function init() {
         computerShipPositionsArray.push(computerCells[computerThirdPosition], computerCells[computerThirdPosition + 1], computerCells[computerThirdPosition + 2])
         clearInterval(thirdComputerShip)
       }
-    }, 3)
+    }, 6)
     // Fourth Ship
     const fourthComputerShip = setInterval(() => {
       const computerFourthPosition = Math.floor(Math.random() * computerCells.length)
@@ -245,7 +243,7 @@ function init() {
         computerShipPositionsArray.push(computerCells[computerFourthPosition], computerCells[computerFourthPosition + 1], computerCells[computerFourthPosition + 2], computerCells[computerFourthPosition + 3], computerCells[computerFourthPosition + 4])
         clearInterval(fourthComputerShip)
       }
-    }, 4)
+    }, 50)
 
     // Customer Move
     // Event --- Click on the Computer Grid
@@ -295,9 +293,14 @@ function init() {
           result = 'Your Opponent Win'
 
         } else if (parseInt(customerScore.textContent) >= 14) {
-          playAnthem.src = './audios/russiananthem.mp3'
+          const flag = document.createElement('img')
+          flag.classList.add('flag')
+          flag.src = './images/' + customerChoice + '.gif'
+          main.appendChild(flag)
+          playAnthem.src = './audios/' + customerChoice + '.mp3'
           playAnthem.play()
           result = 'You Win'
+          return
         }
         //Displaying The Winner
         resultDisplay.textContent = result

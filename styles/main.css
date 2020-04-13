@@ -113,16 +113,24 @@ button{
 
 .side-choice-wrapper{
   height: 100vh;
-  width: 100vh;
+  width: 100vw;
   display: flex;
   justify-content: center;
-
+  flex-wrap: wrap;
   align-items: center;
 }
 
 .side-choice{
- width: 200px;
- height: 200px;
- background: yellow;
+ width: 100px;
+ height: 100px;
+ background: url('../images/uk\ flag.gif');
+ background-size: 100px 100px;
  border: 2px solid black;
+ margin: 40px;
+}
+
+.flag{
+  position: absolute;
+  top: 35%;
+  left: 35%;
 }
