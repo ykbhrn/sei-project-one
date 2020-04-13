@@ -9,10 +9,8 @@ function init() {
   const superpower = document.querySelector('.superpower')
   const enemy = document.querySelector('.enemy')
   let anthem
-  let enemyAnthem
   let wavingFlagGif
   let chosenCountryName
-  let enemyCountryName
   const countries = [
     {
       name: 'EU',
@@ -64,6 +62,8 @@ function init() {
   const customerScoreArray = []
   const customerScore = document.querySelector('.customer-score')
   const computerScore = document.querySelector('.computer-score')
+  let displayComputerScore
+  let displayCustomerScore
   const resultDisplay = document.querySelector('.result')
   const score = document.querySelector('.score')
   let result
@@ -317,7 +317,7 @@ function init() {
       }
 
       // Counting Customer Score
-      const displayCustomerScore = customerScoreArray.length
+      displayCustomerScore = customerScoreArray.length
       // Displaying Customer Score
       customerScore.textContent = chosenCountryNameArray[0] + ' Score Is: ' +  displayCustomerScore
       
@@ -340,39 +340,39 @@ function init() {
             clearInterval(computerMoveInterval)
 
             // Counting Computer Score
-            const displayComputerScore = computerScoreArray.length
+            displayComputerScore = computerScoreArray.length
 
             //Displaying Computer Score
             computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: ' +  displayComputerScore
-            // Customer Win
-            if (displayCustomerScore >= 14) {
-              const flag = document.createElement('img')
-              flag.classList.add('flag')
-              const winnerFlag = wavingFlagArray[0]
-              flag.src = winnerFlag
-              main.appendChild(flag)
-              const winnerAnthem = anthemArray[0]
-              winnerAnthem.play()
-              console.log(winnerAnthem)
-              console.log(winnerFlag)
-              result = chosenCountryNameArray[0] + ' Win'
-              //Displaying The Winner
-              resultDisplay.textContent = result
-              return // Computer Win
-            } else if (displayComputerScore >= 14) {
-              const flag = document.createElement('img')
-              flag.classList.add('flag')
-              flag.src = wavingFlagArray[1]
-              main.appendChild(flag)
-              anthemArray[1].play()
-              result = chosenCountryNameArray[1] + ' Win'
-              //Displaying The Winner
-              resultDisplay.textContent = result
-              return
-            } 
+
           }
         }, 1)
-        
+        // Customer Win
+        if (displayCustomerScore >= 14) {
+          const flag = document.createElement('img')
+          flag.classList.add('flag')
+          const winnerFlag = wavingFlagArray[0]
+          flag.src = winnerFlag
+          main.appendChild(flag)
+          const winnerAnthem = anthemArray[0]
+          winnerAnthem.play()
+          console.log(winnerAnthem)
+          console.log(winnerFlag)
+          result = chosenCountryNameArray[0] + ' Win'
+          //Displaying The Winner
+          resultDisplay.textContent = result
+          return // Computer Win
+        } else if (displayComputerScore >= 14) {
+          const flag = document.createElement('img')
+          flag.classList.add('flag')
+          flag.src = wavingFlagArray[1]
+          main.appendChild(flag)
+          anthemArray[1].play()
+          result = chosenCountryNameArray[1] + ' Win'
+          //Displaying The Winner
+          resultDisplay.textContent = result
+          return
+        } 
       
         isComputerPlaying = false
       }, 5)
