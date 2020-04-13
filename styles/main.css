@@ -18,6 +18,11 @@ body{
   justify-content: center;
   align-items: center;
 }
+
+.welcome-screen img{
+  cursor: pointer;
+}
+
 .grid-wrapper{
   
  height: 100vh;
@@ -34,6 +39,10 @@ body{
   flex-wrap: wrap; 
   color: white;
   order: 1;
+}
+
+.grid:hover{
+  cursor: crosshair;
 }
 
 .grid div{
@@ -90,21 +99,6 @@ button{
   color: grey;
 }
 
-.front-ship-part
-{
-  background: blue;
-}
-
-.middle-ship-part
-{
-  background: yellow;
-}
-
-.back-ship-part
-{
-  background: pink;
-}
-
 .ship-hit{
   background: red;
   color: red;
@@ -127,6 +121,7 @@ button{
 
 .side-choice:hover{
   opacity: 0.5;
+  cursor: pointer;
 }
 
 .flag{
