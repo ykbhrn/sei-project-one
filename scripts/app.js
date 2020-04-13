@@ -110,21 +110,37 @@ function init() {
         setTimeout(() => {
           superpower.style.display = 'none'
           enemy.style.display = 'block'
-          const customerChoice = document.createElement('audio')
-          customerChoice.src = event.target.src
-          event.target.appendChild(customerChoice)
-          anthem = customerChoice
-          wavingFlagGif = event.target.id
-          chosenCountryName = event.target.textContent
-          anthemArray.push(anthem)
-          chosenCountryNameArray.push(chosenCountryName)
-          wavingFlagArray.push(wavingFlagGif)
           clickCounter++
+          if (clickCounter === 1){
+            const customerChoice = document.createElement('audio')
+            customerChoice.src = event.target.src
+            event.target.appendChild(customerChoice)
+            anthem = customerChoice
+            wavingFlagGif = event.target.id
+            chosenCountryName = event.target.textContent
+            anthemArray.push(anthem)
+            chosenCountryNameArray.push(chosenCountryName)
+            wavingFlagArray.push(wavingFlagGif)
+          }
           if (clickCounter < 2 ){
             event.target.classList.add('customer-country')
           }
+          if (clickCounter > 1 && !event.target.classList.contains('customer-country')){
+            const customerChoice = document.createElement('audio')
+            customerChoice.src = event.target.src
+            event.target.appendChild(customerChoice)
+            anthem = customerChoice
+            wavingFlagGif = event.target.id
+            chosenCountryName = event.target.textContent
+            anthemArray.push(anthem)
+            chosenCountryNameArray.push(chosenCountryName)
+            wavingFlagArray.push(wavingFlagGif)
+          } else {
+            return
+          }
           
-        }, 300)
+          
+        }, 200)
 
         // Storing Enemy Side Choice and Transferring to Strategy Panel
         function enemyChoice(ev) {
@@ -139,7 +155,7 @@ function init() {
               choiceWrapper.style.display = 'none'
               
             }
-          }, 350)
+          }, 200)
         }
         // Event --- Transferring customer from Enemy Side Choice to Strategy Panel
         countriesDivs.forEach( country => {
