@@ -124,7 +124,7 @@ function init() {
             event.target.classList.add('customer-country')
           }
           
-        }, 200)
+        }, 300)
 
         // Storing Enemy Side Choice and Transferring to Strategy Panel
         function enemyChoice(ev) {
@@ -139,7 +139,7 @@ function init() {
               choiceWrapper.style.display = 'none'
               
             }
-          }, 200)
+          }, 350)
         }
         // Event --- Transferring customer from Enemy Side Choice to Strategy Panel
         countriesDivs.forEach( country => {

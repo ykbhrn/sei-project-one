@@ -1,8 +1,18 @@
+@font-face{
+  font-family: 'armaliteRifle';
+  src: local('armalite Rifle'),
+	local('armalite-Rifle'),
+	url('../fonts/armalite/armalite.ttf') 
+	format('truetype');
+}
+
+
 *{
   box-sizing: border-box;
 }
 body{
   margin: 0;
+  background: darkgray;
 }
 
 main{
@@ -10,6 +20,12 @@ main{
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+h1{
+  font-family: 'armaliteRifle';
+  font-size: 58px;
+  font-weight: 1000;
 }
 
 .welcome-screen{
@@ -27,6 +43,11 @@ main{
 .welcome-screen img{
   cursor: pointer;
 }
+
+.welcome-screen img:hover{
+  flex-grow: 0.1;
+}
+
 
 .grid-wrapper{
   
@@ -125,7 +146,7 @@ button{
 
 .side-choice{
  width: 270px;
- height: 160px;
+ height: 142px;
  margin-right: 50px;
 }
 
