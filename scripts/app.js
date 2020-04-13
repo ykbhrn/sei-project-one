@@ -8,31 +8,37 @@ function init() {
   let customerChoice
   const main = document.querySelector('main')
   let anthem
+  let wavingFlagGif
   const countries = [
     {
       name: 'EU',
       src: './audios/euanthem.mp3',
-      imgSrc: 'url(./images/euflag.gif)'
+      imgSrc: 'url(./images/euflag.gif)',
+      wavingFlag: './images/eu.gif'
     },
     {
       name: 'USA',
       src: './audios/usaanthem.mp3',
-      imgSrc: 'url(./images/usaflag.gif)'
+      imgSrc: 'url(./images/usaflag.gif)',
+      wavingFlag: './images/usa.gif'
     },
     {
       name: 'China',
       src: './audios/chinaanthem.mp3',
-      imgSrc: 'url(./images/chinaflag.gif)'
+      imgSrc: 'url(./images/chinaflag.gif)',
+      wavingFlag: './images/china.gif'
     },
     {
       name: 'UK',
       src: './audios/ukanthem.mp3',
-      imgSrc: 'url(./images/ukflag.gif)'
+      imgSrc: 'url(./images/ukflag.gif)',
+      wavingFlag: './images/uk.gif'
     },
     {
       name: 'Russia',
       src: './audios/russiananthem.mp3',
-      imgSrc: 'url(./images/russiaflag.gif)'
+      imgSrc: 'url(./images/russiaflag.gif)',
+      wavingFlag: './images/russia.gif'
     }
   ]
   const countriesDivs = []
@@ -83,6 +89,7 @@ function init() {
       country.textContent = countries[i].name
       country.style.background = countries[i].imgSrc
       country.src = countries[i].src
+      country.id = countries[i].wavingFlag
       country.classList.add('side-choice')
       countriesDivs.push(country)
     }
@@ -94,6 +101,7 @@ function init() {
       event.target.appendChild(customerChoice)
       anthem = customerChoice
       choiceWrapper.style.display = 'none'
+      wavingFlagGif = event.target.id
     }
     // Event --- Transferring customer from Side Choice to Strategy Panel
     countriesDivs.forEach( audio => {
@@ -305,7 +313,7 @@ function init() {
         } else if (parseInt(customerScore.textContent) >= 14) {
           const flag = document.createElement('img')
           flag.classList.add('flag')
-          flag.src = './images/' + customerChoice + '.gif'
+          flag.src = wavingFlagGif
           main.appendChild(flag)
           anthem.play()
         
