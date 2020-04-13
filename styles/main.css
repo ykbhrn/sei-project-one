@@ -121,10 +121,9 @@ button{
 }
 
 .side-choice{
- width: 100px;
- height: 100px;
- background: url('../images/uk\ flag.gif');
- background-size: 100px 100px;
+ width: 200px;
+ height: 200px;
+ background-size: cover;
  border: 2px solid black;
  margin: 40px;
 }

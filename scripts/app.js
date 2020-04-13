@@ -6,31 +6,36 @@ function init() {
   const btn = document.querySelector('button')
   const choiceWrapper = document.querySelector('.side-choice-wrapper')
   let customerChoice
-  const playAnthem = document.querySelector('.audio-file')
   const main = document.querySelector('main')
-  const anthems = [
+  let anthem
+  const countries = [
     {
       name: 'EU',
-      src: './audios/euanthem.mp3'
+      src: './audios/euanthem.mp3',
+      imgSrc: 'url(./images/euflag.gif)'
     },
     {
-      name: 'America',
-      src: './audios/americananthem.mp3'
+      name: 'USA',
+      src: './audios/usaanthem.mp3',
+      imgSrc: 'url(./images/usaflag.gif)'
     },
     {
       name: 'China',
-      src: './audios/chinaanthem.mp3'
+      src: './audios/chinaanthem.mp3',
+      imgSrc: 'url(./images/chinaflag.gif)'
     },
     {
       name: 'UK',
-      src: './audios/ukanthem.mp3'
+      src: './audios/ukanthem.mp3',
+      imgSrc: 'url(./images/ukflag.gif)'
     },
     {
       name: 'Russia',
-      src: './audios/russiananthem.mp3'
+      src: './audios/russiananthem.mp3',
+      imgSrc: 'url(./images/russiaflag.gif)'
     }
   ]
-  const audios = []
+  const countriesDivs = []
 
   //Grid variables
   const grid = document.querySelector('.grid')
@@ -72,21 +77,26 @@ function init() {
   function removeWelcomeScreen() {
     welcomeScreen.remove()
     playImage.remove()
-    for (let i = 0; i < anthems.length; i++){
-      const anthem = document.createElement('div')
-      choiceWrapper.appendChild(anthem)
-      anthem.textContent = anthems[i].name
-      anthem.classList.add('side-choice')
-      audios.push(anthem)
+    for (let i = 0; i < countries.length; i++){
+      const country = document.createElement('div')
+      choiceWrapper.appendChild(country)
+      country.textContent = countries[i].name
+      country.style.background = countries[i].imgSrc
+      country.src = countries[i].src
+      country.classList.add('side-choice')
+      countriesDivs.push(country)
     }
 
-    // Remove Side Choice
+    // Remove Side Choice an Storing Customer Side Choice
     function removeSideChoice(event) {
-      customerChoice = event.target.textContent
+      const customerChoice = document.createElement('audio')
+      customerChoice.src = event.target.src
+      event.target.appendChild(customerChoice)
+      anthem = customerChoice
       choiceWrapper.style.display = 'none'
     }
     // Event --- Transferring customer from Side Choice to Strategy Panel
-    audios.forEach( audio => {
+    countriesDivs.forEach( audio => {
       audio.addEventListener('click', removeSideChoice)
     })
 
@@ -297,8 +307,8 @@ function init() {
           flag.classList.add('flag')
           flag.src = './images/' + customerChoice + '.gif'
           main.appendChild(flag)
-          playAnthem.src = './audios/' + customerChoice + '.mp3'
-          playAnthem.play()
+          anthem.play()
+        
           result = 'You Win'
           return
         }
