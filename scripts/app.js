@@ -3,7 +3,8 @@ function init() {
   // ELEMENTS
   const playImage = document.querySelector('.welcome-screen img')
   const welcomeScreen = document.querySelector('.welcome-screen')
-  const btn = document.querySelector('button')
+  const mute = document.querySelector('.mute')
+  const btn = document.querySelector('.next')
   const choiceWrapper = document.querySelector('.side-choice-wrapper')
   const main = document.querySelector('main')
   const superpower = document.querySelector('.superpower')
@@ -52,7 +53,7 @@ function init() {
   const customerCells = []
   const computerCells = []
   const gridWrapper = document.querySelector('.grid-wrapper')
-  const width = 14
+  const width = 10
   const cellCounts = width * width
 
   // Game Variables
@@ -73,6 +74,7 @@ function init() {
   const anthemArray = []
   const chosenCountryNameArray = []
   const wavingFlagArray = []
+
   // Separate array for Every Ship
   const firstShipArray = []
   const secondShipArray = []
@@ -82,6 +84,13 @@ function init() {
   const computerShotsArray = [playImage]
 
   // FUNCTIONS
+
+  // Mute Sounds Function
+  function muteSounds() {
+    bomb.volume = 0
+    anthemArray[0].volume = 0
+    anthemArray[1].volume = 0
+  }
 
   // Create a Grid Function
   function createCells(element, array) {
@@ -372,10 +381,10 @@ function init() {
         event.target.classList.add('ship-hit')
         customerScoreArray.push(event.target)
       }
-      // event.target.classList.add('shot')
-      // if (event.target.classList.contains('ships-positions')){
-      //   bomb.play()
-      // }
+      event.target.classList.add('shot')
+      if (event.target.classList.contains('ships-positions')){
+        bomb.play()
+      }
       
       // Counting Customer Score
       displayCustomerScore = customerScoreArray.length
@@ -635,20 +644,15 @@ function init() {
               computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: ' +  displayComputerScore
             }
           }, 1)
-          console.log('Current computer attacked cell is ' + computerMoveCell)
-          console.log('Previous computer attacked cell is ' + computerShotsArray[parseInt(computerShotsArray.length) - 1])
+          
         }
         // Customer Win
         if (displayCustomerScore >= 14) {
           const flag = document.createElement('img')
           flag.classList.add('flag')
-          const winnerFlag = wavingFlagArray[0]
-          flag.src = winnerFlag
+          flag.src = wavingFlagArray[0]
           main.appendChild(flag)
-          const winnerAnthem = anthemArray[0]
-          winnerAnthem.play()
-          console.log(winnerAnthem)
-          console.log(winnerFlag)
+          anthemArray[0].play()
           result = chosenCountryNameArray[0] + ' Win'
           //Displaying The Winner
           resultDisplay.textContent = result
@@ -687,9 +691,7 @@ function init() {
   // Click on a Next Button Which transfer Customer to a Battlefield
   btn.addEventListener('click', Battlefield)
 
-
-
-
+  mute.addEventListener('click', muteSounds)
 
 }
 

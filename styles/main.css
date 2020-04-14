@@ -15,6 +15,10 @@
   }
 }
 
+.mute {
+  font-family: 40px;
+}
+
 .shot {
   background: url('../images/play.png');
   animation: 2.5s bomb ease-in;
@@ -91,8 +95,8 @@ h2{
 }
 
 .grid div{
-  width: 7.14%;
-  height: 7.14%;
+  width: 10%;
+  height: 10%;
   border: 1px solid lightgray;
 }
 
@@ -106,8 +110,8 @@ h2{
   order: 2;
 }
 .customer-grid div{
-  width: 7.14%;
-  height: 7.14%;
+  width: 10%;
+  height: 10%;
   border: 1px solid lightgray;
   
 }
@@ -120,13 +124,13 @@ h2{
   order: 1;
 }
 .computer-grid div{
-  width: 7.14%;
-  height: 7.14%;
+  width: 10%;
+  height: 10%;
   border: 1px solid lightgray;
   
 }
 
-button{
+.next{
   display: none;
   position: absolute;
   top: 35%;
