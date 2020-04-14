@@ -73,6 +73,12 @@ function init() {
   const anthemArray = []
   const chosenCountryNameArray = []
   const wavingFlagArray = []
+  // Separate array for Every Ship
+  const firstShipArray = []
+  const secondShipArray = []
+  const thirdShipArray = []
+  const fourthShipArray = []
+
   // FUNCTIONS
 
   // Create a Grid Function
@@ -190,7 +196,14 @@ function init() {
         secondPosition.classList.add('ships-positions')
         thirdPosition.classList.add('ships-positions')
         fourthPosition.classList.add('ships-positions')
+        // Storing Ships as a Class in the Grid Cells
         customerShipPositionsArray.push(shipPosition, secondPosition, thirdPosition, fourthPosition)
+        //Assigning Class to Every Ship Specifically
+        shipPosition.classList.add('first-ship')
+        secondPosition.classList.add('first-ship')
+        thirdPosition.classList.add('first-ship')
+        fourthPosition.classList.add('first-ship')
+        firstShipArray.push(shipPosition, secondPosition, thirdPosition, fourthPosition)
       }  // Second Ship
     } else if (customerShipPositionsArray.length > 3 && customerShipPositionsArray.length < 5) {
       if (((parseInt(event.target.textContent) + 1) % width === 0) || (event.target.classList.contains('ships-positions'))
@@ -199,10 +212,14 @@ function init() {
       } else {
         const shipPosition = customerCells[parseInt(event.target.textContent)]
         const secondPosition = customerCells[grid.children[parseInt(event.target.textContent) + 1].textContent]
-
+        // Storing Ships as a Class in the Grid Cells
         shipPosition.classList.add('ships-positions')
         secondPosition.classList.add('ships-positions')
         customerShipPositionsArray.push(shipPosition, secondPosition)
+        //Assigning Class to Every Ship Specifically
+        shipPosition.classList.add('second-ship')
+        secondPosition.classList.add('second-ship')
+        secondShipArray.push(shipPosition, secondPosition)
       }  // Third Ship
     } else if (customerShipPositionsArray.length > 5 && customerShipPositionsArray.length < 7) {
       if (((parseInt(event.target.textContent) + 1) % width === 0) || ((parseInt(event.target.textContent) + 2) % width === 0)
@@ -214,11 +231,17 @@ function init() {
         const shipPosition = customerCells[parseInt(event.target.textContent)]
         const secondPosition = customerCells[grid.children[parseInt(event.target.textContent) + 1].textContent]
         const thirdPosition = customerCells[grid.children[parseInt(event.target.textContent) + 2].textContent]
-
+        // Storing Ships as a Class in the Grid Cells
         shipPosition.classList.add('ships-positions')
         secondPosition.classList.add('ships-positions')
         thirdPosition.classList.add('ships-positions')
         customerShipPositionsArray.push(shipPosition, secondPosition, thirdPosition)
+        
+        //Assigning Class to Every Ship Specifically
+        shipPosition.classList.add('third-ship')
+        secondPosition.classList.add('third-ship')
+        thirdPosition.classList.add('third-ship')
+        thirdShipArray.push(shipPosition, secondPosition, thirdPosition)
       } // Fourth Ship
     } else if (customerShipPositionsArray.length > 8 && customerShipPositionsArray.length < 11) {
       if (((parseInt(event.target.textContent) + 1) % width === 0) || ((parseInt(event.target.textContent) + 2) % width === 0)
@@ -235,13 +258,21 @@ function init() {
         const thirdPosition = customerCells[grid.children[parseInt(event.target.textContent) + 2].textContent]
         const fourthPosition = customerCells[grid.children[parseInt(event.target.textContent) + 3].textContent]
         const fifthPosition = customerCells[grid.children[parseInt(event.target.textContent) + 4].textContent]
-
+        // Storing Ships as a Class in the Grid Cells
         shipPosition.classList.add('ships-positions')
         secondPosition.classList.add('ships-positions')
         thirdPosition.classList.add('ships-positions')
         fourthPosition.classList.add('ships-positions')
         fifthPosition.classList.add('ships-positions')
         customerShipPositionsArray.push(shipPosition, secondPosition, thirdPosition, fourthPosition, fifthPosition)
+        
+        //Assigning Class to Every Ship Specifically
+        shipPosition.classList.add('fifth-ship')
+        secondPosition.classList.add('fifth-ship')
+        thirdPosition.classList.add('fifth-ship')
+        fourthPosition.classList.add('fifth-ship')
+        fifthPosition.classList.add('fifth-ship')
+        fourthShipArray.push(shipPosition, secondPosition, thirdPosition, fourthPosition, fifthPosition)
         btn.style.display = 'inline'
       }
     }
@@ -339,38 +370,44 @@ function init() {
         event.target.classList.add('ship-hit')
         customerScoreArray.push(event.target)
       }
-      event.target.classList.add('shot')
-      if (event.target.classList.contains('ships-positions')){
-        bomb.play()
-      }
+      // event.target.classList.add('shot')
+      // if (event.target.classList.contains('ships-positions')){
+      //   bomb.play()
+      // }
       
       // Counting Customer Score
       displayCustomerScore = customerScoreArray.length
       // Displaying Customer Score
       customerScore.textContent = chosenCountryNameArray[0] + ' Score Is: ' +  displayCustomerScore
       
-
+      
       // Computer Move
       isComputerPlaying = true
+      
       setTimeout(() => {
         const computerMoveInterval = setInterval(() => {
-          computerMoveCell = customerCells[Math.floor(Math.random() * customerCells.length)]
-          if (computerMoveCell.classList.contains('missed-hit')) return
-          // Add class ship-hit to the attacked cell which contains customer ship and also pushing this cell to the array of attacked ships
-          else {
-            if (computerMoveCell.classList.contains('ships-positions')) {
-              computerMoveCell.classList.add('ship-hit')
-              computerScoreArray.push(computerMoveCell)
-            }
-            // Add missed-hit class to a cell which was already attacked
-            computerMoveCell.classList.add('missed-hit')
-            console.log(computerMoveCell)
-            clearInterval(computerMoveInterval)
+          if (computerScoreArray[computerScoreArray - 1].classList.contains('first-ship')){
+            computerMoveCell = firstShipArray[2]
+          } else {
+            computerMoveCell = customerCells[Math.floor(Math.random() * customerCells.length)]
+            if (computerMoveCell.classList.contains('missed-hit')) return
+            // Add class ship-hit to the attacked cell which contains customer ship and also pushing this cell to the array of attacked ships
+            else {
+              if (computerMoveCell.classList.contains('ships-positions')) {
+                computerMoveCell.classList.add('ship-hit')
+                computerScoreArray.push(computerMoveCell)
+                console.log(computerScoreArray)
+              }
+              // Add missed-hit class to a cell which was already attacked
+              computerMoveCell.classList.add('missed-hit')
+              console.log(computerMoveCell)
+              clearInterval(computerMoveInterval)
 
-            // Counting Computer Score
-            displayComputerScore = computerScoreArray.length
-            //Displaying Computer Score
-            computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: ' +  displayComputerScore
+              // Counting Computer Score
+              displayComputerScore = computerScoreArray.length
+              //Displaying Computer Score
+              computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: ' +  displayComputerScore
+            }
           }
         }, 1)
         // Customer Win
@@ -399,10 +436,11 @@ function init() {
           resultDisplay.textContent = result
           return
         } 
-      
+        console.log(computerScoreArray)
         isComputerPlaying = false
-      }, 5000)
+      }, 7)
     }
+    
   }
   // End of BATTLEFIELD
 
