@@ -338,7 +338,7 @@ function init() {
         event.target.classList.add('ship-hit')
         customerScoreArray.push(event.target)
       }
-
+      event.target.classList.add('shot')
       // Counting Customer Score
       displayCustomerScore = customerScoreArray.length
       // Displaying Customer Score
@@ -364,10 +364,8 @@ function init() {
 
             // Counting Computer Score
             displayComputerScore = computerScoreArray.length
-
             //Displaying Computer Score
             computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: ' +  displayComputerScore
-
           }
         }, 1)
         // Customer Win
