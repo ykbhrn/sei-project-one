@@ -403,6 +403,11 @@ function init() {
             computerMoveCell.classList.add('ship-hit')
             computerScoreArray.push(computerMoveCell)
           }
+          // Counting Computer Score
+          displayComputerScore = computerScoreArray.length
+          //Displaying Computer Score
+          computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: ' +  displayComputerScore
+
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('first-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('first-ship')
         && computerShotsArray[parseInt(computerShotsArray.length) - 3].classList.contains('first-ship') )  {
@@ -414,6 +419,11 @@ function init() {
             computerMoveCell.classList.add('ship-hit')
             computerScoreArray.push(computerMoveCell)
           }
+          // Counting Computer Score
+          displayComputerScore = computerScoreArray.length
+          //Displaying Computer Score
+          computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: ' +  displayComputerScore
+          
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('first-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('first-ship') )  {
           computerMoveCell = firstShipArray[2]
@@ -424,6 +434,11 @@ function init() {
             computerMoveCell.classList.add('ship-hit')
             computerScoreArray.push(computerMoveCell)
           }
+          // Counting Computer Score
+          displayComputerScore = computerScoreArray.length
+          //Displaying Computer Score
+          computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: ' +  displayComputerScore
+          
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('first-ship') )  {
           computerMoveCell = firstShipArray[3]
           computerMoveCell.style.background = 'blue'
@@ -433,6 +448,11 @@ function init() {
             computerMoveCell.classList.add('ship-hit')
             computerScoreArray.push(computerMoveCell)
           }
+          // Counting Computer Score
+          displayComputerScore = computerScoreArray.length
+          //Displaying Computer Score
+          computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: ' +  displayComputerScore
+          
           // Keep Attacking Second Ship
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('second-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('second-ship') )  {
@@ -445,6 +465,11 @@ function init() {
             computerMoveCell.classList.add('ship-hit')
             computerScoreArray.push(computerMoveCell)
           }
+          // Counting Computer Score
+          displayComputerScore = computerScoreArray.length
+          //Displaying Computer Score
+          computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: ' +  displayComputerScore
+
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('second-ship') )  {
           computerMoveCell = secondShipArray[1]
           computerMoveCell.style.background = 'pink'
@@ -454,6 +479,11 @@ function init() {
             computerMoveCell.classList.add('ship-hit')
             computerScoreArray.push(computerMoveCell)
           }
+          // Counting Computer Score
+          displayComputerScore = computerScoreArray.length
+          //Displaying Computer Score
+          computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: ' +  displayComputerScore
+          
           // Keep Attacking Third Ship
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('third-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('third-ship')
@@ -467,6 +497,11 @@ function init() {
             computerMoveCell.classList.add('ship-hit')
             computerScoreArray.push(computerMoveCell)
           }
+          // Counting Computer Score
+          displayComputerScore = computerScoreArray.length
+          //Displaying Computer Score
+          computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: ' +  displayComputerScore
+          
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('third-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('third-ship') )  {
           computerMoveCell = thirdShipArray[1]
@@ -477,6 +512,11 @@ function init() {
             computerMoveCell.classList.add('ship-hit')
             computerScoreArray.push(computerMoveCell)
           }
+          // Counting Computer Score
+          displayComputerScore = computerScoreArray.length
+          //Displaying Computer Score
+          computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: ' +  displayComputerScore
+          
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('third-ship') )  {
           computerMoveCell = thirdShipArray[2]
           computerMoveCell.style.background = 'brown'
@@ -486,6 +526,11 @@ function init() {
             computerMoveCell.classList.add('ship-hit')
             computerScoreArray.push(computerMoveCell)
           }
+          // Counting Computer Score
+          displayComputerScore = computerScoreArray.length
+          //Displaying Computer Score
+          computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: ' +  displayComputerScore
+          
           // Keep Attacking Fourth Ship
         }  else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('fourth-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('fourth-ship')
@@ -501,6 +546,11 @@ function init() {
             computerMoveCell.classList.add('ship-hit')
             computerScoreArray.push(computerMoveCell)
           }
+          // Counting Computer Score
+          displayComputerScore = computerScoreArray.length
+          //Displaying Computer Score
+          computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: ' +  displayComputerScore
+          
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('fourth-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('fourth-ship')
         && computerShotsArray[parseInt(computerShotsArray.length) - 3].classList.contains('fourth-ship')
@@ -513,6 +563,11 @@ function init() {
             computerMoveCell.classList.add('ship-hit')
             computerScoreArray.push(computerMoveCell)
           }
+          // Counting Computer Score
+          displayComputerScore = computerScoreArray.length
+          //Displaying Computer Score
+          computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: ' +  displayComputerScore
+          
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('fourth-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('fourth-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 3].classList.contains('fourth-ship'))  {
@@ -524,6 +579,11 @@ function init() {
             computerMoveCell.classList.add('ship-hit')
             computerScoreArray.push(computerMoveCell)
           }
+          // Counting Computer Score
+          displayComputerScore = computerScoreArray.length
+          //Displaying Computer Score
+          computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: ' +  displayComputerScore
+          
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('fourth-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('fourth-ship'))  {
           computerMoveCell = fourthShipArray[3]
@@ -534,6 +594,11 @@ function init() {
             computerMoveCell.classList.add('ship-hit')
             computerScoreArray.push(computerMoveCell)
           }
+          // Counting Computer Score
+          displayComputerScore = computerScoreArray.length
+          //Displaying Computer Score
+          computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: ' +  displayComputerScore
+          
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('fourth-ship') )  {
           computerMoveCell = fourthShipArray[4]
           computerMoveCell.style.background = 'green'
@@ -543,6 +608,11 @@ function init() {
             computerMoveCell.classList.add('ship-hit')
             computerScoreArray.push(computerMoveCell)
           }
+          // Counting Computer Score
+          displayComputerScore = computerScoreArray.length
+          //Displaying Computer Score
+          computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: ' +  displayComputerScore
+          
         } else {
           const computerMoveInterval = setInterval(() => {
             computerMoveCell = customerCells[Math.floor(Math.random() * customerCells.length)]
