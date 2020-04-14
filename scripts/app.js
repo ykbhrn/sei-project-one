@@ -269,11 +269,11 @@ function init() {
         customerShipPositionsArray.push(shipPosition, secondPosition, thirdPosition, fourthPosition, fifthPosition)
         
         //Assigning Class to Every Ship Specifically
-        shipPosition.classList.add('fifth-ship')
-        secondPosition.classList.add('fifth-ship')
-        thirdPosition.classList.add('fifth-ship')
-        fourthPosition.classList.add('fifth-ship')
-        fifthPosition.classList.add('fifth-ship')
+        shipPosition.classList.add('fourth-ship')
+        secondPosition.classList.add('fourth-ship')
+        thirdPosition.classList.add('fourth-ship')
+        fourthPosition.classList.add('fourth-ship')
+        fifthPosition.classList.add('fourth-ship')
         fourthShipArray.push(shipPosition, secondPosition, thirdPosition, fourthPosition, fifthPosition)
         btn.style.display = 'inline'
       }
@@ -388,7 +388,7 @@ function init() {
       
       setTimeout(() => {
         console.log(computerShotsArray[parseInt(computerShotsArray.length) - 1])
-
+        // Keep Attacking First Ship
         if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('first-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('first-ship')
         && computerShotsArray[parseInt(computerShotsArray.length) - 3].classList.contains('first-ship')
@@ -411,6 +411,66 @@ function init() {
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('first-ship') )  {
           computerMoveCell = firstShipArray[3]
           computerMoveCell.style.background = 'blue'
+          computerShotsArray.push(computerMoveCell)
+          // Keep Attacking Second Ship
+        } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('second-ship') 
+        && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('second-ship') )  {
+          computerMoveCell = secondShipArray[0]
+          computerMoveCell.style.background = 'pink'
+          computerMoveCell.classList.remove('second-ship')
+          computerShotsArray.push(computerMoveCell)
+        } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('second-ship') )  {
+          computerMoveCell = secondShipArray[1]
+          computerMoveCell.style.background = 'pink'
+          computerShotsArray.push(computerMoveCell)
+          // Keep Attacking Third Ship
+        } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('third-ship') 
+        && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('third-ship')
+        && computerShotsArray[parseInt(computerShotsArray.length) - 3].classList.contains('third-ship') )  {
+          computerMoveCell = thirdShipArray[0]
+          computerMoveCell.style.background = 'brown'
+          computerMoveCell.classList.remove('third-ship')
+          computerShotsArray.push(computerMoveCell)
+        } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('third-ship') 
+        && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('third-ship') )  {
+          computerMoveCell = thirdShipArray[1]
+          computerMoveCell.style.background = 'brown'
+          computerShotsArray.push(computerMoveCell)
+        } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('third-ship') )  {
+          computerMoveCell = thirdShipArray[2]
+          computerMoveCell.style.background = 'brown'
+          computerShotsArray.push(computerMoveCell)
+          // Keep Attacking Fourth Ship
+        }  else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('fourth-ship') 
+        && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('fourth-ship')
+        && computerShotsArray[parseInt(computerShotsArray.length) - 3].classList.contains('fourth-ship')
+        && computerShotsArray[parseInt(computerShotsArray.length) - 4].classList.contains('fourth-ship')
+        && computerShotsArray[parseInt(computerShotsArray.length) - 5].classList.contains('fourth-ship')) {
+          computerMoveCell = fourthShipArray[0]
+          computerMoveCell.style.background = 'green'
+          computerMoveCell.classList.remove('fourth-ship')
+          computerShotsArray.push(computerMoveCell)
+        } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('fourth-ship') 
+        && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('fourth-ship')
+        && computerShotsArray[parseInt(computerShotsArray.length) - 3].classList.contains('fourth-ship')
+        && computerShotsArray[parseInt(computerShotsArray.length) - 4].classList.contains('fourth-ship') )  {
+          computerMoveCell = fourthShipArray[1]
+          computerMoveCell.style.background = 'green'
+          computerShotsArray.push(computerMoveCell)
+        } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('fourth-ship') 
+        && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('fourth-ship') 
+        && computerShotsArray[parseInt(computerShotsArray.length) - 3].classList.contains('fourth-ship'))  {
+          computerMoveCell = fourthShipArray[2]
+          computerMoveCell.style.background = 'green'
+          computerShotsArray.push(computerMoveCell)
+        } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('fourth-ship') 
+        && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('fourth-ship'))  {
+          computerMoveCell = fourthShipArray[3]
+          computerMoveCell.style.background = 'green'
+          computerShotsArray.push(computerMoveCell)
+        } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('fourth-ship') )  {
+          computerMoveCell = fourthShipArray[4]
+          computerMoveCell.style.background = 'green'
           computerShotsArray.push(computerMoveCell)
         } else {
           const computerMoveInterval = setInterval(() => {
