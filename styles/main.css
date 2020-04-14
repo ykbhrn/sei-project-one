@@ -17,8 +17,9 @@
 
 .shot {
   background: url('../images/play.png');
-  animation: 5s bomb;
+  animation: 2.5s bomb ease-in;
   animation-iteration-count: 1;
+ animation-delay: 1s;
 }
 
 *{

@@ -59,6 +59,7 @@ function init() {
   const customerShipPositionsArray = []
   const computerShipPositionsArray = []
   let computerMoveCell
+  const bomb = document.querySelector('.bomb-sound')
   const computerScoreArray = []
   const customerScoreArray = []
   const customerScore = document.querySelector('.customer-score')
@@ -339,6 +340,10 @@ function init() {
         customerScoreArray.push(event.target)
       }
       event.target.classList.add('shot')
+      if (event.target.classList.contains('ships-positions')){
+        bomb.play()
+      }
+      
       // Counting Customer Score
       displayCustomerScore = customerScoreArray.length
       // Displaying Customer Score
@@ -396,7 +401,7 @@ function init() {
         } 
       
         isComputerPlaying = false
-      }, 5)
+      }, 5000)
     }
   }
   // End of BATTLEFIELD

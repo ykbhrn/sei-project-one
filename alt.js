@@ -9,10 +9,9 @@ function init() {
   const superpower = document.querySelector('.superpower')
   const enemy = document.querySelector('.enemy')
   let anthem
-  let enemyAnthem
   let wavingFlagGif
   let chosenCountryName
-  let enemyCountryName
+  let clickCounter = 0
   const countries = [
     {
       name: 'EU',
@@ -64,11 +63,15 @@ function init() {
   const customerScoreArray = []
   const customerScore = document.querySelector('.customer-score')
   const computerScore = document.querySelector('.computer-score')
+  let displayComputerScore
+  let displayCustomerScore
   const resultDisplay = document.querySelector('.result')
   const score = document.querySelector('.score')
   let result
   let isComputerPlaying = false
-
+  const anthemArray = []
+  const chosenCountryNameArray = []
+  const wavingFlagArray = []
   // FUNCTIONS
 
   // Create a Grid Function
@@ -107,29 +110,51 @@ function init() {
         setTimeout(() => {
           superpower.style.display = 'none'
           enemy.style.display = 'block'
-          const customerChoice = document.createElement('audio')
-          customerChoice.src = event.target.src
-          event.target.appendChild(customerChoice)
-          anthem = customerChoice
-          wavingFlagGif = event.target.id
-          chosenCountryName = event.target.textContent
+          clickCounter++
+          if (clickCounter === 1){
+            const customerChoice = document.createElement('audio')
+            customerChoice.src = event.target.src
+            event.target.appendChild(customerChoice)
+            anthem = customerChoice
+            wavingFlagGif = event.target.id
+            chosenCountryName = event.target.textContent
+            anthemArray.push(anthem)
+            chosenCountryNameArray.push(chosenCountryName)
+            wavingFlagArray.push(wavingFlagGif)
+          }
+          if (clickCounter < 2 ){
+            event.target.classList.add('customer-country')
+          }
+          if (clickCounter > 1 && !event.target.classList.contains('customer-country')){
+            const customerChoice = document.createElement('audio')
+            customerChoice.src = event.target.src
+            event.target.appendChild(customerChoice)
+            anthem = customerChoice
+            wavingFlagGif = event.target.id
+            chosenCountryName = event.target.textContent
+            anthemArray.push(anthem)
+            chosenCountryNameArray.push(chosenCountryName)
+            wavingFlagArray.push(wavingFlagGif)
+          } else {
+            return
+          }
+          
+          
         }, 200)
-    
 
         // Storing Enemy Side Choice and Transferring to Strategy Panel
-        function enemyChoice(eventTwo) {
+        function enemyChoice(ev) {
           setTimeout(() => {
-            gridWrapper.style.display = 'flex'
-            superpower.style.display = 'none'
-            choiceWrapper.style.display = 'none'
-            enemy.style.display = 'none'
-            choiceWrapper.style.display = 'none'
-            const enemyChoice = document.createElement('audio')
-            enemyChoice.src = eventTwo.target.src
-            eventTwo.target.appendChild(enemyChoice)
-            enemyAnthem = enemyChoice
-            wavingFlagGif = eventTwo.target.id
-            enemyCountryName = eventTwo.target.textContent
+            if (ev.target.classList.contains('customer-country')) {
+              return 
+            } else {
+              gridWrapper.style.display = 'flex'
+              superpower.style.display = 'none'
+              choiceWrapper.style.display = 'none'
+              enemy.style.display = 'none'
+              choiceWrapper.style.display = 'none'
+              
+            }
           }, 200)
         }
         // Event --- Transferring customer from Enemy Side Choice to Strategy Panel
@@ -315,10 +340,10 @@ function init() {
       }
 
       // Counting Customer Score
-      const displayCustomerScore = customerScoreArray.length
+      displayCustomerScore = customerScoreArray.length
       // Displaying Customer Score
-      customerScore.textContent = chosenCountryName + ' Score Is: ' +  displayCustomerScore
-      console.log(chosenCountryName)
+      customerScore.textContent = chosenCountryNameArray[0] + ' Score Is: ' +  displayCustomerScore
+      
 
       // Computer Move
       isComputerPlaying = true
@@ -336,46 +361,44 @@ function init() {
             computerMoveCell.classList.add('missed-hit')
             console.log(computerMoveCell)
             clearInterval(computerMoveInterval)
+
             // Counting Computer Score
-            const displayComputerScore = computerScoreArray.length
+            displayComputerScore = computerScoreArray.length
 
             //Displaying Computer Score
-            computerScore.textContent = enemyCountryName + ' Score Is: ' +  displayComputerScore
+            computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: ' +  displayComputerScore
 
           }
         }, 1)
-        
-
-        // Computer Win
-        if (parseInt(computerScore.textContent) >= 14) {
+        // Customer Win
+        if (displayCustomerScore >= 14) {
           const flag = document.createElement('img')
           flag.classList.add('flag')
-          flag.src = wavingFlagGif
+          const winnerFlag = wavingFlagArray[0]
+          flag.src = winnerFlag
           main.appendChild(flag)
-          enemyAnthem.play()
-          result = enemyCountryName + ' Win'
+          const winnerAnthem = anthemArray[0]
+          winnerAnthem.play()
+          console.log(winnerAnthem)
+          console.log(winnerFlag)
+          result = chosenCountryNameArray[0] + ' Win'
+          //Displaying The Winner
+          resultDisplay.textContent = result
+          return // Computer Win
+        } else if (displayComputerScore >= 14) {
+          const flag = document.createElement('img')
+          flag.classList.add('flag')
+          flag.src = wavingFlagArray[1]
+          main.appendChild(flag)
+          anthemArray[1].play()
+          result = chosenCountryNameArray[1] + ' Win'
           //Displaying The Winner
           resultDisplay.textContent = result
           return
-          // Customer Win
-        } else if (parseInt(customerScore.textContent) >= 14) {
-          const flag = document.createElement('img')
-          flag.classList.add('flag')
-          flag.src = wavingFlagGif
-          main.appendChild(flag)
-          anthem.play()
-          result = chosenCountryName + ' Win'
-          //Displaying The Winner
-          resultDisplay.textContent = result
-          return
-        }
+        } 
       
         isComputerPlaying = false
-      }, 5)
-
-
-
-
+      }, 5000)
     }
   }
   // End of BATTLEFIELD
