@@ -388,10 +388,29 @@ function init() {
       
       setTimeout(() => {
         console.log(computerShotsArray[parseInt(computerShotsArray.length) - 1])
-        if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('first-ship')){
-          computerMoveCell = firstShipArray[2]
+
+        if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('first-ship') 
+        && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('first-ship')
+        && computerShotsArray[parseInt(computerShotsArray.length) - 3].classList.contains('first-ship')
+        && computerShotsArray[parseInt(computerShotsArray.length) - 4].classList.contains('first-ship')) {
+          computerMoveCell = firstShipArray[0]
           computerMoveCell.style.background = 'blue'
           computerMoveCell.classList.remove('first-ship')
+          computerShotsArray.push(computerMoveCell)
+        } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('first-ship') 
+        && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('first-ship')
+        && computerShotsArray[parseInt(computerShotsArray.length) - 3].classList.contains('first-ship') )  {
+          computerMoveCell = firstShipArray[1]
+          computerMoveCell.style.background = 'blue'
+          computerShotsArray.push(computerMoveCell)
+        } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('first-ship') 
+        && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('first-ship') )  {
+          computerMoveCell = firstShipArray[2]
+          computerMoveCell.style.background = 'blue'
+          computerShotsArray.push(computerMoveCell)
+        } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('first-ship') )  {
+          computerMoveCell = firstShipArray[3]
+          computerMoveCell.style.background = 'blue'
           computerShotsArray.push(computerMoveCell)
         } else {
           const computerMoveInterval = setInterval(() => {
