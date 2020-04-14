@@ -387,7 +387,8 @@ function init() {
       isComputerPlaying = true
       
       setTimeout(() => {
-        console.log(computerShotsArray[parseInt(computerShotsArray.length) - 1])
+        
+
         // Keep Attacking First Ship
         if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('first-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('first-ship')
@@ -397,21 +398,41 @@ function init() {
           computerMoveCell.style.background = 'blue'
           computerMoveCell.classList.remove('first-ship')
           computerShotsArray.push(computerMoveCell)
+          
+          if (!computerMoveCell.classList.contains('ship-hit')){
+            computerMoveCell.classList.add('ship-hit')
+            computerScoreArray.push(computerMoveCell)
+          }
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('first-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('first-ship')
         && computerShotsArray[parseInt(computerShotsArray.length) - 3].classList.contains('first-ship') )  {
           computerMoveCell = firstShipArray[1]
           computerMoveCell.style.background = 'blue'
           computerShotsArray.push(computerMoveCell)
+
+          if (!computerMoveCell.classList.contains('ship-hit')){
+            computerMoveCell.classList.add('ship-hit')
+            computerScoreArray.push(computerMoveCell)
+          }
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('first-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('first-ship') )  {
           computerMoveCell = firstShipArray[2]
           computerMoveCell.style.background = 'blue'
           computerShotsArray.push(computerMoveCell)
+          
+          if (!computerMoveCell.classList.contains('ship-hit')){
+            computerMoveCell.classList.add('ship-hit')
+            computerScoreArray.push(computerMoveCell)
+          }
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('first-ship') )  {
           computerMoveCell = firstShipArray[3]
           computerMoveCell.style.background = 'blue'
           computerShotsArray.push(computerMoveCell)
+          
+          if (!computerMoveCell.classList.contains('ship-hit')){
+            computerMoveCell.classList.add('ship-hit')
+            computerScoreArray.push(computerMoveCell)
+          }
           // Keep Attacking Second Ship
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('second-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('second-ship') )  {
@@ -419,10 +440,20 @@ function init() {
           computerMoveCell.style.background = 'pink'
           computerMoveCell.classList.remove('second-ship')
           computerShotsArray.push(computerMoveCell)
+
+          if (!computerMoveCell.classList.contains('ship-hit')){
+            computerMoveCell.classList.add('ship-hit')
+            computerScoreArray.push(computerMoveCell)
+          }
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('second-ship') )  {
           computerMoveCell = secondShipArray[1]
           computerMoveCell.style.background = 'pink'
           computerShotsArray.push(computerMoveCell)
+
+          if (!computerMoveCell.classList.contains('ship-hit')){
+            computerMoveCell.classList.add('ship-hit')
+            computerScoreArray.push(computerMoveCell)
+          }
           // Keep Attacking Third Ship
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('third-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('third-ship')
@@ -431,15 +462,30 @@ function init() {
           computerMoveCell.style.background = 'brown'
           computerMoveCell.classList.remove('third-ship')
           computerShotsArray.push(computerMoveCell)
+
+          if (!computerMoveCell.classList.contains('ship-hit')){
+            computerMoveCell.classList.add('ship-hit')
+            computerScoreArray.push(computerMoveCell)
+          }
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('third-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('third-ship') )  {
           computerMoveCell = thirdShipArray[1]
           computerMoveCell.style.background = 'brown'
           computerShotsArray.push(computerMoveCell)
+
+          if (!computerMoveCell.classList.contains('ship-hit')){
+            computerMoveCell.classList.add('ship-hit')
+            computerScoreArray.push(computerMoveCell)
+          }
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('third-ship') )  {
           computerMoveCell = thirdShipArray[2]
           computerMoveCell.style.background = 'brown'
           computerShotsArray.push(computerMoveCell)
+
+          if (!computerMoveCell.classList.contains('ship-hit')){
+            computerMoveCell.classList.add('ship-hit')
+            computerScoreArray.push(computerMoveCell)
+          }
           // Keep Attacking Fourth Ship
         }  else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('fourth-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('fourth-ship')
@@ -450,6 +496,11 @@ function init() {
           computerMoveCell.style.background = 'green'
           computerMoveCell.classList.remove('fourth-ship')
           computerShotsArray.push(computerMoveCell)
+
+          if (!computerMoveCell.classList.contains('ship-hit')){
+            computerMoveCell.classList.add('ship-hit')
+            computerScoreArray.push(computerMoveCell)
+          }
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('fourth-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('fourth-ship')
         && computerShotsArray[parseInt(computerShotsArray.length) - 3].classList.contains('fourth-ship')
@@ -457,25 +508,46 @@ function init() {
           computerMoveCell = fourthShipArray[1]
           computerMoveCell.style.background = 'green'
           computerShotsArray.push(computerMoveCell)
+
+          if (!computerMoveCell.classList.contains('ship-hit')){
+            computerMoveCell.classList.add('ship-hit')
+            computerScoreArray.push(computerMoveCell)
+          }
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('fourth-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('fourth-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 3].classList.contains('fourth-ship'))  {
           computerMoveCell = fourthShipArray[2]
           computerMoveCell.style.background = 'green'
           computerShotsArray.push(computerMoveCell)
+
+          if (!computerMoveCell.classList.contains('ship-hit')){
+            computerMoveCell.classList.add('ship-hit')
+            computerScoreArray.push(computerMoveCell)
+          }
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('fourth-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('fourth-ship'))  {
           computerMoveCell = fourthShipArray[3]
           computerMoveCell.style.background = 'green'
           computerShotsArray.push(computerMoveCell)
+
+          if (!computerMoveCell.classList.contains('ship-hit')){
+            computerMoveCell.classList.add('ship-hit')
+            computerScoreArray.push(computerMoveCell)
+          }
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('fourth-ship') )  {
           computerMoveCell = fourthShipArray[4]
           computerMoveCell.style.background = 'green'
           computerShotsArray.push(computerMoveCell)
+
+          if (!computerMoveCell.classList.contains('ship-hit')){
+            computerMoveCell.classList.add('ship-hit')
+            computerScoreArray.push(computerMoveCell)
+          }
         } else {
           const computerMoveInterval = setInterval(() => {
             computerMoveCell = customerCells[Math.floor(Math.random() * customerCells.length)]
             if (computerMoveCell.classList.contains('missed-hit')) return
+            if (computerMoveCell.classList.contains('ship-hit')) return
             // Add class ship-hit to the attacked cell which contains customer ship and also pushing this cell to the array of attacked ships
             else {
               if (computerMoveCell.classList.contains('ships-positions')) {
@@ -493,6 +565,8 @@ function init() {
               computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: ' +  displayComputerScore
             }
           }, 1)
+          console.log('Current computer attacked cell is ' + computerMoveCell)
+          console.log('Previous computer attacked cell is ' + computerShotsArray[parseInt(computerShotsArray.length) - 1])
         }
         // Customer Win
         if (displayCustomerScore >= 14) {
