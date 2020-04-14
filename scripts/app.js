@@ -78,6 +78,8 @@ function init() {
   const secondShipArray = []
   const thirdShipArray = []
   const fourthShipArray = []
+  // Array for all the computer shots try
+  const computerShotsArray = [playImage]
 
   // FUNCTIONS
 
@@ -385,10 +387,11 @@ function init() {
       isComputerPlaying = true
       
       setTimeout(() => {
-        const computerMoveInterval = setInterval(() => {
-          if (computerScoreArray[computerScoreArray - 1].classList.contains('first-ship')){
-            computerMoveCell = firstShipArray[2]
-          } else {
+        if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('first-ship')){
+          computerMoveCell = firstShipArray[2]
+          computerMoveCell.style.background = 'blue'
+        } else {
+          const computerMoveInterval = setInterval(() => {
             computerMoveCell = customerCells[Math.floor(Math.random() * customerCells.length)]
             if (computerMoveCell.classList.contains('missed-hit')) return
             // Add class ship-hit to the attacked cell which contains customer ship and also pushing this cell to the array of attacked ships
@@ -400,6 +403,7 @@ function init() {
               }
               // Add missed-hit class to a cell which was already attacked
               computerMoveCell.classList.add('missed-hit')
+              computerShotsArray.push(computerMoveCell)
               console.log(computerMoveCell)
               clearInterval(computerMoveInterval)
 
@@ -408,8 +412,8 @@ function init() {
               //Displaying Computer Score
               computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: ' +  displayComputerScore
             }
-          }
-        }, 1)
+          }, 1)
+        }
         // Customer Win
         if (displayCustomerScore >= 14) {
           const flag = document.createElement('img')
