@@ -298,11 +298,13 @@ function init() {
     } else if (customerShipPositionsArray.length > 12 && customerShipPositionsArray.length < 15) {
       if (((parseInt(event.target.textContent) + 1) % width === 0) || ((parseInt(event.target.textContent) + 2) % width === 0)
         || ((parseInt(event.target.textContent) + 3) % width === 0) || ((parseInt(event.target.textContent) + 4) % width === 0)
+        || ((parseInt(event.target.textContent) + 5) % width === 0)
         || (event.target.classList.contains('ships-positions'))
         || (customerCells[grid.children[parseInt(event.target.textContent) + 1].textContent].classList.contains('ships-positions'))
         || (customerCells[grid.children[parseInt(event.target.textContent) + 2].textContent].classList.contains('ships-positions'))
         || (customerCells[grid.children[parseInt(event.target.textContent) + 3].textContent].classList.contains('ships-positions'))
-        || (customerCells[grid.children[parseInt(event.target.textContent) + 4].textContent].classList.contains('ships-positions'))) {
+        || (customerCells[grid.children[parseInt(event.target.textContent) + 4].textContent].classList.contains('ships-positions')) 
+        || (customerCells[grid.children[parseInt(event.target.textContent) + 5].textContent].classList.contains('ships-positions'))) {
         return
       } else {
         const shipPosition = customerCells[parseInt(event.target.textContent)]
@@ -310,13 +312,15 @@ function init() {
         const thirdPosition = customerCells[grid.children[parseInt(event.target.textContent) + 2].textContent]
         const fourthPosition = customerCells[grid.children[parseInt(event.target.textContent) + 3].textContent]
         const fifthPosition = customerCells[grid.children[parseInt(event.target.textContent) + 4].textContent]
+        const sixthPosition = customerCells[grid.children[parseInt(event.target.textContent) + 5].textContent]
         // Storing Ships as a Class in the Grid Cells
         shipPosition.classList.add('ships-positions')
         secondPosition.classList.add('ships-positions')
         thirdPosition.classList.add('ships-positions')
         fourthPosition.classList.add('ships-positions')
         fifthPosition.classList.add('ships-positions')
-        customerShipPositionsArray.push(shipPosition, secondPosition, thirdPosition, fourthPosition, fifthPosition)
+        sixthPosition.classList.add('ships-positions')
+        customerShipPositionsArray.push(shipPosition, secondPosition, thirdPosition, fourthPosition, fifthPosition, sixthPosition)
         
         //Assigning Class to Every Ship Specifically
         shipPosition.classList.add('fourth-ship')
@@ -329,7 +333,9 @@ function init() {
         fourthPosition.classList.add('fourth-ship-four')
         fifthPosition.classList.add('fourth-ship')
         fifthPosition.classList.add('fourth-ship-five')
-        fourthShipArray.push(shipPosition, secondPosition, thirdPosition, fourthPosition, fifthPosition)
+        sixthPosition.classList.add('fourth-ship')
+        sixthPosition.classList.add('fourth-ship-six')
+        fourthShipArray.push(shipPosition, secondPosition, thirdPosition, fourthPosition, fifthPosition, sixthPosition)
         btn.style.display = 'inline'
       }
     }
@@ -708,7 +714,8 @@ function init() {
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('fourth-ship')
         && computerShotsArray[parseInt(computerShotsArray.length) - 3].classList.contains('fourth-ship')
         && computerShotsArray[parseInt(computerShotsArray.length) - 4].classList.contains('fourth-ship')
-        && computerShotsArray[parseInt(computerShotsArray.length) - 5].classList.contains('fourth-ship')) {
+        && computerShotsArray[parseInt(computerShotsArray.length) - 5].classList.contains('fourth-ship')
+        && computerShotsArray[parseInt(computerShotsArray.length) - 6].classList.contains('fourth-ship')) {
           computerMoveCell = fourthShipArray[0]
           computerMoveCell.style.background = 'green'
           computerMoveCell.classList.remove('fourth-ship')
@@ -726,8 +733,26 @@ function init() {
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('fourth-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('fourth-ship')
         && computerShotsArray[parseInt(computerShotsArray.length) - 3].classList.contains('fourth-ship')
-        && computerShotsArray[parseInt(computerShotsArray.length) - 4].classList.contains('fourth-ship') )  {
+        && computerShotsArray[parseInt(computerShotsArray.length) - 4].classList.contains('fourth-ship')
+        && computerShotsArray[parseInt(computerShotsArray.length) - 5].classList.contains('fourth-ship')) {
           computerMoveCell = fourthShipArray[1]
+          computerMoveCell.style.background = 'green'
+          computerShotsArray.push(computerMoveCell)
+
+          if (!computerMoveCell.classList.contains('ship-hit')){
+            computerMoveCell.classList.add('ship-hit')
+            computerScoreArray.push(computerMoveCell)
+          }
+          // Counting Computer Score
+          displayComputerScore = computerScoreArray.length
+          //Displaying Computer Score
+          computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: ' +  displayComputerScore
+          
+        } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('fourth-ship') 
+        && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('fourth-ship')
+        && computerShotsArray[parseInt(computerShotsArray.length) - 3].classList.contains('fourth-ship')
+        && computerShotsArray[parseInt(computerShotsArray.length) - 4].classList.contains('fourth-ship') )  {
+          computerMoveCell = fourthShipArray[2]
           computerMoveCell.style.background = 'green'
           computerShotsArray.push(computerMoveCell)
 
@@ -743,7 +768,7 @@ function init() {
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('fourth-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('fourth-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 3].classList.contains('fourth-ship'))  {
-          computerMoveCell = fourthShipArray[2]
+          computerMoveCell = fourthShipArray[3]
           computerMoveCell.style.background = 'green'
           computerShotsArray.push(computerMoveCell)
 
@@ -758,7 +783,7 @@ function init() {
           
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('fourth-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('fourth-ship'))  {
-          computerMoveCell = fourthShipArray[3]
+          computerMoveCell = fourthShipArray[4]
           computerMoveCell.style.background = 'green'
           computerShotsArray.push(computerMoveCell)
 
@@ -772,7 +797,7 @@ function init() {
           computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: ' +  displayComputerScore
           
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('fourth-ship') )  {
-          computerMoveCell = fourthShipArray[4]
+          computerMoveCell = fourthShipArray[5]
           computerMoveCell.style.background = 'green'
           computerShotsArray.push(computerMoveCell)
 
@@ -810,7 +835,7 @@ function init() {
           
         }
         // Customer Win
-        if (displayCustomerScore >= 18) {
+        if (displayCustomerScore >= 19) {
           battlefieldSounds.remove()
           russianBattleFieldSounds.remove()
           const flag = document.createElement('img')
@@ -824,7 +849,7 @@ function init() {
           //Displaying The Winner
           resultDisplay.textContent = result
           return // Computer Win
-        } else if (displayComputerScore >= 18) {
+        } else if (displayComputerScore >= 19) {
           battlefieldSounds.remove()
           russianBattleFieldSounds.remove()
           const flag = document.createElement('img')

@@ -275,6 +275,9 @@ button:hover{
 .fourth-ship-five{
   background: grey;
 }
+.fourth-ship-six{
+  background: darkgreen;
+}
 
 /* Placing different background on every cell of the specific COMPUTER ship*/
 /* first ship */
