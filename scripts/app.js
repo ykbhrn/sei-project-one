@@ -1,8 +1,12 @@
 function init() {
 
   // ELEMENTS
+  const allTheAudios = document.querySelectorAll('audio')
+  let isAudioPlaying = true
+  let muteClicker = 0
   const playImage = document.querySelector('.welcome-screen img')
   const welcomeScreen = document.querySelector('.welcome-screen')
+  const militaryMarchSound = document.querySelector('.military-march')
   const mute = document.querySelector('.mute')
   const btn = document.querySelector('.next')
   const choiceWrapper = document.querySelector('.side-choice-wrapper')
@@ -87,9 +91,16 @@ function init() {
 
   // Mute Sounds Function
   function muteSounds() {
-    bomb.volume = 0
-    anthemArray[0].volume = 0
-    anthemArray[1].volume = 0
+    allTheAudios.forEach( audio => {
+      if (muteClicker % 2 === 0){  
+        audio.volume = 0
+        isAudioPlaying = false
+      } else {
+        audio.volume = 1
+        isAudioPlaying = true
+      }
+    })
+    muteClicker++
   }
 
   // Create a Grid Function
@@ -110,6 +121,7 @@ function init() {
     setTimeout(() => {
       welcomeScreen.remove()
       playImage.remove()
+      militaryMarchSound.play()
       choiceWrapper.style.display = 'flex'
       superpower.style.display = 'block'
       for (let i = 0; i < countries.length; i++){
@@ -299,7 +311,7 @@ function init() {
     // Editing Grid to make it Customer Grid...so Grid is Customer Grid Now
     grid.classList.add('customer-grid')
     // Showing score
-    score.style.display = 'block'
+    score.style.display = 'flex'
 
     // Creating Computer Grid
     computerGrid.classList.add('computer-grid')
@@ -652,7 +664,9 @@ function init() {
           flag.classList.add('flag')
           flag.src = wavingFlagArray[0]
           main.appendChild(flag)
-          anthemArray[0].play()
+          if (isAudioPlaying === true) {
+            anthemArray[0].play()
+          }
           result = chosenCountryNameArray[0] + ' Win'
           //Displaying The Winner
           resultDisplay.textContent = result
@@ -662,7 +676,9 @@ function init() {
           flag.classList.add('flag')
           flag.src = wavingFlagArray[1]
           main.appendChild(flag)
-          anthemArray[1].play()
+          if (isAudioPlaying === true) {
+            anthemArray[1].play()
+          }
           result = chosenCountryNameArray[1] + ' Win'
           //Displaying The Winner
           resultDisplay.textContent = result
