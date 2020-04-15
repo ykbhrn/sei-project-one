@@ -2,11 +2,13 @@ function init() {
 
   // ELEMENTS
   const allTheAudios = document.querySelectorAll('audio')
+  const battlefieldSounds = document.querySelector('.battlefield-sounds')
+  const russianBattleFieldSounds = document.querySelector('.russian-battlefield-sounds')
   let isAudioPlaying = true
   let muteClicker = 0
   const playImage = document.querySelector('.welcome-screen img')
   const welcomeScreen = document.querySelector('.welcome-screen')
-  const militaryMarchSound = document.querySelector('.military-march')
+  const introSounds = document.querySelector('.military-march')
   const mute = document.querySelector('.mute')
   const btn = document.querySelector('.next')
   const choiceWrapper = document.querySelector('.side-choice-wrapper')
@@ -121,7 +123,7 @@ function init() {
     setTimeout(() => {
       welcomeScreen.remove()
       playImage.remove()
-      militaryMarchSound.play()
+      introSounds.play()
       choiceWrapper.style.display = 'flex'
       superpower.style.display = 'block'
       for (let i = 0; i < countries.length; i++){
@@ -305,6 +307,9 @@ function init() {
   // Transferring Customer to Battlefield
 
   function Battlefield() {
+    // Remove Intro Sounds and play Battlefield Sounds
+    introSounds.remove()
+    battlefieldSounds.play()
     // Removing Strategy Panel
     btn.remove()
     grid.classList.remove('grid')
@@ -660,7 +665,7 @@ function init() {
         }
         // Customer Win
         if (displayCustomerScore >= 14) {
-          militaryMarchSound.remove()
+          battlefieldSounds.remove()
           const flag = document.createElement('img')
           flag.classList.add('flag')
           flag.src = wavingFlagArray[0]
@@ -673,7 +678,7 @@ function init() {
           resultDisplay.textContent = result
           return // Computer Win
         } else if (displayComputerScore >= 14) {
-          militaryMarchSound.remove()
+          battlefieldSounds.remove()
           const flag = document.createElement('img')
           flag.classList.add('flag')
           flag.src = wavingFlagArray[1]
