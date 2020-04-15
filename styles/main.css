@@ -221,7 +221,7 @@ button:hover{
   color: red;
 }
 
-/* Placing different background on every cell of the specific ship*/
+/* Placing different background on every cell of the specific CUSTOMER ship*/
 /* first ship */
 .first-ship-one{
   background: yellow;
@@ -262,9 +262,57 @@ button:hover{
 .fourth-ship-three{
   background: blue;
 }
-.fourth-ship-three{
+.fourth-ship-four{
   background: purple;
 }
-.fourth-ship-four{
+.fourth-ship-five{
+  background: grey;
+}
+
+/* Placing different background on every cell of the specific COMPUTER ship*/
+/* first ship */
+.comp-first-ship-one{
+  background: yellow;
+}
+.comp-first-ship-two{
+  background: green;
+}
+.comp-first-ship-three{
+  background: blue;
+}
+.comp-first-ship-four{
+  background: brown;
+}
+ /* second ship */
+ .comp-second-ship-one{
+  background: yellow;
+}
+.comp-second-ship-two{
+  background: green;
+}
+/* third ship */
+.comp-third-ship-one{
+  background: yellow;
+}
+.comp-third-ship-two{
+  background: green;
+}
+.comp-fourth-ship-three{
+  background: blue;
+}
+/* fourth ship */
+.comp-fourth-ship-one{
+  background: yellow;
+}
+.comp-fourth-ship-two{
+  background: green;
+}
+.comp-fourth-ship-three{
+  background: blue;
+}
+.comp-fourth-ship-four{
+  background: purple;
+}
+.comp-fourth-ship-five{
   background: grey;
 }

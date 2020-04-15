@@ -353,14 +353,14 @@ function init() {
         computerCells[computerFirstPosition + 2].classList.add('ships-positions')
         computerCells[computerFirstPosition + 3].classList.add('ships-positions')
         //Assigning Class to Every Ship Specifically
-        shipPosition.classList.add('first-ship')
-        shipPosition.classList.add('first-ship-one')
-        secondPosition.classList.add('first-ship')
-        secondPosition.classList.add('first-ship-two')
-        thirdPosition.classList.add('first-ship')
-        thirdPosition.classList.add('first-ship-three')
-        fourthPosition.classList.add('first-ship')
-        fourthPosition.classList.add('first-ship-four')
+        computerCells[computerFirstPosition].classList.add('comp-first-ship')
+        computerCells[computerFirstPosition].classList.add('comp-first-ship-one')
+        computerCells[computerFirstPosition + 1].classList.add('comp-first-ship')
+        computerCells[computerFirstPosition + 1].classList.add('comp-first-ship-two')
+        computerCells[computerFirstPosition + 2].classList.add('comp-first-ship')
+        computerCells[computerFirstPosition + 2].classList.add('comp-first-ship-three')
+        computerCells[computerFirstPosition + 3].classList.add('comp-first-ship')
+        computerCells[computerFirstPosition + 3].classList.add('comp-first-ship-four')
         computerShipPositionsArray.push(computerCells[computerFirstPosition], computerCells[computerFirstPosition + 1], computerCells[computerFirstPosition + 2], computerCells[computerFirstPosition + 3])
         clearInterval(firstComputerShip)
       }
@@ -373,6 +373,11 @@ function init() {
       else {
         computerCells[computerSecondPosition].classList.add('ships-positions')
         computerCells[computerSecondPosition + 1].classList.add('ships-positions')
+        //Assigning Class to Every Ship Specifically
+        computerCells[computerSecondPosition].classList.add('comp-second-ship')
+        computerCells[computerSecondPosition].classList.add('comp-second-ship-one')
+        computerCells[computerSecondPosition + 1].classList.add('comp-second-ship')
+        computerCells[computerSecondPosition + 1].classList.add('comp-second-ship-two')
         computerShipPositionsArray.push(computerCells[computerSecondPosition], computerCells[computerSecondPosition + 1])
         clearInterval(secondComputerShip)
       }
@@ -388,6 +393,13 @@ function init() {
         computerCells[computerThirdPosition].classList.add('ships-positions')
         computerCells[computerThirdPosition + 1].classList.add('ships-positions')
         computerCells[computerThirdPosition + 2].classList.add('ships-positions')
+        //Assigning Class to Every Ship Specifically
+        computerCells[computerThirdPosition].classList.add('comp-third-ship')
+        computerCells[computerThirdPosition].classList.add('comp-third-ship-one')
+        computerCells[computerThirdPosition + 1].classList.add('comp-third-ship')
+        computerCells[computerThirdPosition + 1].classList.add('comp-third-ship-two')
+        computerCells[computerThirdPosition + 2].classList.add('comp-third-ship')
+        computerCells[computerThirdPosition + 2].classList.add('comp-third-ship-three')
         computerShipPositionsArray.push(computerCells[computerThirdPosition], computerCells[computerThirdPosition + 1], computerCells[computerThirdPosition + 2])
         clearInterval(thirdComputerShip)
       }
@@ -408,6 +420,17 @@ function init() {
         computerCells[computerFourthPosition + 2].classList.add('ships-positions')
         computerCells[computerFourthPosition + 3].classList.add('ships-positions')
         computerCells[computerFourthPosition + 4].classList.add('ships-positions')
+        //Assigning Class to Every Ship Specifically
+        computerCells[computerFourthPosition].classList.add('comp-fourth-ship')
+        computerCells[computerFourthPosition].classList.add('comp-fourth-ship-one')
+        computerCells[computerFourthPosition + 1].classList.add('comp-fourth-ship')
+        computerCells[computerFourthPosition + 1].classList.add('comp-fourth-ship-two')
+        computerCells[computerFourthPosition + 2].classList.add('comp-fourth-ship')
+        computerCells[computerFourthPosition + 2].classList.add('comp-fourth-ship-three')
+        computerCells[computerFourthPosition + 3].classList.add('comp-fourth-ship')
+        computerCells[computerFourthPosition + 3].classList.add('comp-fourth-ship-four')
+        computerCells[computerFourthPosition + 4].classList.add('comp-fourth-ship')
+        computerCells[computerFourthPosition + 4].classList.add('comp-fourth-ship-five')
         computerShipPositionsArray.push(computerCells[computerFourthPosition], computerCells[computerFourthPosition + 1], computerCells[computerFourthPosition + 2], computerCells[computerFourthPosition + 3], computerCells[computerFourthPosition + 4])
         clearInterval(fourthComputerShip)
       }
