@@ -6,6 +6,7 @@ function init() {
   const russianBattleFieldSounds = document.querySelector('.russian-battlefield-sounds')
   let isAudioPlaying = true
   let muteClicker = 0
+  const coveringReminder = document.querySelector('.covering-reminder')
   const playImage = document.querySelector('.welcome-screen img')
   const welcomeScreen = document.querySelector('.welcome-screen')
   const introSounds = document.querySelector('.military-march')
@@ -207,6 +208,7 @@ function init() {
   // Storing Customer Ships Positions in customerShipPositionArray
 
   function customerShipPositions(event) {
+    coveringReminder.style.display = 'none'
     // First Ship
     if (customerShipPositionsArray.length < 3) {
       if (((parseInt(event.target.textContent) + 1) % width === 0) || ((parseInt(event.target.textContent) + 2) % width === 0)
@@ -255,7 +257,7 @@ function init() {
     } else if (customerShipPositionsArray.length > 7 && customerShipPositionsArray.length < 9) {
       if (((parseInt(event.target.textContent) + 1) % width === 0) || (event.target.classList.contains('ships-positions'))
         || (customerCells[grid.children[parseInt(event.target.textContent) + 1].textContent].classList.contains('ships-positions'))) {
-        return
+        return coveringReminder.style.display = 'block' 
       } else {
         const shipPosition = customerCells[parseInt(event.target.textContent)]
         const secondPosition = customerCells[grid.children[parseInt(event.target.textContent) + 1].textContent]
@@ -275,7 +277,7 @@ function init() {
         || (event.target.classList.contains('ships-positions'))
         || (customerCells[grid.children[parseInt(event.target.textContent) + 1].textContent].classList.contains('ships-positions'))
         || (customerCells[grid.children[parseInt(event.target.textContent) + 2].textContent].classList.contains('ships-positions'))) {
-        return
+        return coveringReminder.style.display = 'block'
       } else {
         const shipPosition = customerCells[parseInt(event.target.textContent)]
         const secondPosition = customerCells[grid.children[parseInt(event.target.textContent) + 1].textContent]
@@ -305,7 +307,7 @@ function init() {
         || (customerCells[grid.children[parseInt(event.target.textContent) + 3].textContent].classList.contains('ships-positions'))
         || (customerCells[grid.children[parseInt(event.target.textContent) + 4].textContent].classList.contains('ships-positions')) 
         || (customerCells[grid.children[parseInt(event.target.textContent) + 5].textContent].classList.contains('ships-positions'))) {
-        return
+        return coveringReminder.style.display = 'block'
       } else {
         const shipPosition = customerCells[parseInt(event.target.textContent)]
         const secondPosition = customerCells[grid.children[parseInt(event.target.textContent) + 1].textContent]
