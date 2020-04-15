@@ -90,7 +90,7 @@ h2{
   color: white;
   order: 1;
   font-size: 0px;
-  /* transform: rotate(90deg) */
+  transform: rotate(90deg)
 }
 
 .grid:hover{
@@ -226,7 +226,6 @@ button:hover{
   top: 200px;
   left: 30px;
   font-size: 30px;
-  z-index: 3;
   width: 330px;
   height: 170px;
   padding: 10px;

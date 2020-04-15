@@ -299,6 +299,17 @@ function init() {
         || (event.target.classList.contains('ships-positions'))
         || (customerCells[grid.children[parseInt(event.target.textContent) + 1].textContent].classList.contains('ships-positions'))
         || (customerCells[grid.children[parseInt(event.target.textContent) + 2].textContent].classList.contains('ships-positions'))) {
+        customerCells.forEach( cell => {
+          if (parseInt(cell.textContent) < 99) {
+            if ( (parseInt(cell.textContent) + 1) % width === 0 || (parseInt(cell.textContent) + 2) % width === 0 
+            || grid.children[parseInt(cell.textContent) + 1].classList.contains('ships-positions') 
+            || grid.children[parseInt(cell.textContent) + 2].classList.contains('ships-positions')
+            ){
+              cell.classList.add('not-allowed')
+              grid.children[99].classList.add('not-allowed')
+            }
+          }    
+        })
         return coveringReminder.style.display = 'block'
       } else {
         const shipPosition = customerCells[parseInt(event.target.textContent)]
@@ -329,6 +340,22 @@ function init() {
         || (customerCells[grid.children[parseInt(event.target.textContent) + 3].textContent].classList.contains('ships-positions'))
         || (customerCells[grid.children[parseInt(event.target.textContent) + 4].textContent].classList.contains('ships-positions')) 
         || (customerCells[grid.children[parseInt(event.target.textContent) + 5].textContent].classList.contains('ships-positions'))) {
+        customerCells.forEach( cell => {
+          if (parseInt(cell.textContent) < 99) {
+            if ( (parseInt(cell.textContent) + 1) % width === 0 || (parseInt(cell.textContent) + 2) % width === 0 
+              || (parseInt(cell.textContent) + 3) % width === 0 || (parseInt(cell.textContent) + 4) % width === 0 
+              || (parseInt(cell.textContent) + 5) % width === 0 
+              || grid.children[parseInt(cell.textContent) + 1].classList.contains('ships-positions') 
+              || grid.children[parseInt(cell.textContent) + 2].classList.contains('ships-positions')
+              || grid.children[parseInt(cell.textContent) + 3].classList.contains('ships-positions') 
+              || grid.children[parseInt(cell.textContent) + 4].classList.contains('ships-positions')
+              || grid.children[parseInt(cell.textContent) + 5].classList.contains('ships-positions')
+            ){
+              cell.classList.add('not-allowed')
+              grid.children[99].classList.add('not-allowed')
+            }
+          }    
+        })
         return coveringReminder.style.display = 'block'
       } else {
         const shipPosition = customerCells[parseInt(event.target.textContent)]
