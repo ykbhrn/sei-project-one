@@ -308,8 +308,12 @@ function init() {
 
   function Battlefield() {
     // Remove Intro Sounds and play Battlefield Sounds
+    if (chosenCountryNameArray[0] === 'Russia'){
+      russianBattleFieldSounds.play()
+    } else {
+      battlefieldSounds.play()
+    }
     introSounds.remove()
-    battlefieldSounds.play()
     // Removing Strategy Panel
     btn.remove()
     grid.classList.remove('grid')
@@ -666,6 +670,7 @@ function init() {
         // Customer Win
         if (displayCustomerScore >= 14) {
           battlefieldSounds.remove()
+          russianBattleFieldSounds.remove()
           const flag = document.createElement('img')
           flag.classList.add('flag')
           flag.src = wavingFlagArray[0]
@@ -679,6 +684,7 @@ function init() {
           return // Computer Win
         } else if (displayComputerScore >= 14) {
           battlefieldSounds.remove()
+          russianBattleFieldSounds.remove()
           const flag = document.createElement('img')
           flag.classList.add('flag')
           flag.src = wavingFlagArray[1]
