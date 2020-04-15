@@ -68,7 +68,7 @@ h2{
 }
 
 .welcome-screen img:hover{
-  flex-grow: 0.1;
+  opacity: 0.5;
 }
 
 
@@ -219,4 +219,52 @@ button:hover{
 .enemy{
   display: none;
   color: red;
+}
+
+/* Placing different background on every cell of the specific ship*/
+/* first ship */
+.first-ship-one{
+  background: yellow;
+}
+.first-ship-two{
+  background: green;
+}
+.first-ship-three{
+  background: blue;
+}
+.first-ship-four{
+  background: brown;
+}
+ /* second ship */
+ .second-ship-one{
+  background: yellow;
+}
+.second-ship-two{
+  background: green;
+}
+/* third ship */
+.third-ship-one{
+  background: yellow;
+}
+.third-ship-two{
+  background: green;
+}
+.fourth-ship-three{
+  background: blue;
+}
+/* fourth ship */
+.fourth-ship-one{
+  background: yellow;
+}
+.fourth-ship-two{
+  background: green;
+}
+.fourth-ship-three{
+  background: blue;
+}
+.fourth-ship-three{
+  background: purple;
+}
+.fourth-ship-four{
+  background: grey;
 }

@@ -124,6 +124,7 @@ function init() {
       welcomeScreen.remove()
       playImage.remove()
       introSounds.play()
+      introSounds.volume = 0.5
       choiceWrapper.style.display = 'flex'
       superpower.style.display = 'block'
       for (let i = 0; i < countries.length; i++){
@@ -225,9 +226,13 @@ function init() {
         customerShipPositionsArray.push(shipPosition, secondPosition, thirdPosition, fourthPosition)
         //Assigning Class to Every Ship Specifically
         shipPosition.classList.add('first-ship')
+        shipPosition.classList.add('first-ship-one')
         secondPosition.classList.add('first-ship')
+        secondPosition.classList.add('first-ship-two')
         thirdPosition.classList.add('first-ship')
+        thirdPosition.classList.add('first-ship-three')
         fourthPosition.classList.add('first-ship')
+        fourthPosition.classList.add('first-ship-four')
         firstShipArray.push(shipPosition, secondPosition, thirdPosition, fourthPosition)
       }  // Second Ship
     } else if (customerShipPositionsArray.length > 3 && customerShipPositionsArray.length < 5) {
@@ -243,7 +248,9 @@ function init() {
         customerShipPositionsArray.push(shipPosition, secondPosition)
         //Assigning Class to Every Ship Specifically
         shipPosition.classList.add('second-ship')
+        shipPosition.classList.add('second-ship-one')
         secondPosition.classList.add('second-ship')
+        secondPosition.classList.add('second-ship-two')
         secondShipArray.push(shipPosition, secondPosition)
       }  // Third Ship
     } else if (customerShipPositionsArray.length > 5 && customerShipPositionsArray.length < 7) {
@@ -264,8 +271,11 @@ function init() {
         
         //Assigning Class to Every Ship Specifically
         shipPosition.classList.add('third-ship')
+        shipPosition.classList.add('third-ship-one')
         secondPosition.classList.add('third-ship')
+        secondPosition.classList.add('third-ship-two')
         thirdPosition.classList.add('third-ship')
+        thirdPosition.classList.add('third-ship-three')
         thirdShipArray.push(shipPosition, secondPosition, thirdPosition)
       } // Fourth Ship
     } else if (customerShipPositionsArray.length > 8 && customerShipPositionsArray.length < 11) {
@@ -293,10 +303,15 @@ function init() {
         
         //Assigning Class to Every Ship Specifically
         shipPosition.classList.add('fourth-ship')
+        shipPosition.classList.add('fourth-ship-one')
         secondPosition.classList.add('fourth-ship')
+        secondPosition.classList.add('fourth-ship-two')
         thirdPosition.classList.add('fourth-ship')
+        thirdPosition.classList.add('fourth-ship-three')
         fourthPosition.classList.add('fourth-ship')
+        fourthPosition.classList.add('fourth-ship-four')
         fifthPosition.classList.add('fourth-ship')
+        fifthPosition.classList.add('fourth-ship-five')
         fourthShipArray.push(shipPosition, secondPosition, thirdPosition, fourthPosition, fifthPosition)
         btn.style.display = 'inline'
       }
@@ -337,6 +352,15 @@ function init() {
         computerCells[computerFirstPosition + 1].classList.add('ships-positions')
         computerCells[computerFirstPosition + 2].classList.add('ships-positions')
         computerCells[computerFirstPosition + 3].classList.add('ships-positions')
+        //Assigning Class to Every Ship Specifically
+        shipPosition.classList.add('first-ship')
+        shipPosition.classList.add('first-ship-one')
+        secondPosition.classList.add('first-ship')
+        secondPosition.classList.add('first-ship-two')
+        thirdPosition.classList.add('first-ship')
+        thirdPosition.classList.add('first-ship-three')
+        fourthPosition.classList.add('first-ship')
+        fourthPosition.classList.add('first-ship-four')
         computerShipPositionsArray.push(computerCells[computerFirstPosition], computerCells[computerFirstPosition + 1], computerCells[computerFirstPosition + 2], computerCells[computerFirstPosition + 3])
         clearInterval(firstComputerShip)
       }
@@ -699,7 +723,7 @@ function init() {
         } 
         console.log(computerScoreArray)
         isComputerPlaying = false
-      }, 7)
+      }, 5)
     }
     
   }
