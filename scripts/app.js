@@ -660,6 +660,7 @@ function init() {
         }
         // Customer Win
         if (displayCustomerScore >= 14) {
+          militaryMarchSound.remove()
           const flag = document.createElement('img')
           flag.classList.add('flag')
           flag.src = wavingFlagArray[0]
@@ -672,6 +673,7 @@ function init() {
           resultDisplay.textContent = result
           return // Computer Win
         } else if (displayComputerScore >= 14) {
+          militaryMarchSound.remove()
           const flag = document.createElement('img')
           flag.classList.add('flag')
           flag.src = wavingFlagArray[1]
