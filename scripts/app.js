@@ -209,12 +209,26 @@ function init() {
 
   function customerShipPositions(event) {
     coveringReminder.style.display = 'none'
+    customerCells.forEach( cell => {
+      if (cell.classList.contains('not-allowed')) {
+        cell.classList.remove('not-allowed')
+      }
+    })
     // First Ship
     if (customerShipPositionsArray.length < 3) {
       if (((parseInt(event.target.textContent) + 1) % width === 0) || ((parseInt(event.target.textContent) + 2) % width === 0)
         || ((parseInt(event.target.textContent) + 3) % width === 0) 
         || ((parseInt(event.target.textContent) + width) > cellCounts - 1) ) {
-        return 
+        customerCells.forEach( cell => {
+          if (parseInt(cell.textContent) < 99) {
+            if ( (parseInt(cell.textContent) + 1) % width === 0 || (parseInt(cell.textContent) + 2) % width === 0 || (parseInt(cell.textContent) + 3) % width === 0
+            || (parseInt(cell.textContent) + width) > cellCounts - 1 ){
+              cell.classList.add('not-allowed')
+              grid.children[99].classList.add('not-allowed')
+            }
+          }    
+        })
+        return coveringReminder.style.display = 'block' 
       } else {
         const shipPosition = customerCells[parseInt(event.target.textContent)]
         const secondPosition = customerCells[grid.children[parseInt(event.target.textContent) + 1].textContent]
@@ -256,7 +270,15 @@ function init() {
       }  // Second Ship
     } else if (customerShipPositionsArray.length > 7 && customerShipPositionsArray.length < 9) {
       if (((parseInt(event.target.textContent) + 1) % width === 0) || (event.target.classList.contains('ships-positions'))
-        || (customerCells[grid.children[parseInt(event.target.textContent) + 1].textContent].classList.contains('ships-positions'))) {
+          || (customerCells[grid.children[parseInt(event.target.textContent) + 1].textContent].classList.contains('ships-positions'))) {
+        customerCells.forEach( cell => {
+          if (parseInt(cell.textContent) < 99) {
+            if ((parseInt(cell.textContent) + 1) % width === 0 || grid.children[parseInt(cell.textContent) + 1].classList.contains('ships-positions'))
+              cell.classList.add('not-allowed')
+            grid.children[99].classList.add('not-allowed')
+          }
+            
+        })
         return coveringReminder.style.display = 'block' 
       } else {
         const shipPosition = customerCells[parseInt(event.target.textContent)]
