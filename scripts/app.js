@@ -75,6 +75,7 @@ function init() {
   let displayComputerScore
   let displayCustomerScore
   const resultDisplay = document.querySelector('.result')
+  const resultWrapper = document.querySelector('.result-wrapper')
   const score = document.querySelector('.score')
   let result
   let isComputerPlaying = false
@@ -99,9 +100,11 @@ function init() {
       if (muteClicker % 2 === 0){  
         audio.volume = 0
         isAudioPlaying = false
+        mute.style.background = 'url(./images/mute.png)no-repeat'
       } else {
         audio.volume = 1
         isAudioPlaying = true
+        mute.style.background = 'url(./images/volume.png)no-repeat'
       }
     })
     muteClicker++
@@ -125,6 +128,7 @@ function init() {
     setTimeout(() => {
       welcomeScreen.remove()
       playImage.remove()
+      mute.style.display = 'block'
       introSounds.play()
       introSounds.volume = 0.5
       choiceWrapper.style.display = 'flex'
@@ -186,7 +190,9 @@ function init() {
               gridWrapper.style.display = 'flex'
               superpower.style.display = 'none'
               choiceWrapper.style.display = 'none'
-              enemy.style.display = 'none'
+              enemy.classList.remove('enemy')
+              enemy.classList.add('strategy-panel')
+              enemy.innerHTML = '<h2>Place Your Tanks And Artilleries</h2>'
               choiceWrapper.style.display = 'none'
               
             }
@@ -445,6 +451,7 @@ function init() {
     } else {
       battlefieldSounds.play()
     }
+    enemy.style.display = 'none'
     introSounds.remove()
     // Removing Strategy Panel
     btn.remove()
@@ -453,6 +460,9 @@ function init() {
     grid.classList.add('customer-grid')
     // Showing score
     score.style.display = 'flex'
+    customerScore.textContent = chosenCountryNameArray[0] + ' Score Is: 0'
+    //Displaying Computer Score
+    computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: 0'
 
     // Creating Computer Grid
     computerGrid.classList.add('computer-grid')
@@ -1047,7 +1057,7 @@ function init() {
           const flag = document.createElement('img')
           flag.classList.add('flag')
           flag.src = wavingFlagArray[0]
-          main.appendChild(flag)
+          resultWrapper.appendChild(flag)
           if (isAudioPlaying === true) {
             anthemArray[0].play()
           }
@@ -1072,7 +1082,7 @@ function init() {
         } 
         console.log(computerScoreArray)
         isComputerPlaying = false
-      }, 5000)
+      }, 5)
     }
     
   }

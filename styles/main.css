@@ -15,8 +15,22 @@
   }
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .mute {
-  font-family: 40px;
+  background-image: url('../images/volume.png');
+  background-repeat: no-repeat;
+  height: 52px;
+  width: 52px;
+  display: none;
+  position: absolute;
+  top: 30px;
+  left: 30px;
+
 }
 
 .shot {
@@ -31,14 +45,12 @@
 }
 body{
   margin: 0;
-  background: darkgray;
-}
-
-main{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),url('../images/background.jpg')no-repeat;
+  background-size: 100% 100%;
+  background-size: cover;
+  background-position-x: center;
+  background-position-y: center;
+  
 }
 
 h1{
@@ -52,13 +64,22 @@ h2{
 }
 
 .welcome-screen{
-  width: 100vw;
-  height: 100vh;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/ship.jpeg') no-repeat;
+  width: 70vw;
+  height: 70vh;
+  background: url('../images/tank.jpg')no-repeat;
+  background-size: contain;
   background-position-x: center;
   background-position-y: center;
-  background-size: 800px 600px;
+  
   display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome-screen-wrapper {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
   justify-content: center;
   align-items: center;
 }
@@ -90,7 +111,20 @@ h2{
   color: white;
   order: 1;
   font-size: 0px;
-  transform: rotate(90deg)
+  transform: rotate(90deg);
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),black;
+  background-size: 100% 100%;
+  background-position-x: center;
+  background-position-y: center;
+  margin: 50px auto 0 auto;
+}
+.strategy-panel {
+  color: #41FF00;
+  margin: 0 auto;
+  width: 900px;
+}
+.strategy-panel h2 {
+  font-size: 45px;
 }
 
 .grid:hover{
@@ -100,7 +134,7 @@ h2{
 .grid div{
   width: 10%;
   height: 10%;
-  border: 1px solid lightgray;
+  border: 1px solid #41FF00;
 }
 
 .customer-grid{
@@ -112,11 +146,12 @@ h2{
   color: white;
   order: 2;
   font-size: 0px;
+  margin-top: 130px;
 }
 .customer-grid div{
   width: 10%;
   height: 10%;
-  border: 1px solid lightgray;
+  border: 1px solid #41FF00
   
 }
 .computer-grid{
@@ -127,11 +162,13 @@ h2{
   color: white;
   order: 1;
   font-size: 0px;
+  margin-top: 130px;
 }
 .computer-grid div{
   width: 10%;
   height: 10%;
-  border: 1px solid lightgray;  
+  border: 1px solid red;
+    
 }
 .computer-grid div:hover {
   opacity: 0.5;
@@ -157,24 +194,24 @@ button:hover{
 }
 
 .ships-positions{
-  background: black;
+  
 }
 .missed-hit{
-  background: grey;
+  background:url('../images/x.png') no-repeat;
 }
 
 .computer-grid div.missed-hit:hover {
   cursor: not-allowed;
 }
 
-
 .side-choice-wrapper{
-  height: 100vh;
+  height: 70vh;
   width: 1100px;
   display: none;
   justify-content: space-evenly;
   flex-wrap: wrap;
   align-items: flex-start;
+  margin: 0 auto;
 
 }
 
@@ -199,11 +236,11 @@ button:hover{
   filter: brightness(50%);
 }
 
-.flag{
+/* .flag{
   position: absolute;
   top: 35%;
   left: 35%;
-}
+} */
 
 .score{
   display: none;
@@ -211,13 +248,35 @@ button:hover{
   justify-content: space-around;
 }
 
+.computer-score{
+  color: red;
+}
+
+.customer-score{
+  color: #41FF00;
+}
+
 .superpower{
   display: none;
+  width: 850px;
+  color: #41FF00;
 }
 
 .enemy{
   display: none;
   color: red;
+  width: 700px;
+}
+
+.enemy, .superpower {
+  margin: 0 auto;
+}
+
+.result-wrapper {
+ 
+  position: absolute;
+  left: 35%;
+  top: 35%;
 }
 
 .covering-reminder{
@@ -234,11 +293,12 @@ button:hover{
 }
 
 .not-allowed {
-  background: pink;
+  background:url('../images/x.png') no-repeat;
 }
 
 /* Placing different background on every cell of the specific CUSTOMER ship*/
 /* first ship */
+
 .first-ship-one{
   background: yellow;
 }
@@ -315,7 +375,7 @@ button:hover{
 
 /* Placing different background on every cell of the specific COMPUTER ship*/
 /* first ship */
-.comp-first-ship-one{
+/* .comp-first-ship-one{
   background: yellow;
 }
 .comp-first-ship-two{
@@ -340,14 +400,14 @@ button:hover{
   background: brown;
 }
  /* second ship */
- .comp-second-ship-one{
+ /* .comp-second-ship-one{
   background: yellow;
 }
 .comp-second-ship-two{
   background: green;
 }
 /* third ship */
-.comp-third-ship-one{
+/* .comp-third-ship-one{
   background: yellow;
 }
 .comp-third-ship-two{
@@ -357,7 +417,7 @@ button:hover{
   background: blue;
 }
 /* fourth ship */
-.comp-fourth-ship-one{
+/* .comp-fourth-ship-one{
   background: yellow;
 }
 .comp-fourth-ship-two{
@@ -374,9 +434,9 @@ button:hover{
 }
 .comp-fourth-ship-six{
   background: orange;
-}
+} */ 
 /* fifth ship */
-.comp-fifth-ship-one{
+/* .comp-fifth-ship-one{
   background: yellow;
 }
 .comp-fifth-ship-two{
@@ -386,8 +446,8 @@ button:hover{
   background: blue;
 }
 .comp-fifth-ship-four{
-  background: purple;
-}
+  background: purple; 
+}  */
 
 /* ship was hit */
 .ship-hit{
