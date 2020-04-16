@@ -6,6 +6,8 @@ function init() {
   const russianBattleFieldSounds = document.querySelector('.russian-battlefield-sounds')
   let isAudioPlaying = true
   let muteClicker = 0
+  let tanksChoiceClicker = 0
+  const tankChoicer = document.querySelector('.tank-choicer')
   const coveringReminder = document.querySelector('.covering-reminder')
   const playImage = document.querySelector('.welcome-screen img')
   const welcomeScreen = document.querySelector('.welcome-screen')
@@ -194,9 +196,9 @@ function init() {
               choiceWrapper.style.display = 'none'
               enemy.classList.remove('enemy')
               enemy.classList.add('strategy-panel')
-              enemy.innerHTML = '<h2>Place Your Tanks And Artilleries</h2>'
+              enemy.innerHTML = '<h2>Place Your Artillery</h2>'
               choiceWrapper.style.display = 'none'
-              
+              tankChoicer.style.display = 'block'
             }
           }, 200)
         }
@@ -223,6 +225,17 @@ function init() {
         cell.classList.remove('not-allowed')
       }
     })
+    tanksChoiceClicker++
+    if (tanksChoiceClicker === 1) {
+      tankChoicer.textContent = 'Place Your Second Artillery'
+    } else if (tanksChoiceClicker === 2) {
+      tankChoicer.textContent = 'Place Your Third Artillery'
+    } else if (tanksChoiceClicker === 3) {
+      tankChoicer.textContent = 'Place Your Fourth Artillery'
+    } else if (tanksChoiceClicker === 4) {
+      tankChoicer.textContent = 'Place Your Fifth Artillery'
+    } 
+
     // First Ship
     if (customerShipPositionsArray.length < 3) {
       if (((parseInt(event.target.textContent) + 1) % width === 0) || ((parseInt(event.target.textContent) + 2) % width === 0)
@@ -399,13 +412,14 @@ function init() {
       } // Fifth Ship
     } else if (customerShipPositionsArray.length > 16 && customerShipPositionsArray.length < 21) {
       if (((parseInt(event.target.textContent) + 1) % width === 0) || ((parseInt(event.target.textContent) + 2) % width === 0)
-      || ((parseInt(event.target.textContent) + 2) % width === 0) || (event.target.classList.contains('ships-positions'))
+      || ((parseInt(event.target.textContent) + 3) % width === 0) || (event.target.classList.contains('ships-positions'))
         || (customerCells[grid.children[parseInt(event.target.textContent) + 1].textContent].classList.contains('ships-positions'))
         || (customerCells[grid.children[parseInt(event.target.textContent) + 2].textContent].classList.contains('ships-positions'))
         || (customerCells[grid.children[parseInt(event.target.textContent) + 3].textContent].classList.contains('ships-positions')) ) {
         customerCells.forEach( cell => {
           if (parseInt(cell.textContent) < 99) {
             if ( (parseInt(cell.textContent) + 1) % width === 0 || (parseInt(cell.textContent) + 2) % width === 0 
+            || (parseInt(cell.textContent) + 3) % width === 0 
             || grid.children[parseInt(cell.textContent) + 1].classList.contains('ships-positions') 
             || grid.children[parseInt(cell.textContent) + 2].classList.contains('ships-positions')
             || grid.children[parseInt(cell.textContent) + 3].classList.contains('ships-positions')
@@ -439,6 +453,7 @@ function init() {
         fourthPosition.classList.add('fifth-ship-four')
         fifthShipArray.push(shipPosition, secondPosition, thirdPosition, fourthPosition)
         btn.style.display = 'inline'
+        tankChoicer.style.display = 'none'
       } 
     }
   }
