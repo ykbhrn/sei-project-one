@@ -6,6 +6,7 @@ function init() {
   const russianBattleFieldSounds = document.querySelector('.russian-battlefield-sounds')
   let isAudioPlaying = true
   let muteClicker = 0
+  const coveringReminder = document.querySelector('.covering-reminder')
   const playImage = document.querySelector('.welcome-screen img')
   const welcomeScreen = document.querySelector('.welcome-screen')
   const introSounds = document.querySelector('.military-march')
@@ -124,6 +125,7 @@ function init() {
       welcomeScreen.remove()
       playImage.remove()
       introSounds.play()
+      introSounds.volume = 0.5
       choiceWrapper.style.display = 'flex'
       superpower.style.display = 'block'
       for (let i = 0; i < countries.length; i++){
@@ -206,34 +208,78 @@ function init() {
   // Storing Customer Ships Positions in customerShipPositionArray
 
   function customerShipPositions(event) {
+    coveringReminder.style.display = 'none'
+    customerCells.forEach( cell => {
+      if (cell.classList.contains('not-allowed')) {
+        cell.classList.remove('not-allowed')
+      }
+    })
     // First Ship
     if (customerShipPositionsArray.length < 3) {
       if (((parseInt(event.target.textContent) + 1) % width === 0) || ((parseInt(event.target.textContent) + 2) % width === 0)
-        || ((parseInt(event.target.textContent) + 3) % width === 0)) {
-        return
+        || ((parseInt(event.target.textContent) + 3) % width === 0) 
+        || ((parseInt(event.target.textContent) + width) > cellCounts - 1) ) {
+        customerCells.forEach( cell => {
+          if (parseInt(cell.textContent) < 99) {
+            if ( (parseInt(cell.textContent) + 1) % width === 0 || (parseInt(cell.textContent) + 2) % width === 0 || (parseInt(cell.textContent) + 3) % width === 0
+            || (parseInt(cell.textContent) + width) > cellCounts - 1 ){
+              cell.classList.add('not-allowed')
+              grid.children[99].classList.add('not-allowed')
+            }
+          }    
+        })
+        return coveringReminder.style.display = 'block' 
       } else {
         const shipPosition = customerCells[parseInt(event.target.textContent)]
         const secondPosition = customerCells[grid.children[parseInt(event.target.textContent) + 1].textContent]
         const thirdPosition = customerCells[grid.children[parseInt(event.target.textContent) + 2].textContent]
         const fourthPosition = customerCells[grid.children[parseInt(event.target.textContent) + 3].textContent]
+        const fifthPosition = customerCells[grid.children[parseInt(event.target.textContent) + width].textContent]
+        const sixthPosition = customerCells[grid.children[parseInt(event.target.textContent) + 1 + width].textContent]
+        const seventhPosition = customerCells[grid.children[parseInt(event.target.textContent) + 2 + width].textContent]
+        const eighthPosition = customerCells[grid.children[parseInt(event.target.textContent) + 3 + width].textContent]
 
         shipPosition.classList.add('ships-positions')
         secondPosition.classList.add('ships-positions')
         thirdPosition.classList.add('ships-positions')
         fourthPosition.classList.add('ships-positions')
+        fifthPosition.classList.add('ships-positions')
+        sixthPosition.classList.add('ships-positions')
+        seventhPosition.classList.add('ships-positions')
+        eighthPosition.classList.add('ships-positions')
         // Storing Ships as a Class in the Grid Cells
-        customerShipPositionsArray.push(shipPosition, secondPosition, thirdPosition, fourthPosition)
+        customerShipPositionsArray.push(shipPosition, secondPosition, thirdPosition, fourthPosition, fifthPosition, sixthPosition, seventhPosition, eighthPosition)
         //Assigning Class to Every Ship Specifically
         shipPosition.classList.add('first-ship')
+        shipPosition.classList.add('first-ship-one')
         secondPosition.classList.add('first-ship')
+        secondPosition.classList.add('first-ship-two')
         thirdPosition.classList.add('first-ship')
+        thirdPosition.classList.add('first-ship-three')
         fourthPosition.classList.add('first-ship')
-        firstShipArray.push(shipPosition, secondPosition, thirdPosition, fourthPosition)
+        fourthPosition.classList.add('first-ship-four')
+        fifthPosition.classList.add('first-ship')
+        fifthPosition.classList.add('first-ship-five')
+        sixthPosition.classList.add('first-ship')
+        sixthPosition.classList.add('first-ship-six')
+        seventhPosition.classList.add('first-ship')
+        seventhPosition.classList.add('first-ship-seven')
+        eighthPosition.classList.add('first-ship')
+        eighthPosition.classList.add('first-ship-eight')
+        firstShipArray.push(shipPosition, secondPosition, thirdPosition, fourthPosition, fifthPosition, sixthPosition, seventhPosition, eighthPosition)
       }  // Second Ship
-    } else if (customerShipPositionsArray.length > 3 && customerShipPositionsArray.length < 5) {
+    } else if (customerShipPositionsArray.length > 7 && customerShipPositionsArray.length < 9) {
       if (((parseInt(event.target.textContent) + 1) % width === 0) || (event.target.classList.contains('ships-positions'))
-        || (customerCells[grid.children[parseInt(event.target.textContent) + 1].textContent].classList.contains('ships-positions'))) {
-        return
+          || (customerCells[grid.children[parseInt(event.target.textContent) + 1].textContent].classList.contains('ships-positions'))) {
+        customerCells.forEach( cell => {
+          if (parseInt(cell.textContent) < 99) {
+            if ((parseInt(cell.textContent) + 1) % width === 0 || grid.children[parseInt(cell.textContent) + 1].classList.contains('ships-positions'))
+              cell.classList.add('not-allowed')
+            grid.children[99].classList.add('not-allowed')
+          }
+            
+        })
+        return coveringReminder.style.display = 'block' 
       } else {
         const shipPosition = customerCells[parseInt(event.target.textContent)]
         const secondPosition = customerCells[grid.children[parseInt(event.target.textContent) + 1].textContent]
@@ -243,15 +289,28 @@ function init() {
         customerShipPositionsArray.push(shipPosition, secondPosition)
         //Assigning Class to Every Ship Specifically
         shipPosition.classList.add('second-ship')
+        shipPosition.classList.add('second-ship-one')
         secondPosition.classList.add('second-ship')
+        secondPosition.classList.add('second-ship-two')
         secondShipArray.push(shipPosition, secondPosition)
       }  // Third Ship
-    } else if (customerShipPositionsArray.length > 5 && customerShipPositionsArray.length < 7) {
+    } else if (customerShipPositionsArray.length > 9 && customerShipPositionsArray.length < 11) {
       if (((parseInt(event.target.textContent) + 1) % width === 0) || ((parseInt(event.target.textContent) + 2) % width === 0)
         || (event.target.classList.contains('ships-positions'))
         || (customerCells[grid.children[parseInt(event.target.textContent) + 1].textContent].classList.contains('ships-positions'))
         || (customerCells[grid.children[parseInt(event.target.textContent) + 2].textContent].classList.contains('ships-positions'))) {
-        return
+        customerCells.forEach( cell => {
+          if (parseInt(cell.textContent) < 99) {
+            if ( (parseInt(cell.textContent) + 1) % width === 0 || (parseInt(cell.textContent) + 2) % width === 0 
+            || grid.children[parseInt(cell.textContent) + 1].classList.contains('ships-positions') 
+            || grid.children[parseInt(cell.textContent) + 2].classList.contains('ships-positions')
+            ){
+              cell.classList.add('not-allowed')
+              grid.children[99].classList.add('not-allowed')
+            }
+          }    
+        })
+        return coveringReminder.style.display = 'block'
       } else {
         const shipPosition = customerCells[parseInt(event.target.textContent)]
         const secondPosition = customerCells[grid.children[parseInt(event.target.textContent) + 1].textContent]
@@ -264,40 +323,70 @@ function init() {
         
         //Assigning Class to Every Ship Specifically
         shipPosition.classList.add('third-ship')
+        shipPosition.classList.add('third-ship-one')
         secondPosition.classList.add('third-ship')
+        secondPosition.classList.add('third-ship-two')
         thirdPosition.classList.add('third-ship')
+        thirdPosition.classList.add('third-ship-three')
         thirdShipArray.push(shipPosition, secondPosition, thirdPosition)
       } // Fourth Ship
-    } else if (customerShipPositionsArray.length > 8 && customerShipPositionsArray.length < 11) {
+    } else if (customerShipPositionsArray.length > 12 && customerShipPositionsArray.length < 15) {
       if (((parseInt(event.target.textContent) + 1) % width === 0) || ((parseInt(event.target.textContent) + 2) % width === 0)
         || ((parseInt(event.target.textContent) + 3) % width === 0) || ((parseInt(event.target.textContent) + 4) % width === 0)
+        || ((parseInt(event.target.textContent) + 5) % width === 0)
         || (event.target.classList.contains('ships-positions'))
         || (customerCells[grid.children[parseInt(event.target.textContent) + 1].textContent].classList.contains('ships-positions'))
         || (customerCells[grid.children[parseInt(event.target.textContent) + 2].textContent].classList.contains('ships-positions'))
         || (customerCells[grid.children[parseInt(event.target.textContent) + 3].textContent].classList.contains('ships-positions'))
-        || (customerCells[grid.children[parseInt(event.target.textContent) + 4].textContent].classList.contains('ships-positions'))) {
-        return
+        || (customerCells[grid.children[parseInt(event.target.textContent) + 4].textContent].classList.contains('ships-positions')) 
+        || (customerCells[grid.children[parseInt(event.target.textContent) + 5].textContent].classList.contains('ships-positions'))) {
+        customerCells.forEach( cell => {
+          if (parseInt(cell.textContent) < 99) {
+            if ( (parseInt(cell.textContent) + 1) % width === 0 || (parseInt(cell.textContent) + 2) % width === 0 
+              || (parseInt(cell.textContent) + 3) % width === 0 || (parseInt(cell.textContent) + 4) % width === 0 
+              || (parseInt(cell.textContent) + 5) % width === 0 
+              || grid.children[parseInt(cell.textContent) + 1].classList.contains('ships-positions') 
+              || grid.children[parseInt(cell.textContent) + 2].classList.contains('ships-positions')
+              || grid.children[parseInt(cell.textContent) + 3].classList.contains('ships-positions') 
+              || grid.children[parseInt(cell.textContent) + 4].classList.contains('ships-positions')
+              || grid.children[parseInt(cell.textContent) + 5].classList.contains('ships-positions')
+            ){
+              cell.classList.add('not-allowed')
+              grid.children[99].classList.add('not-allowed')
+            }
+          }    
+        })
+        return coveringReminder.style.display = 'block'
       } else {
         const shipPosition = customerCells[parseInt(event.target.textContent)]
         const secondPosition = customerCells[grid.children[parseInt(event.target.textContent) + 1].textContent]
         const thirdPosition = customerCells[grid.children[parseInt(event.target.textContent) + 2].textContent]
         const fourthPosition = customerCells[grid.children[parseInt(event.target.textContent) + 3].textContent]
         const fifthPosition = customerCells[grid.children[parseInt(event.target.textContent) + 4].textContent]
+        const sixthPosition = customerCells[grid.children[parseInt(event.target.textContent) + 5].textContent]
         // Storing Ships as a Class in the Grid Cells
         shipPosition.classList.add('ships-positions')
         secondPosition.classList.add('ships-positions')
         thirdPosition.classList.add('ships-positions')
         fourthPosition.classList.add('ships-positions')
         fifthPosition.classList.add('ships-positions')
-        customerShipPositionsArray.push(shipPosition, secondPosition, thirdPosition, fourthPosition, fifthPosition)
+        sixthPosition.classList.add('ships-positions')
+        customerShipPositionsArray.push(shipPosition, secondPosition, thirdPosition, fourthPosition, fifthPosition, sixthPosition)
         
         //Assigning Class to Every Ship Specifically
         shipPosition.classList.add('fourth-ship')
+        shipPosition.classList.add('fourth-ship-one')
         secondPosition.classList.add('fourth-ship')
+        secondPosition.classList.add('fourth-ship-two')
         thirdPosition.classList.add('fourth-ship')
+        thirdPosition.classList.add('fourth-ship-three')
         fourthPosition.classList.add('fourth-ship')
+        fourthPosition.classList.add('fourth-ship-four')
         fifthPosition.classList.add('fourth-ship')
-        fourthShipArray.push(shipPosition, secondPosition, thirdPosition, fourthPosition, fifthPosition)
+        fifthPosition.classList.add('fourth-ship-five')
+        sixthPosition.classList.add('fourth-ship')
+        sixthPosition.classList.add('fourth-ship-six')
+        fourthShipArray.push(shipPosition, secondPosition, thirdPosition, fourthPosition, fifthPosition, sixthPosition)
         btn.style.display = 'inline'
       }
     }
@@ -308,8 +397,12 @@ function init() {
 
   function Battlefield() {
     // Remove Intro Sounds and play Battlefield Sounds
+    if (chosenCountryNameArray[0] === 'Russia'){
+      russianBattleFieldSounds.play()
+    } else {
+      battlefieldSounds.play()
+    }
     introSounds.remove()
-    battlefieldSounds.play()
     // Removing Strategy Panel
     btn.remove()
     grid.classList.remove('grid')
@@ -326,43 +419,87 @@ function init() {
     // First Ship
     const firstComputerShip = setInterval(() => {
       const computerFirstPosition = Math.floor(Math.random() * computerCells.length)
-      if (((computerFirstPosition + 1) % width === 0) || ((computerFirstPosition + 2) % width === 0)
-        || ((computerFirstPosition + 3) % width === 0)) return
-      else {
-        computerCells[computerFirstPosition].classList.add('ships-positions')
-        computerCells[computerFirstPosition + 1].classList.add('ships-positions')
-        computerCells[computerFirstPosition + 2].classList.add('ships-positions')
-        computerCells[computerFirstPosition + 3].classList.add('ships-positions')
-        computerShipPositionsArray.push(computerCells[computerFirstPosition], computerCells[computerFirstPosition + 1], computerCells[computerFirstPosition + 2], computerCells[computerFirstPosition + 3])
-        clearInterval(firstComputerShip)
-      }
+      computerShipPositionsArray.forEach( position => {
+        if ( (computerFirstPosition + 1) % width === 0 || (computerFirstPosition + 2) % width === 0
+        || (computerFirstPosition + 3) % width === 0 || (computerFirstPosition + width) > cellCounts - 1
+        || computerCells[computerFirstPosition] === position || computerCells[computerFirstPosition + 1] === position
+        || computerCells[computerFirstPosition + 2] === position || computerCells[computerFirstPosition + 3] === position
+        || computerCells[computerFirstPosition + width] === position || computerCells[computerFirstPosition + 1 + width] === position 
+        || computerCells[computerFirstPosition + 2 + width] === position || computerCells[computerFirstPosition + 3 + width] === position ) return
+        else {
+          computerCells[computerFirstPosition].classList.add('ships-positions')
+          computerCells[computerFirstPosition + 1].classList.add('ships-positions')
+          computerCells[computerFirstPosition + 2].classList.add('ships-positions')
+          computerCells[computerFirstPosition + 3].classList.add('ships-positions')
+          computerCells[computerFirstPosition + width].classList.add('ships-positions')
+          computerCells[computerFirstPosition + 1 + width].classList.add('ships-positions')
+          computerCells[computerFirstPosition + 2 + width].classList.add('ships-positions')
+          computerCells[computerFirstPosition + 3 + width].classList.add('ships-positions')
+          //Assigning Class to Every Ship Specifically
+          computerCells[computerFirstPosition].classList.add('comp-first-ship')
+          computerCells[computerFirstPosition].classList.add('comp-first-ship-one')
+          computerCells[computerFirstPosition + 1].classList.add('comp-first-ship')
+          computerCells[computerFirstPosition + 1].classList.add('comp-first-ship-two')
+          computerCells[computerFirstPosition + 2].classList.add('comp-first-ship')
+          computerCells[computerFirstPosition + 2].classList.add('comp-first-ship-three')
+          computerCells[computerFirstPosition + 3].classList.add('comp-first-ship')
+          computerCells[computerFirstPosition + 3].classList.add('comp-first-ship-four')
+          computerCells[computerFirstPosition + width].classList.add('comp-first-ship')
+          computerCells[computerFirstPosition + width].classList.add('comp-first-ship-five')
+          computerCells[computerFirstPosition + 1 + width].classList.add('comp-first-ship')
+          computerCells[computerFirstPosition + 1 + width].classList.add('comp-first-ship-six')
+          computerCells[computerFirstPosition + 2 + width].classList.add('comp-first-ship')
+          computerCells[computerFirstPosition + 2 + width].classList.add('comp-first-ship-seven')
+          computerCells[computerFirstPosition + 3 + width].classList.add('comp-first-ship')
+          computerCells[computerFirstPosition + 3 + width].classList.add('comp-first-ship-eight')
+          clearInterval(firstComputerShip)
+        }
+      })
+      
     }, 1)
     // Second Ship
     const secondComputerShip = setInterval(() => {
       const computerSecondPosition = Math.floor(Math.random() * computerCells.length)
-      if (((computerSecondPosition + 1) % width === 0) || (computerCells[computerSecondPosition].classList.contains('ships-positions'))
-        || (computerCells[computerSecondPosition + 1].classList.contains('ships-positions'))) return
-      else {
-        computerCells[computerSecondPosition].classList.add('ships-positions')
-        computerCells[computerSecondPosition + 1].classList.add('ships-positions')
-        computerShipPositionsArray.push(computerCells[computerSecondPosition], computerCells[computerSecondPosition + 1])
-        clearInterval(secondComputerShip)
-      }
+      computerShipPositionsArray.forEach( position => {
+        if ( (computerSecondPosition + 1) % width === 0 || computerCells[computerSecondPosition] === position
+        || computerCells[computerSecondPosition + 1] === position ) return
+        else {
+          computerCells[computerSecondPosition].classList.add('ships-positions')
+          computerCells[computerSecondPosition + 1].classList.add('ships-positions')
+          //Assigning Class to Every Ship Specifically
+          computerCells[computerSecondPosition].classList.add('comp-second-ship')
+          computerCells[computerSecondPosition].classList.add('comp-second-ship-one')
+          computerCells[computerSecondPosition + 1].classList.add('comp-second-ship')
+          computerCells[computerSecondPosition + 1].classList.add('comp-second-ship-two')
+          computerShipPositionsArray.push(computerCells[computerSecondPosition], computerCells[computerSecondPosition + 1])
+          clearInterval(secondComputerShip)
+        }
+      })
+      
     }, 2)
     // Third Ship
     const thirdComputerShip = setInterval(() => {
       const computerThirdPosition = Math.floor(Math.random() * computerCells.length)
-      if (((computerThirdPosition + 1) % width === 0) || ((computerThirdPosition + 2) % width === 0)
-        || (computerCells[computerThirdPosition].classList.contains('ships-positions'))
-        || (computerCells[computerThirdPosition + 1].classList.contains('ships-positions'))
-        || (computerCells[computerThirdPosition + 2].classList.contains('ships-positions'))) return
-      else {
-        computerCells[computerThirdPosition].classList.add('ships-positions')
-        computerCells[computerThirdPosition + 1].classList.add('ships-positions')
-        computerCells[computerThirdPosition + 2].classList.add('ships-positions')
-        computerShipPositionsArray.push(computerCells[computerThirdPosition], computerCells[computerThirdPosition + 1], computerCells[computerThirdPosition + 2])
-        clearInterval(thirdComputerShip)
-      }
+      computerShipPositionsArray.forEach( position => {
+        if ((computerThirdPosition + 1) % width === 0 || (computerThirdPosition + 2) % width === 0
+        || computerCells[computerThirdPosition] === position
+        || computerCells[computerThirdPosition + 1] === position
+        || computerCells[computerThirdPosition + 2] === position ) return
+        else {
+          computerCells[computerThirdPosition].classList.add('ships-positions')
+          computerCells[computerThirdPosition + 1].classList.add('ships-positions')
+          computerCells[computerThirdPosition + 2].classList.add('ships-positions')
+          //Assigning Class to Every Ship Specifically
+          computerCells[computerThirdPosition].classList.add('comp-third-ship')
+          computerCells[computerThirdPosition].classList.add('comp-third-ship-one')
+          computerCells[computerThirdPosition + 1].classList.add('comp-third-ship')
+          computerCells[computerThirdPosition + 1].classList.add('comp-third-ship-two')
+          computerCells[computerThirdPosition + 2].classList.add('comp-third-ship')
+          computerCells[computerThirdPosition + 2].classList.add('comp-third-ship-three')
+          computerShipPositionsArray.push(computerCells[computerThirdPosition], computerCells[computerThirdPosition + 1], computerCells[computerThirdPosition + 2])
+          clearInterval(thirdComputerShip)
+        }
+      })
     }, 6)
     // Fourth Ship
     const fourthComputerShip = setInterval(() => {
@@ -380,10 +517,21 @@ function init() {
         computerCells[computerFourthPosition + 2].classList.add('ships-positions')
         computerCells[computerFourthPosition + 3].classList.add('ships-positions')
         computerCells[computerFourthPosition + 4].classList.add('ships-positions')
+        //Assigning Class to Every Ship Specifically
+        computerCells[computerFourthPosition].classList.add('comp-fourth-ship')
+        computerCells[computerFourthPosition].classList.add('comp-fourth-ship-one')
+        computerCells[computerFourthPosition + 1].classList.add('comp-fourth-ship')
+        computerCells[computerFourthPosition + 1].classList.add('comp-fourth-ship-two')
+        computerCells[computerFourthPosition + 2].classList.add('comp-fourth-ship')
+        computerCells[computerFourthPosition + 2].classList.add('comp-fourth-ship-three')
+        computerCells[computerFourthPosition + 3].classList.add('comp-fourth-ship')
+        computerCells[computerFourthPosition + 3].classList.add('comp-fourth-ship-four')
+        computerCells[computerFourthPosition + 4].classList.add('comp-fourth-ship')
+        computerCells[computerFourthPosition + 4].classList.add('comp-fourth-ship-five')
         computerShipPositionsArray.push(computerCells[computerFourthPosition], computerCells[computerFourthPosition + 1], computerCells[computerFourthPosition + 2], computerCells[computerFourthPosition + 3], computerCells[computerFourthPosition + 4])
         clearInterval(fourthComputerShip)
       }
-    }, 50)
+    }, 5)
 
     // Customer Move
     // Event --- Click on the Computer Grid
@@ -419,7 +567,11 @@ function init() {
         if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('first-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('first-ship')
         && computerShotsArray[parseInt(computerShotsArray.length) - 3].classList.contains('first-ship')
-        && computerShotsArray[parseInt(computerShotsArray.length) - 4].classList.contains('first-ship')) {
+        && computerShotsArray[parseInt(computerShotsArray.length) - 4].classList.contains('first-ship')
+        && computerShotsArray[parseInt(computerShotsArray.length) - 5].classList.contains('first-ship') 
+        && computerShotsArray[parseInt(computerShotsArray.length) - 6].classList.contains('first-ship')
+        && computerShotsArray[parseInt(computerShotsArray.length) - 7].classList.contains('first-ship')
+        && computerShotsArray[parseInt(computerShotsArray.length) - 8].classList.contains('first-ship') ) {
           computerMoveCell = firstShipArray[0]
           computerMoveCell.style.background = 'blue'
           computerMoveCell.classList.remove('first-ship')
@@ -436,7 +588,11 @@ function init() {
 
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('first-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('first-ship')
-        && computerShotsArray[parseInt(computerShotsArray.length) - 3].classList.contains('first-ship') )  {
+        && computerShotsArray[parseInt(computerShotsArray.length) - 3].classList.contains('first-ship')
+        && computerShotsArray[parseInt(computerShotsArray.length) - 4].classList.contains('first-ship')
+        && computerShotsArray[parseInt(computerShotsArray.length) - 5].classList.contains('first-ship') 
+        && computerShotsArray[parseInt(computerShotsArray.length) - 6].classList.contains('first-ship')
+        && computerShotsArray[parseInt(computerShotsArray.length) - 7].classList.contains('first-ship') )  {
           computerMoveCell = firstShipArray[1]
           computerMoveCell.style.background = 'blue'
           computerShotsArray.push(computerMoveCell)
@@ -451,8 +607,78 @@ function init() {
           computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: ' +  displayComputerScore
           
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('first-ship') 
-        && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('first-ship') )  {
+        && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('first-ship')
+        && computerShotsArray[parseInt(computerShotsArray.length) - 3].classList.contains('first-ship')
+        && computerShotsArray[parseInt(computerShotsArray.length) - 4].classList.contains('first-ship')
+        && computerShotsArray[parseInt(computerShotsArray.length) - 5].classList.contains('first-ship') 
+        && computerShotsArray[parseInt(computerShotsArray.length) - 6].classList.contains('first-ship') )  {
           computerMoveCell = firstShipArray[2]
+          computerMoveCell.style.background = 'blue'
+          computerShotsArray.push(computerMoveCell)
+
+          if (!computerMoveCell.classList.contains('ship-hit')){
+            computerMoveCell.classList.add('ship-hit')
+            computerScoreArray.push(computerMoveCell)
+          }
+          // Counting Computer Score
+          displayComputerScore = computerScoreArray.length
+          //Displaying Computer Score
+          computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: ' +  displayComputerScore
+          
+        } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('first-ship') 
+        && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('first-ship')
+        && computerShotsArray[parseInt(computerShotsArray.length) - 3].classList.contains('first-ship')
+        && computerShotsArray[parseInt(computerShotsArray.length) - 4].classList.contains('first-ship')
+        && computerShotsArray[parseInt(computerShotsArray.length) - 5].classList.contains('first-ship') )  {
+          computerMoveCell = firstShipArray[3]
+          computerMoveCell.style.background = 'blue'
+          computerShotsArray.push(computerMoveCell)
+
+          if (!computerMoveCell.classList.contains('ship-hit')){
+            computerMoveCell.classList.add('ship-hit')
+            computerScoreArray.push(computerMoveCell)
+          }
+          // Counting Computer Score
+          displayComputerScore = computerScoreArray.length
+          //Displaying Computer Score
+          computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: ' +  displayComputerScore
+          
+        } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('first-ship') 
+        && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('first-ship')
+        && computerShotsArray[parseInt(computerShotsArray.length) - 3].classList.contains('first-ship')
+        && computerShotsArray[parseInt(computerShotsArray.length) - 4].classList.contains('first-ship') )  {
+          computerMoveCell = firstShipArray[4]
+          computerMoveCell.style.background = 'blue'
+          computerShotsArray.push(computerMoveCell)
+
+          if (!computerMoveCell.classList.contains('ship-hit')){
+            computerMoveCell.classList.add('ship-hit')
+            computerScoreArray.push(computerMoveCell)
+          }
+          // Counting Computer Score
+          displayComputerScore = computerScoreArray.length
+          //Displaying Computer Score
+          computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: ' +  displayComputerScore
+          
+        } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('first-ship') 
+        && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('first-ship')
+        && computerShotsArray[parseInt(computerShotsArray.length) - 3].classList.contains('first-ship') )  {
+          computerMoveCell = firstShipArray[5]
+          computerMoveCell.style.background = 'blue'
+          computerShotsArray.push(computerMoveCell)
+
+          if (!computerMoveCell.classList.contains('ship-hit')){
+            computerMoveCell.classList.add('ship-hit')
+            computerScoreArray.push(computerMoveCell)
+          }
+          // Counting Computer Score
+          displayComputerScore = computerScoreArray.length
+          //Displaying Computer Score
+          computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: ' +  displayComputerScore
+          
+        } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('first-ship') 
+        && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('first-ship') )  {
+          computerMoveCell = firstShipArray[6]
           computerMoveCell.style.background = 'blue'
           computerShotsArray.push(computerMoveCell)
           
@@ -466,7 +692,7 @@ function init() {
           computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: ' +  displayComputerScore
           
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('first-ship') )  {
-          computerMoveCell = firstShipArray[3]
+          computerMoveCell = firstShipArray[7]
           computerMoveCell.style.background = 'blue'
           computerShotsArray.push(computerMoveCell)
           
@@ -562,7 +788,8 @@ function init() {
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('fourth-ship')
         && computerShotsArray[parseInt(computerShotsArray.length) - 3].classList.contains('fourth-ship')
         && computerShotsArray[parseInt(computerShotsArray.length) - 4].classList.contains('fourth-ship')
-        && computerShotsArray[parseInt(computerShotsArray.length) - 5].classList.contains('fourth-ship')) {
+        && computerShotsArray[parseInt(computerShotsArray.length) - 5].classList.contains('fourth-ship')
+        && computerShotsArray[parseInt(computerShotsArray.length) - 6].classList.contains('fourth-ship')) {
           computerMoveCell = fourthShipArray[0]
           computerMoveCell.style.background = 'green'
           computerMoveCell.classList.remove('fourth-ship')
@@ -580,8 +807,26 @@ function init() {
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('fourth-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('fourth-ship')
         && computerShotsArray[parseInt(computerShotsArray.length) - 3].classList.contains('fourth-ship')
-        && computerShotsArray[parseInt(computerShotsArray.length) - 4].classList.contains('fourth-ship') )  {
+        && computerShotsArray[parseInt(computerShotsArray.length) - 4].classList.contains('fourth-ship')
+        && computerShotsArray[parseInt(computerShotsArray.length) - 5].classList.contains('fourth-ship')) {
           computerMoveCell = fourthShipArray[1]
+          computerMoveCell.style.background = 'green'
+          computerShotsArray.push(computerMoveCell)
+
+          if (!computerMoveCell.classList.contains('ship-hit')){
+            computerMoveCell.classList.add('ship-hit')
+            computerScoreArray.push(computerMoveCell)
+          }
+          // Counting Computer Score
+          displayComputerScore = computerScoreArray.length
+          //Displaying Computer Score
+          computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: ' +  displayComputerScore
+          
+        } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('fourth-ship') 
+        && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('fourth-ship')
+        && computerShotsArray[parseInt(computerShotsArray.length) - 3].classList.contains('fourth-ship')
+        && computerShotsArray[parseInt(computerShotsArray.length) - 4].classList.contains('fourth-ship') )  {
+          computerMoveCell = fourthShipArray[2]
           computerMoveCell.style.background = 'green'
           computerShotsArray.push(computerMoveCell)
 
@@ -597,7 +842,7 @@ function init() {
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('fourth-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('fourth-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 3].classList.contains('fourth-ship'))  {
-          computerMoveCell = fourthShipArray[2]
+          computerMoveCell = fourthShipArray[3]
           computerMoveCell.style.background = 'green'
           computerShotsArray.push(computerMoveCell)
 
@@ -612,7 +857,7 @@ function init() {
           
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('fourth-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('fourth-ship'))  {
-          computerMoveCell = fourthShipArray[3]
+          computerMoveCell = fourthShipArray[4]
           computerMoveCell.style.background = 'green'
           computerShotsArray.push(computerMoveCell)
 
@@ -626,7 +871,7 @@ function init() {
           computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: ' +  displayComputerScore
           
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('fourth-ship') )  {
-          computerMoveCell = fourthShipArray[4]
+          computerMoveCell = fourthShipArray[5]
           computerMoveCell.style.background = 'green'
           computerShotsArray.push(computerMoveCell)
 
@@ -664,8 +909,9 @@ function init() {
           
         }
         // Customer Win
-        if (displayCustomerScore >= 14) {
+        if (displayCustomerScore >= 19) {
           battlefieldSounds.remove()
+          russianBattleFieldSounds.remove()
           const flag = document.createElement('img')
           flag.classList.add('flag')
           flag.src = wavingFlagArray[0]
@@ -677,8 +923,9 @@ function init() {
           //Displaying The Winner
           resultDisplay.textContent = result
           return // Computer Win
-        } else if (displayComputerScore >= 14) {
+        } else if (displayComputerScore >= 19) {
           battlefieldSounds.remove()
+          russianBattleFieldSounds.remove()
           const flag = document.createElement('img')
           flag.classList.add('flag')
           flag.src = wavingFlagArray[1]
@@ -693,7 +940,7 @@ function init() {
         } 
         console.log(computerScoreArray)
         isComputerPlaying = false
-      }, 7)
+      }, 5)
     }
     
   }

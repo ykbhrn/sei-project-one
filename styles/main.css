@@ -297,7 +297,7 @@ button:hover{
   background: grey;
 }
 .fourth-ship-six{
-  background: darkgreen;
+  background: orange;
 }
 
 /* Placing different background on every cell of the specific COMPUTER ship*/
@@ -358,6 +358,9 @@ button:hover{
 }
 .comp-fourth-ship-five{
   background: grey;
+}
+.comp-fourth-ship-six{
+  background: orange;
 }
 /* ship was hit */
 .ship-hit{

@@ -420,7 +420,15 @@ function init() {
     const firstComputerShip = setInterval(() => {
       const computerFirstPosition = Math.floor(Math.random() * computerCells.length)
       if (((computerFirstPosition + 1) % width === 0) || ((computerFirstPosition + 2) % width === 0)
-        || ((computerFirstPosition + 3) % width === 0) || ((computerFirstPosition + width) > cellCounts - 1)) return
+        || ((computerFirstPosition + 3) % width === 0) || ((computerFirstPosition + width) > cellCounts - 1) 
+        || computerCells[computerFirstPosition].classList.contains('ships-positions')
+        || computerCells[computerFirstPosition + 1].classList.contains('ships-positions')
+        || computerCells[computerFirstPosition + 2].classList.contains('ships-positions')
+        || computerCells[computerFirstPosition + 3].classList.contains('ships-positions')
+        || computerCells[computerFirstPosition + width ].classList.contains('ships-positions')
+        || computerCells[computerFirstPosition + width + 1 ].classList.contains('ships-positions')
+        || computerCells[computerFirstPosition + + width + 2].classList.contains('ships-positions')
+        || computerCells[computerFirstPosition + width + 3].classList.contains('ships-positions') ) return
       else {
         computerCells[computerFirstPosition].classList.add('ships-positions')
         computerCells[computerFirstPosition + 1].classList.add('ships-positions')
@@ -495,17 +503,20 @@ function init() {
       const computerFourthPosition = Math.floor(Math.random() * computerCells.length)
       if ((computerFourthPosition + 1) % width === 0 || (computerFourthPosition + 2) % width === 0
         || (computerFourthPosition + 3) % width === 0 || (computerFourthPosition + 4) % width === 0
+        || (computerFourthPosition + 5) % width === 0
         || computerCells[computerFourthPosition].classList.contains('ships-positions')
         || computerCells[computerFourthPosition + 1].classList.contains('ships-positions')
         || computerCells[computerFourthPosition + 2].classList.contains('ships-positions')
         || computerCells[computerFourthPosition + 3].classList.contains('ships-positions')
-        || computerCells[computerFourthPosition + 4].classList.contains('ships-positions')) return
+        || computerCells[computerFourthPosition + 4].classList.contains('ships-positions')
+        || computerCells[computerFourthPosition + 5].classList.contains('ships-positions') ) return
       else {
         computerCells[computerFourthPosition].classList.add('ships-positions')
         computerCells[computerFourthPosition + 1].classList.add('ships-positions')
         computerCells[computerFourthPosition + 2].classList.add('ships-positions')
         computerCells[computerFourthPosition + 3].classList.add('ships-positions')
         computerCells[computerFourthPosition + 4].classList.add('ships-positions')
+        computerCells[computerFourthPosition + 5].classList.add('ships-positions')
         //Assigning Class to Every Ship Specifically
         computerCells[computerFourthPosition].classList.add('comp-fourth-ship')
         computerCells[computerFourthPosition].classList.add('comp-fourth-ship-one')
@@ -517,7 +528,9 @@ function init() {
         computerCells[computerFourthPosition + 3].classList.add('comp-fourth-ship-four')
         computerCells[computerFourthPosition + 4].classList.add('comp-fourth-ship')
         computerCells[computerFourthPosition + 4].classList.add('comp-fourth-ship-five')
-        computerShipPositionsArray.push(computerCells[computerFourthPosition], computerCells[computerFourthPosition + 1], computerCells[computerFourthPosition + 2], computerCells[computerFourthPosition + 3], computerCells[computerFourthPosition + 4])
+        computerCells[computerFourthPosition + 5].classList.add('comp-fourth-ship')
+        computerCells[computerFourthPosition + 5].classList.add('comp-fourth-ship-six')
+        computerShipPositionsArray.push(computerCells[computerFourthPosition], computerCells[computerFourthPosition + 1], computerCells[computerFourthPosition + 2], computerCells[computerFourthPosition + 3], computerCells[computerFourthPosition + 4], computerCells[computerFourthPosition + 5])
         clearInterval(fourthComputerShip)
       }
     }, 50)
