@@ -16,6 +16,8 @@ function init() {
   const main = document.querySelector('main')
   const superpower = document.querySelector('.superpower')
   const enemy = document.querySelector('.enemy')
+  const computerImg = document.querySelector('computer-score img')
+  const customerImg = document.querySelector('customer-score img')
   let anthem
   let wavingFlagGif
   let chosenCountryName
