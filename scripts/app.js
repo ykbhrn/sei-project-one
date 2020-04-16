@@ -1041,7 +1041,7 @@ function init() {
           }, 1)
         }
         // Customer Win
-        if (displayCustomerScore >= 19) {
+        if (displayCustomerScore >= 23) {
           battlefieldSounds.remove()
           russianBattleFieldSounds.remove()
           const flag = document.createElement('img')
@@ -1055,7 +1055,7 @@ function init() {
           //Displaying The Winner
           resultDisplay.textContent = result
           return // Computer Win
-        } else if (displayComputerScore >= 19) {
+        } else if (displayComputerScore >= 23) {
           battlefieldSounds.remove()
           russianBattleFieldSounds.remove()
           const flag = document.createElement('img')
@@ -1072,7 +1072,7 @@ function init() {
         } 
         console.log(computerScoreArray)
         isComputerPlaying = false
-      }, 5)
+      }, 5000)
     }
     
   }
