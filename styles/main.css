@@ -226,8 +226,8 @@ button:hover{
   top: 200px;
   left: 30px;
   font-size: 30px;
-  width: 330px;
-  height: 170px;
+  width: 350px;
+  height: 230px;
   padding: 10px;
   border: 2px solid grey;
   text-align: center;
@@ -299,6 +299,19 @@ button:hover{
 .fourth-ship-six{
   background: orange;
 }
+/* fifth ship */
+.fifth-ship-one{
+  background: yellow;
+}
+.fifth-ship-two{
+  background: green;
+}
+.fifth-ship-three{
+  background: blue;
+}
+.fifth-ship-four{
+  background: purple;
+}
 
 /* Placing different background on every cell of the specific COMPUTER ship*/
 /* first ship */
@@ -362,6 +375,20 @@ button:hover{
 .comp-fourth-ship-six{
   background: orange;
 }
+/* fifth ship */
+.comp-fifth-ship-one{
+  background: yellow;
+}
+.comp-fifth-ship-two{
+  background: green;
+}
+.comp-fifth-ship-three{
+  background: blue;
+}
+.comp-fifth-ship-four{
+  background: purple;
+}
+
 /* ship was hit */
 .ship-hit{
   background: red;
