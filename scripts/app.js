@@ -1,6 +1,7 @@
 function init() {
 
   // ELEMENTS
+  const reset = document.querySelector('.reset')
   const allTheAudios = document.querySelectorAll('audio')
   const battlefieldSounds = document.querySelector('.battlefield-sounds')
   const russianBattleFieldSounds = document.querySelector('.russian-battlefield-sounds')
@@ -82,6 +83,7 @@ function init() {
   const resultWrapper = document.querySelector('.result-wrapper')
   const score = document.querySelector('.score')
   let result
+  let flag
   let isComputerPlaying = false
   const anthemArray = []
   const chosenCountryNameArray = []
@@ -98,15 +100,19 @@ function init() {
 
   // FUNCTIONS
 
+  // Reset Function
+  function resetGame() {
+    location.reload()
+  }
   // Mute Sounds Function
   function muteSounds() {
     allTheAudios.forEach( audio => {
       if (muteClicker % 2 === 0){  
-        audio.volume = 0
+        audio.muted = true
         isAudioPlaying = false
         mute.style.background = 'url(./images/mute.png)no-repeat'
       } else {
-        audio.volume = 1
+        audio.muted = false
         isAudioPlaying = true
         mute.style.background = 'url(./images/volume.png)no-repeat'
       }
@@ -130,10 +136,12 @@ function init() {
   // Remove Welcome Screen and Creating Country Divs
   function removeWelcomeScreen() {
     setTimeout(() => {
+      reset.style.display = 'block'
       welcomeScreen.remove()
       playImage.remove()
       mute.style.display = 'block'
       introSounds.play()
+      introSounds.loop = true
       introSounds.volume = 0.5
       choiceWrapper.style.display = 'flex'
       superpower.style.display = 'block'
@@ -465,8 +473,10 @@ function init() {
     // Remove Intro Sounds and play Battlefield Sounds
     if (chosenCountryNameArray[0] === 'Russia'){
       russianBattleFieldSounds.play()
+      russianBattleFieldSounds.loop = true
     } else {
       battlefieldSounds.play()
+      battlefieldSounds.loop = true
     }
     enemy.style.display = 'none'
     introSounds.remove()
@@ -658,9 +668,7 @@ function init() {
       // Computer Move
       isComputerPlaying = true
       
-      setTimeout(() => {
-        
-
+      setTimeout(() => {       
         // Keep Attacking First Ship
         if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('first-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('first-ship')
@@ -1071,7 +1079,8 @@ function init() {
         if (displayCustomerScore >= 23) {
           battlefieldSounds.remove()
           russianBattleFieldSounds.remove()
-          const flag = document.createElement('img')
+          flag = document.createElement('img')
+          resultDisplay.style.color = '#41FF00'
           flag.classList.add('flag')
           flag.src = wavingFlagArray[0]
           resultWrapper.appendChild(flag)
@@ -1085,10 +1094,11 @@ function init() {
         } else if (displayComputerScore >= 23) {
           battlefieldSounds.remove()
           russianBattleFieldSounds.remove()
-          const flag = document.createElement('img')
+          flag = document.createElement('img')
+          resultDisplay.style.color = 'red'
           flag.classList.add('flag')
           flag.src = wavingFlagArray[1]
-          main.appendChild(flag)
+          resultWrapper.appendChild(flag)
           if (isAudioPlaying === true) {
             anthemArray[1].play()
           }
@@ -1120,7 +1130,13 @@ function init() {
   // Click on a Next Button Which transfer Customer to a Battlefield
   btn.addEventListener('click', Battlefield)
 
+  // Mute and Unmute Sounds Event
   mute.addEventListener('click', muteSounds)
+
+  // Reset Game
+  reset.addEventListener('click', resetGame)
+
+ 
 
 }
 

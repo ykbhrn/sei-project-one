@@ -96,6 +96,16 @@ h2{
   to { transform: scale(1.2);}
 }
 
+.reset{
+  background: url('../images/reset.png')no-repeat;
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  top: 2%;
+  right: 1.5%;
+  display: none;
+  cursor: pointer;
+}
 
 .grid-wrapper{
   
@@ -105,7 +115,6 @@ h2{
   margin-top: -50px;
  
 }
-
 
 .grid{
   width: 500px;
@@ -208,13 +217,13 @@ button:hover{
 }
 
 .ships-positions{
-  
+  background: black;
 }
 .missed-hit{
   background:url('../images/x.png') no-repeat;
 }
 
-.computer-grid div.missed-hit:hover {
+.computer-grid div.missed-hit:active {
   cursor: not-allowed;
 }
 
@@ -287,11 +296,22 @@ button:hover{
 }
 
 .result-wrapper {
- 
   position: absolute;
-  left: 35%;
-  top: 35%;
+  left: 20%;
+  top: 12%;
+  display: flex;
+  align-items: center;
+  z-index: 4;
 }
+
+.result{
+  width: 550px;
+}
+
+.result {
+  font-size: 150px;
+}
+
 
 .covering-reminder{
   display: none;
