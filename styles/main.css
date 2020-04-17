@@ -20,7 +20,7 @@
     transform: translate(500px, -25px);
     background: url('../images/flame.png')no-repeat;
     background-position: center;
-  background-size: contain;
+    background-size: contain;
     z-index: 3;
     border: none;
     font-size: 0;
@@ -68,6 +68,7 @@
     background-position: center;
    background-size: contain;
    font-size: 0;
+   border: none;
   }
 }
 
@@ -133,6 +134,7 @@
     background-position: center;
    background-size: contain;
    font-size: 0;
+   border: none;
   }
 }
 
@@ -261,10 +263,10 @@ h2{
 .strategy-panel {
   color: #41FF00;
   margin: 0 auto;
-  width: 530px;
+  width: 800px;
 }
 .strategy-panel h2 {
-  font-size: 45px;
+  font-size: 40px;
 }
 
 .grid:hover{
@@ -343,8 +345,11 @@ button:hover{
   background: brown;
 }
 
-.ships-positions{
-  background: black;
+.grid .ships-positions{
+  background:#41FF00;
+}
+.customer-grid .ships-positions{
+  background:#41FF00;
 }
 .missed-hit{
   background:url('../images/x.png') no-repeat;
@@ -485,6 +490,11 @@ button:hover{
 }
 
 .ship-hit{
+  background: url('../images/fire.gif')no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.customer-grid .ship-hit{
   background: url('../images/fire.gif')no-repeat;
   background-position: center;
   background-size: contain;

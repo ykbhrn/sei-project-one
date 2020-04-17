@@ -76,6 +76,7 @@ function init() {
   const computerShipPositionsArray = []
   let computerMoveCell
   const bomb = document.querySelector('.bomb-sound')
+  const bombTwo = document.querySelector('.bomb-two')
   const computerScoreArray = []
   const customerScoreArray = []
   const customerScore = document.querySelector('.customer-score')
@@ -219,7 +220,7 @@ function init() {
               choiceWrapper.style.display = 'none'
               enemy.classList.remove('enemy')
               enemy.classList.add('strategy-panel')
-              enemy.innerHTML = '<h2>Place Your First Tank</h2>'
+              enemy.innerHTML = '<h2>Place Your Artillery Positions</h2>'
               choiceWrapper.style.display = 'none'
               tankChoicer.style.display = 'block'
             }
@@ -488,9 +489,11 @@ function init() {
   function Battlefield() {
     // Remove Intro Sounds and play Battlefield Sounds
     if (chosenCountryNameArray[0] === 'Russia'){
+      russianBattleFieldSounds.volume = 0.5
       russianBattleFieldSounds.play()
       russianBattleFieldSounds.loop = true
     } else {
+      battlefieldSounds.volume = 0.5
       battlefieldSounds.play()
       battlefieldSounds.loop = true
     }
@@ -672,6 +675,10 @@ function init() {
       }
       event.target.classList.add('shot')
       if (event.target.classList.contains('ships-positions')){
+        bomb.volume = 1
+        bomb.play()
+      } else {
+        bomb.volume = 0.4
         bomb.play()
       }
       
@@ -698,7 +705,14 @@ function init() {
           computerMoveCell.classList.remove('first-ship')
           computerMoveCell.classList.add('compt-shot')
           computerShotsArray.push(computerMoveCell)
-          
+          if (computerMoveCell.classList.contains('ships-positions')){
+            bombTwo.volume = 1
+            bombTwo.play()
+          } else {
+            bombTwo.volume = 0.4
+            bombTwo.play()
+          }
+
           if (!computerMoveCell.classList.contains('ship-hit')){
             computerMoveCell.classList.add('ship-hit')
             computerScoreArray.push(computerMoveCell)
@@ -718,7 +732,13 @@ function init() {
           computerMoveCell = firstShipArray[1]
           computerMoveCell.classList.add('comp-shot')
           computerShotsArray.push(computerMoveCell)
-
+          if (computerMoveCell.classList.contains('ships-positions')){
+            bombTwo.volume = 1
+            bombTwo.play()
+          } else {
+            bombTwo.volume = 0.4
+            bombTwo.play()
+          }
           if (!computerMoveCell.classList.contains('ship-hit')){
             computerMoveCell.classList.add('ship-hit')
             computerScoreArray.push(computerMoveCell)
@@ -737,7 +757,13 @@ function init() {
           computerMoveCell = firstShipArray[2]
           computerMoveCell.classList.add('comp-shot')
           computerShotsArray.push(computerMoveCell)
-
+          if (computerMoveCell.classList.contains('ships-positions')){
+            bombTwo.volume = 1
+            bombTwo.play()
+          } else {
+            bombTwo.volume = 0.4
+            bombTwo.play()
+          }
           if (!computerMoveCell.classList.contains('ship-hit')){
             computerMoveCell.classList.add('ship-hit')
             computerScoreArray.push(computerMoveCell)
@@ -755,7 +781,13 @@ function init() {
           computerMoveCell = firstShipArray[3]
           computerMoveCell.classList.add('comp-shot')
           computerShotsArray.push(computerMoveCell)
-
+          if (computerMoveCell.classList.contains('ships-positions')){
+            bombTwo.volume = 1
+            bombTwo.play()
+          } else {
+            bombTwo.volume = 0.4
+            bombTwo.play()
+          }
           if (!computerMoveCell.classList.contains('ship-hit')){
             computerMoveCell.classList.add('ship-hit')
             computerScoreArray.push(computerMoveCell)
@@ -772,7 +804,13 @@ function init() {
           computerMoveCell = firstShipArray[4]
           computerMoveCell.classList.add('comp-shot')
           computerShotsArray.push(computerMoveCell)
-
+          if (computerMoveCell.classList.contains('ships-positions')){
+            bombTwo.volume = 1
+            bombTwo.play()
+          } else {
+            bombTwo.volume = 0.4
+            bombTwo.play()
+          }
           if (!computerMoveCell.classList.contains('ship-hit')){
             computerMoveCell.classList.add('ship-hit')
             computerScoreArray.push(computerMoveCell)
@@ -788,7 +826,13 @@ function init() {
           computerMoveCell = firstShipArray[5]
           computerMoveCell.classList.add('comp-shot')
           computerShotsArray.push(computerMoveCell)
-
+          if (computerMoveCell.classList.contains('ships-positions')){
+            bombTwo.volume = 1
+            bombTwo.play()
+          } else {
+            bombTwo.volume = 0.4
+            bombTwo.play()
+          }
           if (!computerMoveCell.classList.contains('ship-hit')){
             computerMoveCell.classList.add('ship-hit')
             computerScoreArray.push(computerMoveCell)
@@ -803,7 +847,13 @@ function init() {
           computerMoveCell = firstShipArray[6]
           computerMoveCell.classList.add('comp-shot')
           computerShotsArray.push(computerMoveCell)
-          
+          if (computerMoveCell.classList.contains('ships-positions')){
+            bombTwo.volume = 1
+            bombTwo.play()
+          } else {
+            bombTwo.volume = 0.4
+            bombTwo.play()
+          }
           if (!computerMoveCell.classList.contains('ship-hit')){
             computerMoveCell.classList.add('ship-hit')
             computerScoreArray.push(computerMoveCell)
@@ -817,7 +867,13 @@ function init() {
           computerMoveCell = firstShipArray[7]
           computerMoveCell.classList.add('comp-shot')
           computerShotsArray.push(computerMoveCell)
-          
+          if (computerMoveCell.classList.contains('ships-positions')){
+            bombTwo.volume = 1
+            bombTwo.play()
+          } else {
+            bombTwo.volume = 0.4
+            bombTwo.play()
+          }
           if (!computerMoveCell.classList.contains('ship-hit')){
             computerMoveCell.classList.add('ship-hit')
             computerScoreArray.push(computerMoveCell)
@@ -834,7 +890,13 @@ function init() {
           computerMoveCell.classList.add('comp-shot')
           computerMoveCell.classList.remove('second-ship')
           computerShotsArray.push(computerMoveCell)
-
+          if (computerMoveCell.classList.contains('ships-positions')){
+            bombTwo.volume = 1
+            bombTwo.play()
+          } else {
+            bombTwo.volume = 0.4
+            bombTwo.play()
+          }
           if (!computerMoveCell.classList.contains('ship-hit')){
             computerMoveCell.classList.add('ship-hit')
             computerScoreArray.push(computerMoveCell)
@@ -848,6 +910,13 @@ function init() {
           computerMoveCell = secondShipArray[1]
           computerMoveCell.classList.add('comp-shot')
           computerShotsArray.push(computerMoveCell)
+          if (computerMoveCell.classList.contains('ships-positions')){
+            bombTwo.volume = 1
+            bombTwo.play()
+          } else {
+            bombTwo.volume = 0.4
+            bombTwo.play()
+          }
           if (!computerMoveCell.classList.contains('ship-hit')){
             computerMoveCell.classList.add('ship-hit')
             computerScoreArray.push(computerMoveCell)
@@ -865,7 +934,13 @@ function init() {
           computerMoveCell.classList.add('comp-shot')
           computerMoveCell.classList.remove('third-ship')
           computerShotsArray.push(computerMoveCell)
-
+          if (computerMoveCell.classList.contains('ships-positions')){
+            bombTwo.volume = 1
+            bombTwo.play()
+          } else {
+            bombTwo.volume = 0.4
+            bombTwo.play()
+          }
           if (!computerMoveCell.classList.contains('ship-hit')){
             computerMoveCell.classList.add('ship-hit')
             computerScoreArray.push(computerMoveCell)
@@ -880,7 +955,13 @@ function init() {
           computerMoveCell = thirdShipArray[1]
           computerMoveCell.classList.add('comp-shot')
           computerShotsArray.push(computerMoveCell)
-
+          if (computerMoveCell.classList.contains('ships-positions')){
+            bombTwo.volume = 1
+            bombTwo.play()
+          } else {
+            bombTwo.volume = 0.4
+            bombTwo.play()
+          }
           if (!computerMoveCell.classList.contains('ship-hit')){
             computerMoveCell.classList.add('ship-hit')
             computerScoreArray.push(computerMoveCell)
@@ -894,7 +975,13 @@ function init() {
           computerMoveCell = thirdShipArray[2]
           computerMoveCell.classList.add('comp-shot')
           computerShotsArray.push(computerMoveCell)
-
+          if (computerMoveCell.classList.contains('ships-positions')){
+            bombTwo.volume = 1
+            bombTwo.play()
+          } else {
+            bombTwo.volume = 0.4
+            bombTwo.play()
+          }
           if (!computerMoveCell.classList.contains('ship-hit')){
             computerMoveCell.classList.add('ship-hit')
             computerScoreArray.push(computerMoveCell)
@@ -915,7 +1002,13 @@ function init() {
           computerMoveCell.classList.add('comp-shot')
           computerMoveCell.classList.remove('fourth-ship')
           computerShotsArray.push(computerMoveCell)
-
+          if (computerMoveCell.classList.contains('ships-positions')){
+            bombTwo.volume = 1
+            bombTwo.play()
+          } else {
+            bombTwo.volume = 0.4
+            bombTwo.play()
+          }
           if (!computerMoveCell.classList.contains('ship-hit')){
             computerMoveCell.classList.add('ship-hit')
             computerScoreArray.push(computerMoveCell)
@@ -933,7 +1026,13 @@ function init() {
           computerMoveCell = fourthShipArray[1]
           computerMoveCell.classList.add('comp-shot')
           computerShotsArray.push(computerMoveCell)
-
+          if (computerMoveCell.classList.contains('ships-positions')){
+            bombTwo.volume = 1
+            bombTwo.play()
+          } else {
+            bombTwo.volume = 0.4
+            bombTwo.play()
+          }
           if (!computerMoveCell.classList.contains('ship-hit')){
             computerMoveCell.classList.add('ship-hit')
             computerScoreArray.push(computerMoveCell)
@@ -950,7 +1049,13 @@ function init() {
           computerMoveCell = fourthShipArray[2]
           computerMoveCell.classList.add('comp-shot')
           computerShotsArray.push(computerMoveCell)
-
+          if (computerMoveCell.classList.contains('ships-positions')){
+            bombTwo.volume = 1
+            bombTwo.play()
+          } else {
+            bombTwo.volume = 0.4
+            bombTwo.play()
+          }
           if (!computerMoveCell.classList.contains('ship-hit')){
             computerMoveCell.classList.add('ship-hit')
             computerScoreArray.push(computerMoveCell)
@@ -966,7 +1071,13 @@ function init() {
           computerMoveCell = fourthShipArray[3]
           computerMoveCell.classList.add('comp-shot')
           computerShotsArray.push(computerMoveCell)
-
+          if (computerMoveCell.classList.contains('ships-positions')){
+            bombTwo.volume = 1
+            bombTwo.play()
+          } else {
+            bombTwo.volume = 0.4
+            bombTwo.play()
+          }
           if (!computerMoveCell.classList.contains('ship-hit')){
             computerMoveCell.classList.add('ship-hit')
             computerScoreArray.push(computerMoveCell)
@@ -981,7 +1092,13 @@ function init() {
           computerMoveCell = fourthShipArray[4]
           computerMoveCell.classList.add('comp-shot')
           computerShotsArray.push(computerMoveCell)
-
+          if (computerMoveCell.classList.contains('ships-positions')){
+            bombTwo.volume = 1
+            bombTwo.play()
+          } else {
+            bombTwo.volume = 0.4
+            bombTwo.play()
+          }
           if (!computerMoveCell.classList.contains('ship-hit')){
             computerMoveCell.classList.add('ship-hit')
             computerScoreArray.push(computerMoveCell)
@@ -995,7 +1112,13 @@ function init() {
           computerMoveCell = fourthShipArray[5]
           computerMoveCell.classList.add('comp-shot')
           computerShotsArray.push(computerMoveCell)
-
+          if (computerMoveCell.classList.contains('ships-positions')){
+            bombTwo.volume = 1
+            bombTwo.play()
+          } else {
+            bombTwo.volume = 0.4
+            bombTwo.play()
+          }
           if (!computerMoveCell.classList.contains('ship-hit')){
             computerMoveCell.classList.add('ship-hit')
             computerScoreArray.push(computerMoveCell)
@@ -1013,7 +1136,13 @@ function init() {
           computerMoveCell.classList.add('comp-shot')
           computerMoveCell.classList.remove('fifth-ship')
           computerShotsArray.push(computerMoveCell)
-
+          if (computerMoveCell.classList.contains('ships-positions')){
+            bombTwo.volume = 1
+            bombTwo.play()
+          } else {
+            bombTwo.volume = 0.4
+            bombTwo.play()
+          }
           if (!computerMoveCell.classList.contains('ship-hit')){
             computerMoveCell.classList.add('ship-hit')
             computerScoreArray.push(computerMoveCell)
@@ -1029,7 +1158,13 @@ function init() {
           computerMoveCell = fifthShipArray[1]
           computerMoveCell.classList.add('comp-shot')
           computerShotsArray.push(computerMoveCell)
-
+          if (computerMoveCell.classList.contains('ships-positions')){
+            bombTwo.volume = 1
+            bombTwo.play()
+          } else {
+            bombTwo.volume = 0.4
+            bombTwo.play()
+          }
           if (!computerMoveCell.classList.contains('ship-hit')){
             computerMoveCell.classList.add('ship-hit')
             computerScoreArray.push(computerMoveCell)
@@ -1044,7 +1179,13 @@ function init() {
           computerMoveCell = fifthShipArray[2]
           computerMoveCell.classList.add('comp-shot')
           computerShotsArray.push(computerMoveCell)
-
+          if (computerMoveCell.classList.contains('ships-positions')){
+            bombTwo.volume = 1
+            bombTwo.play()
+          } else {
+            bombTwo.volume = 0.4
+            bombTwo.play()
+          }
           if (!computerMoveCell.classList.contains('ship-hit')){
             computerMoveCell.classList.add('ship-hit')
             computerScoreArray.push(computerMoveCell)
@@ -1058,7 +1199,13 @@ function init() {
           computerMoveCell = fifthShipArray[3]
           computerMoveCell.classList.add('comp-shot')
           computerShotsArray.push(computerMoveCell)
-
+          if (computerMoveCell.classList.contains('ships-positions')){
+            bombTwo.volume = 1
+            bombTwo.play()
+          } else {
+            bombTwo.volume = 0.4
+            bombTwo.play()
+          }
           if (!computerMoveCell.classList.contains('ship-hit')){
             computerMoveCell.classList.add('ship-hit')
             computerScoreArray.push(computerMoveCell)
@@ -1077,6 +1224,13 @@ function init() {
               if (computerMoveCell.classList.contains('ships-positions')) {
                 computerMoveCell.classList.add('ship-hit')
                 computerScoreArray.push(computerMoveCell)
+              }
+              if (computerMoveCell.classList.contains('ships-positions')){
+                bombTwo.volume = 1
+                bombTwo.play()
+              } else {
+                bombTwo.volume = 0.4
+                bombTwo.play()
               }
               // Add missed-hit class to a cell which was already attacked
               computerMoveCell.classList.add('missed-hit')
@@ -1125,7 +1279,7 @@ function init() {
         } 
         console.log(computerScoreArray)
         isComputerPlaying = false
-      }, 5)
+      }, 7000)
     }
     
   }
