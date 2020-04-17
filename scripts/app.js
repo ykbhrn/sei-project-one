@@ -696,6 +696,7 @@ function init() {
         && computerShotsArray[parseInt(computerShotsArray.length) - 8].classList.contains('first-ship') ) {
           computerMoveCell = firstShipArray[0]
           computerMoveCell.classList.remove('first-ship')
+          computerMoveCell.classList.add('compt-shot')
           computerShotsArray.push(computerMoveCell)
           
           if (!computerMoveCell.classList.contains('ship-hit')){
@@ -715,6 +716,7 @@ function init() {
         && computerShotsArray[parseInt(computerShotsArray.length) - 6].classList.contains('first-ship')
         && computerShotsArray[parseInt(computerShotsArray.length) - 7].classList.contains('first-ship') )  {
           computerMoveCell = firstShipArray[1]
+          computerMoveCell.classList.add('comp-shot')
           computerShotsArray.push(computerMoveCell)
 
           if (!computerMoveCell.classList.contains('ship-hit')){
@@ -733,6 +735,7 @@ function init() {
         && computerShotsArray[parseInt(computerShotsArray.length) - 5].classList.contains('first-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 6].classList.contains('first-ship') )  {
           computerMoveCell = firstShipArray[2]
+          computerMoveCell.classList.add('comp-shot')
           computerShotsArray.push(computerMoveCell)
 
           if (!computerMoveCell.classList.contains('ship-hit')){
@@ -750,6 +753,7 @@ function init() {
         && computerShotsArray[parseInt(computerShotsArray.length) - 4].classList.contains('first-ship')
         && computerShotsArray[parseInt(computerShotsArray.length) - 5].classList.contains('first-ship') )  {
           computerMoveCell = firstShipArray[3]
+          computerMoveCell.classList.add('comp-shot')
           computerShotsArray.push(computerMoveCell)
 
           if (!computerMoveCell.classList.contains('ship-hit')){
@@ -766,6 +770,7 @@ function init() {
         && computerShotsArray[parseInt(computerShotsArray.length) - 3].classList.contains('first-ship')
         && computerShotsArray[parseInt(computerShotsArray.length) - 4].classList.contains('first-ship') )  {
           computerMoveCell = firstShipArray[4]
+          computerMoveCell.classList.add('comp-shot')
           computerShotsArray.push(computerMoveCell)
 
           if (!computerMoveCell.classList.contains('ship-hit')){
@@ -781,6 +786,7 @@ function init() {
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('first-ship')
         && computerShotsArray[parseInt(computerShotsArray.length) - 3].classList.contains('first-ship') )  {
           computerMoveCell = firstShipArray[5]
+          computerMoveCell.classList.add('comp-shot')
           computerShotsArray.push(computerMoveCell)
 
           if (!computerMoveCell.classList.contains('ship-hit')){
@@ -795,6 +801,7 @@ function init() {
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('first-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('first-ship') )  {
           computerMoveCell = firstShipArray[6]
+          computerMoveCell.classList.add('comp-shot')
           computerShotsArray.push(computerMoveCell)
           
           if (!computerMoveCell.classList.contains('ship-hit')){
@@ -808,6 +815,7 @@ function init() {
           
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('first-ship') )  {
           computerMoveCell = firstShipArray[7]
+          computerMoveCell.classList.add('comp-shot')
           computerShotsArray.push(computerMoveCell)
           
           if (!computerMoveCell.classList.contains('ship-hit')){
@@ -823,6 +831,7 @@ function init() {
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('second-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('second-ship') )  {
           computerMoveCell = secondShipArray[0]
+          computerMoveCell.classList.add('comp-shot')
           computerMoveCell.classList.remove('second-ship')
           computerShotsArray.push(computerMoveCell)
 
@@ -837,6 +846,7 @@ function init() {
 
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('second-ship') )  {
           computerMoveCell = secondShipArray[1]
+          computerMoveCell.classList.add('comp-shot')
           computerShotsArray.push(computerMoveCell)
           if (!computerMoveCell.classList.contains('ship-hit')){
             computerMoveCell.classList.add('ship-hit')
@@ -852,6 +862,7 @@ function init() {
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('third-ship')
         && computerShotsArray[parseInt(computerShotsArray.length) - 3].classList.contains('third-ship') )  {
           computerMoveCell = thirdShipArray[0]
+          computerMoveCell.classList.add('comp-shot')
           computerMoveCell.classList.remove('third-ship')
           computerShotsArray.push(computerMoveCell)
 
@@ -867,6 +878,7 @@ function init() {
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('third-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('third-ship') )  {
           computerMoveCell = thirdShipArray[1]
+          computerMoveCell.classList.add('comp-shot')
           computerShotsArray.push(computerMoveCell)
 
           if (!computerMoveCell.classList.contains('ship-hit')){
@@ -880,6 +892,7 @@ function init() {
           
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('third-ship') )  {
           computerMoveCell = thirdShipArray[2]
+          computerMoveCell.classList.add('comp-shot')
           computerShotsArray.push(computerMoveCell)
 
           if (!computerMoveCell.classList.contains('ship-hit')){
@@ -899,6 +912,7 @@ function init() {
         && computerShotsArray[parseInt(computerShotsArray.length) - 5].classList.contains('fourth-ship')
         && computerShotsArray[parseInt(computerShotsArray.length) - 6].classList.contains('fourth-ship')) {
           computerMoveCell = fourthShipArray[0]
+          computerMoveCell.classList.add('comp-shot')
           computerMoveCell.classList.remove('fourth-ship')
           computerShotsArray.push(computerMoveCell)
 
@@ -917,6 +931,7 @@ function init() {
         && computerShotsArray[parseInt(computerShotsArray.length) - 4].classList.contains('fourth-ship')
         && computerShotsArray[parseInt(computerShotsArray.length) - 5].classList.contains('fourth-ship')) {
           computerMoveCell = fourthShipArray[1]
+          computerMoveCell.classList.add('comp-shot')
           computerShotsArray.push(computerMoveCell)
 
           if (!computerMoveCell.classList.contains('ship-hit')){
@@ -933,6 +948,7 @@ function init() {
         && computerShotsArray[parseInt(computerShotsArray.length) - 3].classList.contains('fourth-ship')
         && computerShotsArray[parseInt(computerShotsArray.length) - 4].classList.contains('fourth-ship') )  {
           computerMoveCell = fourthShipArray[2]
+          computerMoveCell.classList.add('comp-shot')
           computerShotsArray.push(computerMoveCell)
 
           if (!computerMoveCell.classList.contains('ship-hit')){
@@ -948,6 +964,7 @@ function init() {
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('fourth-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 3].classList.contains('fourth-ship'))  {
           computerMoveCell = fourthShipArray[3]
+          computerMoveCell.classList.add('comp-shot')
           computerShotsArray.push(computerMoveCell)
 
           if (!computerMoveCell.classList.contains('ship-hit')){
@@ -962,6 +979,7 @@ function init() {
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('fourth-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('fourth-ship'))  {
           computerMoveCell = fourthShipArray[4]
+          computerMoveCell.classList.add('comp-shot')
           computerShotsArray.push(computerMoveCell)
 
           if (!computerMoveCell.classList.contains('ship-hit')){
@@ -975,6 +993,7 @@ function init() {
           
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('fourth-ship') )  {
           computerMoveCell = fourthShipArray[5]
+          computerMoveCell.classList.add('comp-shot')
           computerShotsArray.push(computerMoveCell)
 
           if (!computerMoveCell.classList.contains('ship-hit')){
@@ -991,6 +1010,7 @@ function init() {
         && computerShotsArray[parseInt(computerShotsArray.length) - 3].classList.contains('fifth-ship')
         && computerShotsArray[parseInt(computerShotsArray.length) - 4].classList.contains('fifth-ship') )  {
           computerMoveCell = fifthShipArray[0]
+          computerMoveCell.classList.add('comp-shot')
           computerMoveCell.classList.remove('fifth-ship')
           computerShotsArray.push(computerMoveCell)
 
@@ -1007,6 +1027,7 @@ function init() {
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('fifth-ship')
         && computerShotsArray[parseInt(computerShotsArray.length) - 3].classList.contains('fifth-ship') )  {
           computerMoveCell = fifthShipArray[1]
+          computerMoveCell.classList.add('comp-shot')
           computerShotsArray.push(computerMoveCell)
 
           if (!computerMoveCell.classList.contains('ship-hit')){
@@ -1021,6 +1042,7 @@ function init() {
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('fifth-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('fifth-ship') )  {
           computerMoveCell = fifthShipArray[2]
+          computerMoveCell.classList.add('comp-shot')
           computerShotsArray.push(computerMoveCell)
 
           if (!computerMoveCell.classList.contains('ship-hit')){
@@ -1034,6 +1056,7 @@ function init() {
           
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('fifth-ship') )  {
           computerMoveCell = fifthShipArray[3]
+          computerMoveCell.classList.add('comp-shot')
           computerShotsArray.push(computerMoveCell)
 
           if (!computerMoveCell.classList.contains('ship-hit')){
@@ -1057,6 +1080,7 @@ function init() {
               }
               // Add missed-hit class to a cell which was already attacked
               computerMoveCell.classList.add('missed-hit')
+              computerMoveCell.classList.add('comp-shot')
               computerShotsArray.push(computerMoveCell)
               clearInterval(computerMoveInterval)
 

@@ -14,38 +14,125 @@
     background-position: center;
     background-size: contain;
     border: none;
+    font-size: 0;
   }
-  25% {
-    transform: translate(450px, -50px);
+  17% {
+    transform: translate(500px, -25px);
     background: url('../images/flame.png')no-repeat;
     background-position: center;
   background-size: contain;
     z-index: 3;
     border: none;
+    font-size: 0;
   }
-  50% {
-    transform: translate(300px, -100px);
+  34% {
+    transform: translate(400px, -50px);
     background: url('../images/flame.png')no-repeat;
     z-index: 3;
     background-position: center;
     background-size: contain;
     border: none;
+    font-size: 0;
   }
-  75% {
-    transform: translate(150px, -50px);
+  51% {
+    transform: translate(300px, -50px);
     background: url('../images/flame.png')no-repeat;
     z-index: 3;
     background-position: center;
     background-size: contain;
     border: none;
+    font-size: 0;
   }
-
+  68% {
+    transform: translate(200px, -50px);
+    background: url('../images/flame.png')no-repeat;
+    z-index: 3;
+    background-position: center;
+    background-size: contain;
+    border: none;
+    font-size: 0;
+  }
+  82% {
+    transform: translate(100px, -25px);
+    background: url('../images/flame.png')no-repeat;
+    z-index: 3;
+    background-position: center;
+    background-size: contain;
+    border: none;
+    font-size: 0;
+  }
+  
   100% {
     transform: translate(0px);
     background: url('../images/flame.png');
     background-position: center;
    background-size: contain;
+   font-size: 0;
+  }
+}
 
+@keyframes compbomb {
+  0% {
+    transform: translate(-600px);
+    background: url('../images/compflame.png')no-repeat;
+    z-index: 3;
+    background-position: center;
+    background-size: contain;
+    border: none;
+    font-size: 0;
+  }
+  17% {
+    transform: translate(-500px, -25px);
+    background: url('../images/compflame.png')no-repeat;
+    background-position: center;
+  background-size: contain;
+    z-index: 3;
+    border: none;
+    font-size: 0;
+  }
+  34% {
+    transform: translate(-400px, -50px);
+    background: url('../images/compflame.png')no-repeat;
+    z-index: 3;
+    background-position: center;
+    background-size: contain;
+    border: none;
+    font-size: 0;
+  }
+  51% {
+    transform: translate(-300px, -50px);
+    background: url('../images/compflame.png')no-repeat;
+    z-index: 3;
+    background-position: center;
+    background-size: contain;
+    border: none;
+    font-size: 0;
+  }
+  68% {
+    transform: translate(-200px, -50px);
+    background: url('../images/compflame.png')no-repeat;
+    z-index: 3;
+    background-position: center;
+    background-size: contain;
+    border: none;
+    font-size: 0;
+  }
+  82% {
+    transform: translate(-100px, -25px);
+    background: url('../images/compflame.png')no-repeat;
+    z-index: 3;
+    background-position: center;
+    background-size: contain;
+    border: none;
+    font-size: 0;
+  }
+  
+  100% {
+    transform: translate(0px);
+    background: url('../images/compflame.png');
+    background-position: center;
+   background-size: contain;
+   font-size: 0;
   }
 }
 
@@ -355,7 +442,14 @@ button:hover{
 .shot {
   background-position: center;
   background-size: contain;
-  animation: 5.5s bomb normal;
+  animation: 3s linear .1s bomb;
+  animation-iteration-count: 1;
+}
+
+.comp-shot{
+  background-position: center;
+  background-size: contain;
+  animation: 3s linear .1s compbomb;
   animation-iteration-count: 1;
 }
 
