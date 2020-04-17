@@ -9,9 +9,7 @@ function init() {
   const russianBattleFieldSounds = document.querySelector('.russian-battlefield-sounds')
   let isAudioPlaying = true
   let muteClicker = 0
-  let tanksChoiceClicker = 0
   let screenCounter = 0
-  const tankChoicer = document.querySelector('.tank-choicer')
   const coveringReminder = document.querySelector('.covering-reminder')
   const playImage = document.querySelector('.welcome-screen img')
   const welcomeScreen = document.querySelector('.welcome-screen')
@@ -222,7 +220,7 @@ function init() {
               enemy.classList.add('strategy-panel')
               enemy.innerHTML = '<h2>Place Your Artillery Positions</h2>'
               choiceWrapper.style.display = 'none'
-              tankChoicer.style.display = 'block'
+             
             }
           }, 200)
         }
@@ -249,17 +247,7 @@ function init() {
         cell.classList.remove('not-allowed')
       }
     })
-    tanksChoiceClicker++
-    if (tanksChoiceClicker === 1) {
-      tankChoicer.textContent = 'Place Your Second Tank'
-      tankChoicer.style.background = 'url(./images/tank2.jpg)no-repeat'
-    } else if (tanksChoiceClicker === 2) {
-      tankChoicer.textContent = 'Place Your Third Artillery'
-    } else if (tanksChoiceClicker === 3) {
-      tankChoicer.textContent = 'Place Your Fourth Artillery'
-    } else if (tanksChoiceClicker === 4) {
-      tankChoicer.textContent = 'Place Your Fifth Artillery'
-    } 
+   
 
     // First Ship
     if (customerShipPositionsArray.length < 3) {
@@ -478,7 +466,7 @@ function init() {
         fourthPosition.classList.add('fifth-ship-four')
         fifthShipArray.push(shipPosition, secondPosition, thirdPosition, fourthPosition)
         btn.style.display = 'inline'
-        tankChoicer.style.display = 'none'
+       
       } 
     }
   }
@@ -870,6 +858,7 @@ function init() {
           if (computerMoveCell.classList.contains('ships-positions')){
             bombTwo.volume = 1
             bombTwo.play()
+            bombTwo.volume = 1
           } else {
             bombTwo.volume = 0.4
             bombTwo.play()
