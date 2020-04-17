@@ -8,10 +8,44 @@
 
 @keyframes bomb {
   0% {
-    transform: translate(500px)
+    transform: translate(600px);
+    background: url('../images/flame.png')no-repeat;
+    z-index: 3;
+    background-position: center;
+    background-size: contain;
+    border: none;
   }
+  25% {
+    transform: translate(450px, -50px);
+    background: url('../images/flame.png')no-repeat;
+    background-position: center;
+  background-size: contain;
+    z-index: 3;
+    border: none;
+  }
+  50% {
+    transform: translate(300px, -100px);
+    background: url('../images/flame.png')no-repeat;
+    z-index: 3;
+    background-position: center;
+    background-size: contain;
+    border: none;
+  }
+  75% {
+    transform: translate(150px, -50px);
+    background: url('../images/flame.png')no-repeat;
+    z-index: 3;
+    background-position: center;
+    background-size: contain;
+    border: none;
+  }
+
   100% {
-    transform: translate(0)
+    transform: translate(0px);
+    background: url('../images/flame.png');
+    background-position: center;
+   background-size: contain;
+
   }
 }
 
@@ -46,13 +80,6 @@ main {
 
 .full-screen:hover{
   cursor: pointer;
-}
-
-.shot {
-  background: url('../images/play.png');
-  animation: 2.5s bomb ease-in;
-  animation-iteration-count: 1;
- animation-delay: 1s;
 }
 
 *{
@@ -234,6 +261,7 @@ button:hover{
 }
 .missed-hit{
   background:url('../images/x.png') no-repeat;
+  background-position: center;
 }
 
 .computer-grid div.missed-hit:active {
@@ -324,6 +352,12 @@ button:hover{
 .result {
   font-size: 150px;
 }
+.shot {
+  background-position: center;
+  background-size: contain;
+  animation: 5.5s bomb normal;
+  animation-iteration-count: 1;
+}
 
 
 .covering-reminder{
@@ -343,9 +377,10 @@ button:hover{
 
 .tank-choicer{
   display: none;
-  width: 200px;
-  height: 300px;
-  background: url('../images/tank2.jpg');
+  width: 400px;
+  height: 200px;
+  background: url('../images/tank1.png')no-repeat;
+  background-size: contain;
   position: absolute;
   left: 5%;
   top: 35%;
@@ -355,161 +390,15 @@ button:hover{
   background:url('../images/x.png') no-repeat;
 }
 
-/* Placing different background on every cell of the specific CUSTOMER ship*/
-/* first ship */
-
-.first-ship-one{
-  background: yellow;
-}
-.first-ship-two{
-  background: green;
-}
-.first-ship-three{
-  background: blue;
-}
-.first-ship-four{
-  background: brown;
-}
-.first-ship-five{
-  background: yellow;
-}
-.first-ship-six{
-  background: green;
-}
-.first-ship-seven{
-  background: blue;
-}
-.first-ship-eight{
-  background: brown;
-}
- /* second ship */
- .second-ship-one{
-  background: yellow;
-}
-.second-ship-two{
-  background: green;
-}
-/* third ship */
-.third-ship-one{
-  background: yellow;
-}
-.third-ship-two{
-  background: green;
-}
-.third-ship-three{
-  background: blue;
-}
-/* fourth ship */
-.fourth-ship-one{
-  background: yellow;
-}
-.fourth-ship-two{
-  background: green;
-}
-.fourth-ship-three{
-  background: blue;
-}
-.fourth-ship-four{
-  background: purple;
-}
-.fourth-ship-five{
-  background: grey;
-}
-.fourth-ship-six{
-  background: orange;
-}
-/* fifth ship */
-.fifth-ship-one{
-  background: yellow;
-}
-.fifth-ship-two{
-  background: green;
-}
-.fifth-ship-three{
-  background: blue;
-}
-.fifth-ship-four{
-  background: purple;
-}
-
-/* Placing different background on every cell of the specific COMPUTER ship*/
-/* first ship */
-/* .comp-first-ship-one{
-  background: yellow;
-}
-.comp-first-ship-two{
-  background: green;
-}
-.comp-first-ship-three{
-  background: blue;
-}
-.comp-first-ship-four{
-  background: brown;
-}
-.comp-first-ship-five{
-  background: yellow;
-}
-.comp-first-ship-six{
-  background: green;
-}
-.comp-first-ship-seven{
-  background: blue;
-}
-.comp-first-ship-eight{
-  background: brown;
-}
- /* second ship */
- /* .comp-second-ship-one{
-  background: yellow;
-}
-.comp-second-ship-two{
-  background: green;
-}
-/* third ship */
-/* .comp-third-ship-one{
-  background: yellow;
-}
-.comp-third-ship-two{
-  background: green;
-}
-.comp-third-ship-three{
-  background: blue;
-}
-/* fourth ship */
-/* .comp-fourth-ship-one{
-  background: yellow;
-}
-.comp-fourth-ship-two{
-  background: green;
-}
-.comp-fourth-ship-three{
-  background: blue;
-}
-.comp-fourth-ship-four{
-  background: brown;
-}
-.comp-fourth-ship-five{
-  background: grey;
-}
-.comp-fourth-ship-six{
-  background: orange;
-} */ 
-/* fifth ship */
-/* .comp-fifth-ship-one{
-  background: yellow;
-}
-.comp-fifth-ship-two{
-  background: green;
-}
-.comp-fifth-ship-three{
-  background: blue;
-}
-.comp-fifth-ship-four{
-  background: purple; 
-}  */
-
-/* ship was hit */
 .ship-hit{
-  background: red;
-  color: red;
+  background: url('../images/fire.gif')no-repeat;
+  background-position: center;
+  background-size: contain;
 }
+div.ship-hit{
+  border: none;
+}
+
+
+
+
