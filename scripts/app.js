@@ -1,6 +1,8 @@
 function init() {
 
   // ELEMENTS
+  const htmlElement = document.querySelector('html')
+  const screen = document.querySelector('.full-screen')
   const reset = document.querySelector('.reset')
   const allTheAudios = document.querySelectorAll('audio')
   const battlefieldSounds = document.querySelector('.battlefield-sounds')
@@ -8,6 +10,7 @@ function init() {
   let isAudioPlaying = true
   let muteClicker = 0
   let tanksChoiceClicker = 0
+  let screenCounter = 0
   const tankChoicer = document.querySelector('.tank-choicer')
   const coveringReminder = document.querySelector('.covering-reminder')
   const playImage = document.querySelector('.welcome-screen img')
@@ -102,7 +105,19 @@ function init() {
 
   // Reset Function
   function resetGame() {
-    location.reload()
+    location.reload()  
+  }
+
+  // Screen Mode Function
+  function screenMode() {
+    screenCounter++
+    if (screenCounter % 2 === 0){
+      document.exitFullscreen()
+      screen.style.background = 'url(./images/fullscreen.png)no-repeat'
+    } else {
+      htmlElement.requestFullscreen()
+      screen.style.background = 'url(./images/smallscreen.png)no-repeat'
+    }
   }
   // Mute Sounds Function
   function muteSounds() {
@@ -1136,6 +1151,8 @@ function init() {
   // Reset Game
   reset.addEventListener('click', resetGame)
 
+  // Screen Mode
+  screen.addEventListener('click', screenMode)
  
 
 }
