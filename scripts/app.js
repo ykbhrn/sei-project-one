@@ -1268,7 +1268,7 @@ function init() {
         } 
         console.log(computerScoreArray)
         isComputerPlaying = false
-      }, 7000)
+      }, 7)
     }
     
   }
