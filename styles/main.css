@@ -264,7 +264,7 @@ h2{
 }
 .strategy-panel h2 {
   font-size: 50px;
-  margin: -30px auto 40px auto;
+  margin: -10px auto 17px 0;
 }
 
 
@@ -524,72 +524,4 @@ button:hover{
 }
 div.ship-hit{
   border: none;
-}
-else if (customerShipPositionsArray.length > 9 && customerShipPositionsArray.length < 11) {
-  if (((parseInt(event.target.textContent) + 1) % width === 0) || ((parseInt(event.target.textContent) + 2) % width === 0)
-    || ((parseInt(event.target.textContent) + 3) % width === 0) 
-    || ((parseInt(event.target.textContent) + width) > cellCounts - 1) || (event.target.classList.contains('ships-positions'))
-    || (customerCells[grid.children[parseInt(event.target.textContent) + 1].textContent].classList.contains('ships-positions'))
-    || (customerCells[grid.children[parseInt(event.target.textContent) + 2].textContent].classList.contains('ships-positions'))
-    || (customerCells[grid.children[parseInt(event.target.textContent) + 3].textContent].classList.contains('ships-positions')) 
-    || (customerCells[grid.children[parseInt(event.target.textContent) + width].textContent].classList.contains('ships-positions'))
-    || (customerCells[grid.children[parseInt(event.target.textContent) + 1 + width].textContent].classList.contains('ships-positions'))
-    || (customerCells[grid.children[parseInt(event.target.textContent) + 2 + width].textContent].classList.contains('ships-positions'))
-    || (customerCells[grid.children[parseInt(event.target.textContent) + 3 + width].textContent].classList.contains('ships-positions')) ) {
-    customerCells.forEach( cell => {
-      if (parseInt(cell.textContent) < 99) {
-        if ( (parseInt(cell.textContent) + 1) % width === 0 || (parseInt(cell.textContent) + 2) % width === 0 || (parseInt(cell.textContent) + 3) % width === 0
-        || (parseInt(cell.textContent) + width) > cellCounts - 1 || (event.target.classList.contains('ships-positions'))
-        || (customerCells[grid.children[parseInt(event.target.textContent) + 1].textContent].classList.contains('ships-positions'))
-        || (customerCells[grid.children[parseInt(event.target.textContent) + 2].textContent].classList.contains('ships-positions'))
-        || (customerCells[grid.children[parseInt(event.target.textContent) + 3].textContent].classList.contains('ships-positions')) 
-        || (customerCells[grid.children[parseInt(event.target.textContent) + width].textContent].classList.contains('ships-positions'))
-        || (customerCells[grid.children[parseInt(event.target.textContent) + 1 + width].textContent].classList.contains('ships-positions'))
-        || (customerCells[grid.children[parseInt(event.target.textContent) + 2 + width].textContent].classList.contains('ships-positions'))
-        || (customerCells[grid.children[parseInt(event.target.textContent) + 3 + width].textContent].classList.contains('ships-positions')) ){
-          cell.classList.add('not-allowed')
-          grid.children[99].classList.add('not-allowed')
-        }
-      }    
-    })
-    return coveringReminder.style.display = 'block' 
-  } else {
-    const shipPosition = customerCells[parseInt(event.target.textContent)]
-    const secondPosition = customerCells[grid.children[parseInt(event.target.textContent) + 1].textContent]
-    const thirdPosition = customerCells[grid.children[parseInt(event.target.textContent) + 2].textContent]
-    const fourthPosition = customerCells[grid.children[parseInt(event.target.textContent) + 3].textContent]
-    const fifthPosition = customerCells[grid.children[parseInt(event.target.textContent) + width].textContent]
-    const sixthPosition = customerCells[grid.children[parseInt(event.target.textContent) + 1 + width].textContent]
-    const seventhPosition = customerCells[grid.children[parseInt(event.target.textContent) + 2 + width].textContent]
-    const eighthPosition = customerCells[grid.children[parseInt(event.target.textContent) + 3 + width].textContent]
-
-    shipPosition.classList.add('ships-positions')
-    secondPosition.classList.add('ships-positions')
-    thirdPosition.classList.add('ships-positions')
-    fourthPosition.classList.add('ships-positions')
-    fifthPosition.classList.add('ships-positions')
-    sixthPosition.classList.add('ships-positions')
-    seventhPosition.classList.add('ships-positions')
-    eighthPosition.classList.add('ships-positions')
-    // Storing Ships as a Class in the Grid Cells
-    customerShipPositionsArray.push(shipPosition, secondPosition, thirdPosition, fourthPosition, fifthPosition, sixthPosition, seventhPosition, eighthPosition)
-    //Assigning Class to Every Ship Specifically
-    shipPosition.classList.add('fourth-ship')
-    shipPosition.classList.add('fourth-ship-one')
-    secondPosition.classList.add('fourth-ship')
-    secondPosition.classList.add('fourth-ship-two')
-    thirdPosition.classList.add('fourth-ship')
-    thirdPosition.classList.add('fourth-ship-three')
-    fourthPosition.classList.add('fourth-ship')
-    fourthPosition.classList.add('fourth-ship-four')
-    fifthPosition.classList.add('fourth-ship')
-    fifthPosition.classList.add('fourth-ship-five')
-    sixthPosition.classList.add('fourth-ship')
-    sixthPosition.classList.add('fourth-ship-six')
-    seventhPosition.classList.add('fourth-ship')
-    seventhPosition.classList.add('fourth-ship-seven')
-    eighthPosition.classList.add('fourth-ship')
-    eighthPosition.classList.add('fourth-ship-eight')
-    fourthShipArray.push(shipPosition, secondPosition, thirdPosition, fourthPosition, fifthPosition, sixthPosition, seventhPosition, eighthPosition)
-  } // Fifth Ship
 }
