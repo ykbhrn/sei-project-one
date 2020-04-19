@@ -518,6 +518,7 @@ function init() {
     // Editing Grid to make it Customer Grid...so Grid is Customer Grid Now
     grid.classList.add('customer-grid')
     // Showing score
+    resultDisplay.style.display = 'flex'
     score.style.display = 'flex'
     // Displaying Customer Score
     custScoreText.textContent = chosenCountryNameArray[0]

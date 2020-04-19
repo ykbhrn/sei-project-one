@@ -466,7 +466,7 @@ button:hover{
   position: absolute;
   left: 20%;
   top: 12%;
-  display: flex;
+  display: none;
   align-items: center;
   z-index: 4;
 }
