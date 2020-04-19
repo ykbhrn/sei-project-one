@@ -83,6 +83,8 @@ function init() {
   const customerScoreArray = []
   const customerScore = document.querySelector('.customer-score')
   const computerScore = document.querySelector('.computer-score')
+  const compScoreText = document.querySelector('.computer-score-text')
+  const custScoreText = document.querySelector('.customer-score-text')
   let displayComputerScore
   let displayCustomerScore
   const resultDisplay = document.querySelector('.result')
@@ -517,9 +519,10 @@ function init() {
     grid.classList.add('customer-grid')
     // Showing score
     score.style.display = 'flex'
-    customerScore.textContent = chosenCountryNameArray[0] + ' Score Is: 0'
+    // Displaying Customer Score
+    custScoreText.textContent = chosenCountryNameArray[0]
     //Displaying Computer Score
-    computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: 0'
+    compScoreText.textContent = chosenCountryNameArray[1]
 
     // Creating Computer Grid
     computerGrid.classList.add('computer-grid')
@@ -1291,7 +1294,7 @@ function init() {
         } 
         console.log(computerScoreArray)
         isComputerPlaying = false
-      }, 5000)
+      }, 5)
     }
     
   }

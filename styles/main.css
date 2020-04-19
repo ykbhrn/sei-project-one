@@ -357,6 +357,10 @@ button:hover{
   cursor: not-allowed;
 }
 
+.ships-positions{
+  background: black;
+}
+
 .tank-choicer{
   display: none;
   width: 400px;
@@ -423,12 +427,6 @@ button:hover{
   filter: brightness(50%);
 }
 
-/* .flag{
-  position: absolute;
-  top: 35%;
-  left: 35%;
-} */
-
 .score{
   display: none;
   width: 100vw;
@@ -442,6 +440,10 @@ button:hover{
 
 .customer-score{
   color: #41FF00;
+}
+
+.customer-score img, .computer-score img{
+  padding: 10px;
 }
 
 .superpower{
