@@ -700,7 +700,7 @@ function init() {
           cell.classList.remove('comp-first-ship')
         }
         if(compShipOneArray.length >= 8) {
-          computerScore.children[1].src = './images/score2.png'
+          computerScore.children[1].src = './images/compscore2.png'
         }
         // Displaying Second Ship Destroyed
         if(cell.classList.contains('ship-hit') && cell.classList.contains('comp-second-ship')) {
@@ -708,7 +708,7 @@ function init() {
           cell.classList.remove('comp-second-ship')
         }
         if(compShipTwoArray.length >= 2) {
-          computerScore.children[2].src = './images/score2.png'
+          computerScore.children[2].src = './images/compscore2.png'
         }
         // Displaying Third Ship Destroyed
         if(cell.classList.contains('ship-hit') && cell.classList.contains('comp-third-ship')) {
@@ -716,7 +716,7 @@ function init() {
           cell.classList.remove('comp-third-ship')
         }
         if(compShipThreeArray.length >= 3) {
-          computerScore.children[3].src = './images/score2.png'
+          computerScore.children[3].src = './images/compscore2.png'
         }
         // Displaying Fourth Ship Destroyed
         if(cell.classList.contains('ship-hit') && cell.classList.contains('comp-fourth-ship')) {
@@ -724,7 +724,7 @@ function init() {
           cell.classList.remove('comp-fourth-ship')
         }
         if(compShipFourArray.length >= 6) {
-          computerScore.children[4].src = './images/score2.png'
+          computerScore.children[4].src = './images/compscore2.png'
         }
         // Displaying Fifth Ship Destroyed
         if(cell.classList.contains('ship-hit') && cell.classList.contains('comp-fifth-ship')) {
@@ -732,7 +732,7 @@ function init() {
           cell.classList.remove('comp-fifth-ship')
         }
         if(compShipFiveArray.length >= 4) {
-          computerScore.children[5].src = './images/score2.png'
+          computerScore.children[5].src = './images/compscore2.png'
         }
       })
       console.log(computerScore)
