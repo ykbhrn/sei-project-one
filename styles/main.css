@@ -240,9 +240,7 @@ h2{
   
   display: none;
   align-items: center;
-  justify-content: center;
-  margin-top: -50px;
- 
+  justify-content: center; 
 }
 
 .grid{
@@ -257,15 +255,15 @@ h2{
   background-size: 100% 100%;
   background-position-x: center;
   background-position-y: center;
-  margin: 50px auto 0 auto;
+  margin: 0 auto;
 }
 .strategy-panel {
   color: #41FF00;
   margin: 0 auto;
-  width: 710px;
+  width: 500px;
 }
 .strategy-panel h2 {
-  font-size: 40px;
+  font-size: 50px;
 }
 
 
@@ -314,7 +312,6 @@ h2{
 }
 .computer-grid div:hover {
   opacity: 0.5;
-  content: 'Shot';
   font-size: 20px;
   cursor: crosshair;
 }
@@ -358,6 +355,43 @@ button:hover{
 
 .computer-grid div.missed-hit:active {
   cursor: not-allowed;
+}
+
+.tank-choicer{
+  display: none;
+  width: 400px;
+  height: 400px;
+  background: url('../images/tank1.png')no-repeat;
+
+  background-position: center;
+ 
+}
+
+.tank-choicer-wrapper{
+  display: none;
+  position: absolute;
+  left: 5%;
+  top: 18%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 420px;
+  height: 500px;
+  border: 2px solid #41FF00;
+  text-align: center;
+  padding: 5px;
+}
+
+.tank-choicer-header{
+  color: #41FF00;
+  font-family: 'armaliteRifle';
+  font-size: 30px;
+}
+
+.tank-choicer-text{
+  color: #41FF00;
+  font-size: 20px;
+  font-family: sans-serif;
 }
 
 .side-choice-wrapper{
@@ -464,13 +498,13 @@ button:hover{
   position: absolute;
   top: 35%;
   right: 3%;
-  font-size: 30px;
-  width: 350px;
-  height: 180px;
-  padding: 10px;
+  font-size: 22px;
+  width: 230px;
+  height: 120px;
+  padding: 8px;
   background: black;
-  border: 2px solid #41FF00;
   text-align: center;
+  border: 2px solid #41FF00;
   color: #41FF00;
   font-family: sans-serif;
 }

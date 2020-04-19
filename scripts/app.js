@@ -10,6 +10,11 @@ function init() {
   let isAudioPlaying = true
   let muteClicker = 0
   let screenCounter = 0
+  let tanksChoiceClicker = 0
+  const tankChoicer = document.querySelector('.tank-choicer')
+  const tankChoicerWrapper = document.querySelector('.tank-choicer-wrapper')
+  const tankChoicerHeader = document.querySelector('.tank-choicer-header')
+  const tankChoicerText = document.querySelector('.tank-choicer-text')
   const coveringReminder = document.querySelector('.covering-reminder')
   const playImage = document.querySelector('.welcome-screen img')
   const welcomeScreen = document.querySelector('.welcome-screen')
@@ -17,7 +22,6 @@ function init() {
   const mute = document.querySelector('.mute')
   const btn = document.querySelector('.next')
   const choiceWrapper = document.querySelector('.side-choice-wrapper')
-  const main = document.querySelector('main')
   const superpower = document.querySelector('.superpower')
   const enemy = document.querySelector('.enemy')
   const computerImg = document.querySelector('computer-score img')
@@ -218,9 +222,10 @@ function init() {
               choiceWrapper.style.display = 'none'
               enemy.classList.remove('enemy')
               enemy.classList.add('strategy-panel')
-              enemy.innerHTML = '<h2>Place Your Artillery Positions</h2>'
+              enemy.innerHTML = '<h2>Strategy Panel</h2>'
               choiceWrapper.style.display = 'none'
-             
+              tankChoicer.style.display = 'block'
+              tankChoicerWrapper.style.display = 'flex'
             }
           }, 200)
         }
@@ -247,7 +252,24 @@ function init() {
         cell.classList.remove('not-allowed')
       }
     })
-   
+    tanksChoiceClicker++
+    if (tanksChoiceClicker === 1) {
+      tankChoicerHeader.textContent = 'Place Your Artillery'
+      tankChoicerText.textContent = 'It Contains 2 Cells on Strategy Panel'
+      tankChoicer.style.background = 'url(./images/tank2.png)no-repeat'
+    } else if (tanksChoiceClicker === 2) {
+      tankChoicerHeader.textContent = 'Place Your Artillery'
+      tankChoicerText.textContent = 'It Contains 3 Cells on Strategy Panel'
+      tankChoicer.style.background = 'url(./images/tank3.png)no-repeat'
+    } else if (tanksChoiceClicker === 3) {
+      tankChoicerHeader.textContent = 'Place Your Artillery'
+      tankChoicerText.textContent = 'It Contains 6 Cells on Strategy Panel'
+      tankChoicer.style.background = 'url(./images/tank4.png)no-repeat'
+    } else if (tanksChoiceClicker === 4) {
+      tankChoicerHeader.textContent = 'Place Your Artillery'
+      tankChoicerText.textContent = 'It Contains 4 Cells on Strategy Panel'
+      tankChoicer.style.background = 'url(./images/tank5.png)no-repeat'
+    } 
 
     // First Ship
     if (customerShipPositionsArray.length < 3) {
@@ -466,7 +488,8 @@ function init() {
         fourthPosition.classList.add('fifth-ship-four')
         fifthShipArray.push(shipPosition, secondPosition, thirdPosition, fourthPosition)
         btn.style.display = 'inline'
-       
+        tankChoicer.style.display = 'none'
+        tankChoicerWrapper.style.display = 'none'
       } 
     }
   }
