@@ -260,29 +260,13 @@ function init() {
 
   function customerShipPositions(event) {
     coveringReminder.style.display = 'none'
+    
     customerCells.forEach( cell => {
       if (cell.classList.contains('not-allowed')) {
         cell.classList.remove('not-allowed')
       }
     })
-    tanksChoiceClicker++
-    if (tanksChoiceClicker === 1) {
-      tankChoicerHeader.textContent = 'Place Your Artillery'
-      tankChoicerText.textContent = 'It Contains 2 Cells on Strategy Panel'
-      tankChoicer.style.background = 'url(./images/tank2.png)no-repeat'
-    } else if (tanksChoiceClicker === 2) {
-      tankChoicerHeader.textContent = 'Place Your Artillery'
-      tankChoicerText.textContent = 'It Contains 3 Cells on Strategy Panel'
-      tankChoicer.style.background = 'url(./images/tank3.png)no-repeat'
-    } else if (tanksChoiceClicker === 3) {
-      tankChoicerHeader.textContent = 'Place Your Himars'
-      tankChoicerText.textContent = 'It Contains 6 Cells on Strategy Panel'
-      tankChoicer.style.background = 'url(./images/tank4.png)no-repeat'
-    } else if (tanksChoiceClicker === 4) {
-      tankChoicerHeader.textContent = 'Place Your Artillery'
-      tankChoicerText.textContent = 'It Contains 4 Cells on Strategy Panel'
-      tankChoicer.style.background = 'url(./images/tank5.png)no-repeat'
-    } 
+    
 
     // First Ship
     if (customerShipPositionsArray.length < 3) {
@@ -298,6 +282,7 @@ function init() {
             }
           }    
         })
+        
         return coveringReminder.style.display = 'block' 
       } else {
         const shipPosition = customerCells[parseInt(event.target.textContent)]
@@ -337,6 +322,27 @@ function init() {
         eighthPosition.classList.add('first-ship')
         eighthPosition.classList.add('first-ship-eight')
         firstShipArray.push(shipPosition, secondPosition, thirdPosition, fourthPosition, fifthPosition, sixthPosition, seventhPosition, eighthPosition)
+        if(!event.target.classList.contains('not-allowed')){
+          tanksChoiceClicker++
+        } 
+    
+        if (tanksChoiceClicker === 1) {
+          tankChoicerHeader.textContent = 'Place Your Artillery'
+          tankChoicerText.textContent = 'It Contains 2 Cells on Strategy Panel'
+          tankChoicer.style.background = 'url(./images/tank2.png)no-repeat'
+        } else if (tanksChoiceClicker === 2) {
+          tankChoicerHeader.textContent = 'Place Your Artillery'
+          tankChoicerText.textContent = 'It Contains 3 Cells on Strategy Panel'
+          tankChoicer.style.background = 'url(./images/tank3.png)no-repeat'
+        } else if (tanksChoiceClicker === 3) {
+          tankChoicerHeader.textContent = 'Place Your Himars'
+          tankChoicerText.textContent = 'It Contains 6 Cells on Strategy Panel'
+          tankChoicer.style.background = 'url(./images/tank4.png)no-repeat'
+        } else if (tanksChoiceClicker === 4) {
+          tankChoicerHeader.textContent = 'Place Your Artillery'
+          tankChoicerText.textContent = 'It Contains 4 Cells on Strategy Panel'
+          tankChoicer.style.background = 'url(./images/tank5.png)no-repeat'
+        } 
       }  // Second Ship
     } else if (customerShipPositionsArray.length > 7 && customerShipPositionsArray.length < 9) {
       if (((parseInt(event.target.textContent) + 1) % width === 0) || (event.target.classList.contains('ships-positions'))
@@ -363,6 +369,27 @@ function init() {
         secondPosition.classList.add('second-ship')
         secondPosition.classList.add('second-ship-two')
         secondShipArray.push(shipPosition, secondPosition)
+        if(!event.target.classList.contains('not-allowed')){
+          tanksChoiceClicker++
+        } 
+    
+        if (tanksChoiceClicker === 1) {
+          tankChoicerHeader.textContent = 'Place Your Artillery'
+          tankChoicerText.textContent = 'It Contains 2 Cells on Strategy Panel'
+          tankChoicer.style.background = 'url(./images/tank2.png)no-repeat'
+        } else if (tanksChoiceClicker === 2) {
+          tankChoicerHeader.textContent = 'Place Your Artillery'
+          tankChoicerText.textContent = 'It Contains 3 Cells on Strategy Panel'
+          tankChoicer.style.background = 'url(./images/tank3.png)no-repeat'
+        } else if (tanksChoiceClicker === 3) {
+          tankChoicerHeader.textContent = 'Place Your Himars'
+          tankChoicerText.textContent = 'It Contains 6 Cells on Strategy Panel'
+          tankChoicer.style.background = 'url(./images/tank4.png)no-repeat'
+        } else if (tanksChoiceClicker === 4) {
+          tankChoicerHeader.textContent = 'Place Your Artillery'
+          tankChoicerText.textContent = 'It Contains 4 Cells on Strategy Panel'
+          tankChoicer.style.background = 'url(./images/tank5.png)no-repeat'
+        } 
       }  // Third Ship
     } else if (customerShipPositionsArray.length > 9 && customerShipPositionsArray.length < 11) {
       if (((parseInt(event.target.textContent) + 1) % width === 0) || ((parseInt(event.target.textContent) + 2) % width === 0)
@@ -399,6 +426,27 @@ function init() {
         thirdPosition.classList.add('third-ship')
         thirdPosition.classList.add('third-ship-three')
         thirdShipArray.push(shipPosition, secondPosition, thirdPosition)
+        if(!event.target.classList.contains('not-allowed')){
+          tanksChoiceClicker++
+        } 
+    
+        if (tanksChoiceClicker === 1) {
+          tankChoicerHeader.textContent = 'Place Your Artillery'
+          tankChoicerText.textContent = 'It Contains 2 Cells on Strategy Panel'
+          tankChoicer.style.background = 'url(./images/tank2.png)no-repeat'
+        } else if (tanksChoiceClicker === 2) {
+          tankChoicerHeader.textContent = 'Place Your Artillery'
+          tankChoicerText.textContent = 'It Contains 3 Cells on Strategy Panel'
+          tankChoicer.style.background = 'url(./images/tank3.png)no-repeat'
+        } else if (tanksChoiceClicker === 3) {
+          tankChoicerHeader.textContent = 'Place Your Himars'
+          tankChoicerText.textContent = 'It Contains 6 Cells on Strategy Panel'
+          tankChoicer.style.background = 'url(./images/tank4.png)no-repeat'
+        } else if (tanksChoiceClicker === 4) {
+          tankChoicerHeader.textContent = 'Place Your Artillery'
+          tankChoicerText.textContent = 'It Contains 4 Cells on Strategy Panel'
+          tankChoicer.style.background = 'url(./images/tank5.png)no-repeat'
+        } 
       } // Fourth Ship
     } else if (customerShipPositionsArray.length > 12 && customerShipPositionsArray.length < 15) {
       if (((parseInt(event.target.textContent) + 1) % width === 0) || ((parseInt(event.target.textContent) + 2) % width === 0)
@@ -457,6 +505,27 @@ function init() {
         sixthPosition.classList.add('fourth-ship')
         sixthPosition.classList.add('fourth-ship-six')
         fourthShipArray.push(shipPosition, secondPosition, thirdPosition, fourthPosition, fifthPosition, sixthPosition)
+        if(!event.target.classList.contains('not-allowed')){
+          tanksChoiceClicker++
+        } 
+    
+        if (tanksChoiceClicker === 1) {
+          tankChoicerHeader.textContent = 'Place Your Artillery'
+          tankChoicerText.textContent = 'It Contains 2 Cells on Strategy Panel'
+          tankChoicer.style.background = 'url(./images/tank2.png)no-repeat'
+        } else if (tanksChoiceClicker === 2) {
+          tankChoicerHeader.textContent = 'Place Your Artillery'
+          tankChoicerText.textContent = 'It Contains 3 Cells on Strategy Panel'
+          tankChoicer.style.background = 'url(./images/tank3.png)no-repeat'
+        } else if (tanksChoiceClicker === 3) {
+          tankChoicerHeader.textContent = 'Place Your Himars'
+          tankChoicerText.textContent = 'It Contains 6 Cells on Strategy Panel'
+          tankChoicer.style.background = 'url(./images/tank4.png)no-repeat'
+        } else if (tanksChoiceClicker === 4) {
+          tankChoicerHeader.textContent = 'Place Your Artillery'
+          tankChoicerText.textContent = 'It Contains 4 Cells on Strategy Panel'
+          tankChoicer.style.background = 'url(./images/tank5.png)no-repeat'
+        } 
       } // Fifth Ship
     } else if (customerShipPositionsArray.length > 16 && customerShipPositionsArray.length < 21) {
       if (((parseInt(event.target.textContent) + 1) % width === 0) || ((parseInt(event.target.textContent) + 2) % width === 0)
@@ -503,6 +572,27 @@ function init() {
         btn.style.display = 'inline'
         tankChoicer.style.display = 'none'
         tankChoicerWrapper.style.display = 'none'
+        if(!event.target.classList.contains('not-allowed')){
+          tanksChoiceClicker++
+        } 
+    
+        if (tanksChoiceClicker === 1) {
+          tankChoicerHeader.textContent = 'Place Your Artillery'
+          tankChoicerText.textContent = 'It Contains 2 Cells on Strategy Panel'
+          tankChoicer.style.background = 'url(./images/tank2.png)no-repeat'
+        } else if (tanksChoiceClicker === 2) {
+          tankChoicerHeader.textContent = 'Place Your Artillery'
+          tankChoicerText.textContent = 'It Contains 3 Cells on Strategy Panel'
+          tankChoicer.style.background = 'url(./images/tank3.png)no-repeat'
+        } else if (tanksChoiceClicker === 3) {
+          tankChoicerHeader.textContent = 'Place Your Himars'
+          tankChoicerText.textContent = 'It Contains 6 Cells on Strategy Panel'
+          tankChoicer.style.background = 'url(./images/tank4.png)no-repeat'
+        } else if (tanksChoiceClicker === 4) {
+          tankChoicerHeader.textContent = 'Place Your Artillery'
+          tankChoicerText.textContent = 'It Contains 4 Cells on Strategy Panel'
+          tankChoicer.style.background = 'url(./images/tank5.png)no-repeat'
+        } 
       } 
     }
   }
