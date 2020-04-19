@@ -357,9 +357,6 @@ button:hover{
   cursor: not-allowed;
 }
 
-.ships-positions{
-  background: black;
-}
 
 .tank-choicer{
   display: none;
