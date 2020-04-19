@@ -286,7 +286,7 @@ h2{
   color: white;
   order: 2;
   font-size: 0px;
-  margin: 70px 0 0 200px;
+  margin: 0 0 0 200px;
 }
 .customer-grid div{
   width: 10%;
@@ -302,7 +302,7 @@ h2{
   color: white;
   order: 1;
   font-size: 0px;
-  margin: 70px 0 0 0;
+  margin: 0;
 }
 .computer-grid div{
   width: 10%;
@@ -437,12 +437,11 @@ button:hover{
 
 .computer-score{
   color: red;
-  margin: -60px 0 0 0;
+  
 }
 
 .customer-score{
   color: #41FF00;
-  margin: -60px 0 0 0;
 }
 
 .superpower{

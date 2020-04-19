@@ -262,7 +262,7 @@ function init() {
       tankChoicerText.textContent = 'It Contains 3 Cells on Strategy Panel'
       tankChoicer.style.background = 'url(./images/tank3.png)no-repeat'
     } else if (tanksChoiceClicker === 3) {
-      tankChoicerHeader.textContent = 'Place Your Artillery'
+      tankChoicerHeader.textContent = 'Place Your Himars'
       tankChoicerText.textContent = 'It Contains 6 Cells on Strategy Panel'
       tankChoicer.style.background = 'url(./images/tank4.png)no-repeat'
     } else if (tanksChoiceClicker === 4) {
