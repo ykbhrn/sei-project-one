@@ -90,6 +90,17 @@ function init() {
   const resultDisplay = document.querySelector('.result')
   const resultWrapper = document.querySelector('.result-wrapper')
   const score = document.querySelector('.score')
+  // Computer Ships Separatly
+  const compShipOne = document.querySelectorAll('.computer-grid-wrapper div.comp-first-ship')
+  const compShipOneArray = []
+  const compShipTwo = document.querySelectorAll('.comp-second-ship')
+  const compShipTwoArray = []
+  const compShipThree = document.querySelectorAll('.comp-third-ship')
+  const compShipThreeArray = []
+  const compShipFour = document.querySelectorAll('.comp-fourth-ship')
+  const compShipFourArray = []
+  const compShipFive = document.querySelectorAll('.comp-fifth-ship')
+  const compShipFiveArray = []
   let result
   let flag
   let isComputerPlaying = false
@@ -522,8 +533,11 @@ function init() {
     score.style.display = 'flex'
     // Displaying Customer Score
     custScoreText.textContent = chosenCountryNameArray[0]
+    
     //Displaying Computer Score
     compScoreText.textContent = chosenCountryNameArray[1]
+
+    
 
     // Creating Computer Grid
     computerGrid.classList.add('computer-grid')
@@ -553,22 +567,14 @@ function init() {
         computerCells[computerFirstPosition + 2 + width].classList.add('ships-positions')
         computerCells[computerFirstPosition + 3 + width].classList.add('ships-positions')
         //Assigning Class to Every Ship Specifically
-        computerCells[computerFirstPosition].classList.add('comp-first-ship')
-        computerCells[computerFirstPosition].classList.add('comp-first-ship-one')
-        computerCells[computerFirstPosition + 1].classList.add('comp-first-ship')
-        computerCells[computerFirstPosition + 1].classList.add('comp-first-ship-two')
-        computerCells[computerFirstPosition + 2].classList.add('comp-first-ship')
-        computerCells[computerFirstPosition + 2].classList.add('comp-first-ship-three')
-        computerCells[computerFirstPosition + 3].classList.add('comp-first-ship')
-        computerCells[computerFirstPosition + 3].classList.add('comp-first-ship-four')
-        computerCells[computerFirstPosition + width].classList.add('comp-first-ship')
-        computerCells[computerFirstPosition + width].classList.add('comp-first-ship-five')
-        computerCells[computerFirstPosition + 1 + width].classList.add('comp-first-ship')
-        computerCells[computerFirstPosition + 1 + width].classList.add('comp-first-ship-six')
+        computerCells[computerFirstPosition].classList.add('comp-first-ship')   
+        computerCells[computerFirstPosition + 1].classList.add('comp-first-ship')        
+        computerCells[computerFirstPosition + 2].classList.add('comp-first-ship')       
+        computerCells[computerFirstPosition + 3].classList.add('comp-first-ship')     
+        computerCells[computerFirstPosition + width].classList.add('comp-first-ship')  
+        computerCells[computerFirstPosition + 1 + width].classList.add('comp-first-ship')    
         computerCells[computerFirstPosition + 2 + width].classList.add('comp-first-ship')
-        computerCells[computerFirstPosition + 2 + width].classList.add('comp-first-ship-seven')
         computerCells[computerFirstPosition + 3 + width].classList.add('comp-first-ship')
-        computerCells[computerFirstPosition + 3 + width].classList.add('comp-first-ship-eight')
         computerShipPositionsArray.push(computerCells[computerFirstPosition], computerCells[computerFirstPosition + 1], computerCells[computerFirstPosition + 2], computerCells[computerFirstPosition + 3], computerCells[computerFirstPosition + width], computerCells[computerFirstPosition + 1 + width], computerCells[computerFirstPosition + 2 + width], computerCells[computerFirstPosition + 3 + width])
         clearInterval(firstComputerShip)
       }
@@ -583,9 +589,7 @@ function init() {
         computerCells[computerSecondPosition + 1].classList.add('ships-positions')
         //Assigning Class to Every Ship Specifically
         computerCells[computerSecondPosition].classList.add('comp-second-ship')
-        computerCells[computerSecondPosition].classList.add('comp-second-ship-one')
         computerCells[computerSecondPosition + 1].classList.add('comp-second-ship')
-        computerCells[computerSecondPosition + 1].classList.add('comp-second-ship-two')
         computerShipPositionsArray.push(computerCells[computerSecondPosition], computerCells[computerSecondPosition + 1])
         clearInterval(secondComputerShip)
       }
@@ -603,11 +607,8 @@ function init() {
         computerCells[computerThirdPosition + 2].classList.add('ships-positions')
         //Assigning Class to Every Ship Specifically
         computerCells[computerThirdPosition].classList.add('comp-third-ship')
-        computerCells[computerThirdPosition].classList.add('comp-third-ship-one')
         computerCells[computerThirdPosition + 1].classList.add('comp-third-ship')
-        computerCells[computerThirdPosition + 1].classList.add('comp-third-ship-two')
         computerCells[computerThirdPosition + 2].classList.add('comp-third-ship')
-        computerCells[computerThirdPosition + 2].classList.add('comp-third-ship-three')
         computerShipPositionsArray.push(computerCells[computerThirdPosition], computerCells[computerThirdPosition + 1], computerCells[computerThirdPosition + 2])
         clearInterval(thirdComputerShip)
       }
@@ -633,17 +634,11 @@ function init() {
         computerCells[computerFourthPosition + 5].classList.add('ships-positions')
         //Assigning Class to Every Ship Specifically
         computerCells[computerFourthPosition].classList.add('comp-fourth-ship')
-        computerCells[computerFourthPosition].classList.add('comp-fourth-ship-one')
         computerCells[computerFourthPosition + 1].classList.add('comp-fourth-ship')
-        computerCells[computerFourthPosition + 1].classList.add('comp-fourth-ship-two')
         computerCells[computerFourthPosition + 2].classList.add('comp-fourth-ship')
-        computerCells[computerFourthPosition + 2].classList.add('comp-fourth-ship-three')
         computerCells[computerFourthPosition + 3].classList.add('comp-fourth-ship')
-        computerCells[computerFourthPosition + 3].classList.add('comp-fourth-ship-four')
         computerCells[computerFourthPosition + 4].classList.add('comp-fourth-ship')
-        computerCells[computerFourthPosition + 4].classList.add('comp-fourth-ship-five')
         computerCells[computerFourthPosition + 5].classList.add('comp-fourth-ship')
-        computerCells[computerFourthPosition + 5].classList.add('comp-fourth-ship-six')
         computerShipPositionsArray.push(computerCells[computerFourthPosition], computerCells[computerFourthPosition + 1], computerCells[computerFourthPosition + 2], computerCells[computerFourthPosition + 3], computerCells[computerFourthPosition + 4], computerCells[computerFourthPosition + 5])
         clearInterval(fourthComputerShip)
       }
@@ -663,13 +658,9 @@ function init() {
         computerCells[computerFifthPosition + 3].classList.add('ships-positions')
         //Assigning Class to Every Ship Specifically
         computerCells[computerFifthPosition].classList.add('comp-fifth-ship')
-        computerCells[computerFifthPosition].classList.add('comp-fifth-ship-one')
         computerCells[computerFifthPosition + 1].classList.add('comp-fifth-ship')
-        computerCells[computerFifthPosition + 1].classList.add('comp-fifth-ship-two')
         computerCells[computerFifthPosition + 2].classList.add('comp-fifth-ship')
-        computerCells[computerFifthPosition + 2].classList.add('comp-fifth-ship-three')
         computerCells[computerFifthPosition + 3].classList.add('comp-fifth-ship')
-        computerCells[computerFifthPosition + 3].classList.add('comp-fifth-ship-four')
         computerShipPositionsArray.push(computerCells[computerFifthPosition], computerCells[computerFifthPosition + 1], computerCells[computerFifthPosition + 2], computerCells[computerFifthPosition + 3])
         clearInterval(fifthComputerShip)
       }
@@ -696,11 +687,56 @@ function init() {
         bomb.volume = 0.4
         bomb.play()
       }
-      
+      console.log(displayComputerScore)
+      console.log(displayCustomerScore)
       // Counting Customer Score
       displayCustomerScore = customerScoreArray.length
       // Displaying Customer Score
-      customerScore.textContent = chosenCountryNameArray[0] + ' Score Is: ' +  displayCustomerScore
+      custScoreText.textContent = chosenCountryNameArray[0]
+
+      computerCells.forEach( cell => {
+        // Displaying First Ship Destroyed
+        if(cell.classList.contains('ship-hit') && cell.classList.contains('comp-first-ship')) {
+          compShipOneArray.push(cell)
+          cell.classList.remove('comp-first-ship')
+        }
+        if(compShipOneArray.length >= 8) {
+          computerScore.children[1].src = './images/score2.png'
+        }
+        // Displaying Second Ship Destroyed
+        if(cell.classList.contains('ship-hit') && cell.classList.contains('comp-second-ship')) {
+          compShipTwoArray.push(cell)
+          cell.classList.remove('comp-second-ship')
+        }
+        if(compShipTwoArray.length >= 2) {
+          computerScore.children[2].src = './images/score2.png'
+        }
+        // Displaying Third Ship Destroyed
+        if(cell.classList.contains('ship-hit') && cell.classList.contains('comp-third-ship')) {
+          compShipThreeArray.push(cell)
+          cell.classList.remove('comp-third-ship')
+        }
+        if(compShipThreeArray.length >= 3) {
+          computerScore.children[3].src = './images/score2.png'
+        }
+        // Displaying Fourth Ship Destroyed
+        if(cell.classList.contains('ship-hit') && cell.classList.contains('comp-fourth-ship')) {
+          compShipFourArray.push(cell)
+          cell.classList.remove('comp-fourth-ship')
+        }
+        if(compShipFourArray.length >= 6) {
+          computerScore.children[4].src = './images/score2.png'
+        }
+        // Displaying Fifth Ship Destroyed
+        if(cell.classList.contains('ship-hit') && cell.classList.contains('comp-fifth-ship')) {
+          compShipFiveArray.push(cell)
+          cell.classList.remove('comp-fifth-ship')
+        }
+        if(compShipFiveArray.length >= 4) {
+          computerScore.children[5].src = './images/score2.png'
+        }
+      })
+      console.log(computerScore)
       
       
       // Computer Move
@@ -735,7 +771,7 @@ function init() {
           // Counting Computer Score
           displayComputerScore = computerScoreArray.length
           //Displaying Computer Score
-          computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: ' +  displayComputerScore
+          compScoreText.textContent = chosenCountryNameArray[1]
 
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('first-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('first-ship')
@@ -761,7 +797,7 @@ function init() {
           // Counting Computer Score
           displayComputerScore = computerScoreArray.length
           //Displaying Computer Score
-          computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: ' +  displayComputerScore
+          compScoreText.textContent = chosenCountryNameArray[1]
           
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('first-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('first-ship')
@@ -786,7 +822,7 @@ function init() {
           // Counting Computer Score
           displayComputerScore = computerScoreArray.length
           //Displaying Computer Score
-          computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: ' +  displayComputerScore
+          compScoreText.textContent = chosenCountryNameArray[1]
           
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('first-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('first-ship')
@@ -810,7 +846,7 @@ function init() {
           // Counting Computer Score
           displayComputerScore = computerScoreArray.length
           //Displaying Computer Score
-          computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: ' +  displayComputerScore
+          compScoreText.textContent = chosenCountryNameArray[1]
           
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('first-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('first-ship')
@@ -833,7 +869,7 @@ function init() {
           // Counting Computer Score
           displayComputerScore = computerScoreArray.length
           //Displaying Computer Score
-          computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: ' +  displayComputerScore
+          compScoreText.textContent = chosenCountryNameArray[1]
           
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('first-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('first-ship')
@@ -855,7 +891,7 @@ function init() {
           // Counting Computer Score
           displayComputerScore = computerScoreArray.length
           //Displaying Computer Score
-          computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: ' +  displayComputerScore
+          compScoreText.textContent = chosenCountryNameArray[1]
           
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('first-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('first-ship') )  {
@@ -876,7 +912,7 @@ function init() {
           // Counting Computer Score
           displayComputerScore = computerScoreArray.length
           //Displaying Computer Score
-          computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: ' +  displayComputerScore
+          compScoreText.textContent = chosenCountryNameArray[1]
           
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('first-ship') )  {
           computerMoveCell = firstShipArray[7]
@@ -897,7 +933,7 @@ function init() {
           // Counting Computer Score
           displayComputerScore = computerScoreArray.length
           //Displaying Computer Score
-          computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: ' +  displayComputerScore
+          compScoreText.textContent = chosenCountryNameArray[1]
           
           // Keep Attacking Second Ship
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('second-ship') 
@@ -920,7 +956,7 @@ function init() {
           // Counting Computer Score
           displayComputerScore = computerScoreArray.length
           //Displaying Computer Score
-          computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: ' +  displayComputerScore
+          compScoreText.textContent = chosenCountryNameArray[1]
 
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('second-ship') )  {
           computerMoveCell = secondShipArray[1]
@@ -940,7 +976,7 @@ function init() {
           // Counting Computer Score
           displayComputerScore = computerScoreArray.length
           //Displaying Computer Score
-          computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: ' +  displayComputerScore
+          compScoreText.textContent = chosenCountryNameArray[1]
           
           // Keep Attacking Third Ship
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('third-ship') 
@@ -964,7 +1000,7 @@ function init() {
           // Counting Computer Score
           displayComputerScore = computerScoreArray.length
           //Displaying Computer Score
-          computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: ' +  displayComputerScore
+          compScoreText.textContent = chosenCountryNameArray[1]
           
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('third-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('third-ship') )  {
@@ -985,7 +1021,7 @@ function init() {
           // Counting Computer Score
           displayComputerScore = computerScoreArray.length
           //Displaying Computer Score
-          computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: ' +  displayComputerScore
+          compScoreText.textContent = chosenCountryNameArray[1]
           
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('third-ship') )  {
           computerMoveCell = thirdShipArray[2]
@@ -1005,7 +1041,7 @@ function init() {
           // Counting Computer Score
           displayComputerScore = computerScoreArray.length
           //Displaying Computer Score
-          computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: ' +  displayComputerScore
+          compScoreText.textContent = chosenCountryNameArray[1]
           
           // Keep Attacking Fourth Ship
         }  else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('fourth-ship') 
@@ -1032,7 +1068,7 @@ function init() {
           // Counting Computer Score
           displayComputerScore = computerScoreArray.length
           //Displaying Computer Score
-          computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: ' +  displayComputerScore
+          compScoreText.textContent = chosenCountryNameArray[1]
           
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('fourth-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('fourth-ship')
@@ -1056,7 +1092,7 @@ function init() {
           // Counting Computer Score
           displayComputerScore = computerScoreArray.length
           //Displaying Computer Score
-          computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: ' +  displayComputerScore
+          compScoreText.textContent = chosenCountryNameArray[1]
           
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('fourth-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('fourth-ship')
@@ -1079,7 +1115,7 @@ function init() {
           // Counting Computer Score
           displayComputerScore = computerScoreArray.length
           //Displaying Computer Score
-          computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: ' +  displayComputerScore
+          compScoreText.textContent = chosenCountryNameArray[1]
           
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('fourth-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('fourth-ship') 
@@ -1101,7 +1137,7 @@ function init() {
           // Counting Computer Score
           displayComputerScore = computerScoreArray.length
           //Displaying Computer Score
-          computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: ' +  displayComputerScore
+          compScoreText.textContent = chosenCountryNameArray[1]
           
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('fourth-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('fourth-ship'))  {
@@ -1122,7 +1158,7 @@ function init() {
           // Counting Computer Score
           displayComputerScore = computerScoreArray.length
           //Displaying Computer Score
-          computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: ' +  displayComputerScore
+          compScoreText.textContent = chosenCountryNameArray[1]
           
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('fourth-ship') )  {
           computerMoveCell = fourthShipArray[5]
@@ -1142,7 +1178,7 @@ function init() {
           // Counting Computer Score
           displayComputerScore = computerScoreArray.length
           //Displaying Computer Score
-          computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: ' +  displayComputerScore
+          compScoreText.textContent = chosenCountryNameArray[1]
           // Keep Attacking Fifth Ship
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('fifth-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('fifth-ship')
@@ -1166,7 +1202,7 @@ function init() {
           // Counting Computer Score
           displayComputerScore = computerScoreArray.length
           //Displaying Computer Score
-          computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: ' +  displayComputerScore
+          compScoreText.textContent = chosenCountryNameArray[1]
           
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('fifth-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('fifth-ship')
@@ -1188,7 +1224,7 @@ function init() {
           // Counting Computer Score
           displayComputerScore = computerScoreArray.length
           //Displaying Computer Score
-          computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: ' +  displayComputerScore
+          compScoreText.textContent = chosenCountryNameArray[1]
           
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('fifth-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('fifth-ship') )  {
@@ -1209,7 +1245,7 @@ function init() {
           // Counting Computer Score
           displayComputerScore = computerScoreArray.length
           //Displaying Computer Score
-          computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: ' +  displayComputerScore
+          compScoreText.textContent = chosenCountryNameArray[1]
           
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('fifth-ship') )  {
           computerMoveCell = fifthShipArray[3]
@@ -1229,7 +1265,7 @@ function init() {
           // Counting Computer Score
           displayComputerScore = computerScoreArray.length
           //Displaying Computer Score
-          computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: ' +  displayComputerScore
+          compScoreText.textContent = chosenCountryNameArray[1]
         } else {
           const computerMoveInterval = setInterval(() => {
             computerMoveCell = customerCells[Math.floor(Math.random() * customerCells.length)]
@@ -1257,12 +1293,13 @@ function init() {
               // Counting Computer Score
               displayComputerScore = computerScoreArray.length
               //Displaying Computer Score
-              computerScore.textContent = chosenCountryNameArray[1] + ' Score Is: ' +  displayComputerScore
+              compScoreText.textContent = chosenCountryNameArray[1]
             }
           }, 1)
         }
         // Customer Win
         if (displayCustomerScore >= 23) {
+          resultWrapper.style.display = 'flex'
           battlefieldSounds.remove()
           russianBattleFieldSounds.remove()
           flag = document.createElement('img')
@@ -1278,6 +1315,7 @@ function init() {
           resultDisplay.textContent = result
           return // Computer Win
         } else if (displayComputerScore >= 23) {
+          resultWrapper.style.display = 'flex'
           battlefieldSounds.remove()
           russianBattleFieldSounds.remove()
           flag = document.createElement('img')
@@ -1293,7 +1331,6 @@ function init() {
           resultDisplay.textContent = result
           return
         } 
-        console.log(computerScoreArray)
         isComputerPlaying = false
       }, 5)
     }

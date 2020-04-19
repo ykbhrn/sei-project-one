@@ -473,11 +473,9 @@ button:hover{
 
 .result{
   width: 550px;
-}
-
-.result {
   font-size: 150px;
 }
+
 .shot {
   background-position: center;
   background-size: contain;
