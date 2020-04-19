@@ -256,14 +256,15 @@ h2{
   background-position-x: center;
   background-position-y: center;
   margin: 0 auto;
+  z-index: 3;
 }
 .strategy-panel {
   color: #41FF00;
-  margin: 0 auto;
   width: 500px;
 }
 .strategy-panel h2 {
   font-size: 50px;
+  margin: -30px auto 40px auto;
 }
 
 
@@ -282,11 +283,10 @@ h2{
   height: 400px;
   display: flex;
   flex-wrap: wrap;
-  margin-left: 200px;
   color: white;
   order: 2;
   font-size: 0px;
-  margin-top: 130px;
+  margin: 70px 0 0 200px;
 }
 .customer-grid div{
   width: 10%;
@@ -302,7 +302,7 @@ h2{
   color: white;
   order: 1;
   font-size: 0px;
-  margin-top: 130px;
+  margin: 70px 0 0 0;
 }
 .computer-grid div{
   width: 10%;
@@ -362,16 +362,12 @@ button:hover{
   width: 400px;
   height: 400px;
   background: url('../images/tank1.png')no-repeat;
-
   background-position: center;
  
 }
 
 .tank-choicer-wrapper{
   display: none;
-  position: absolute;
-  left: 5%;
-  top: 18%;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -380,6 +376,7 @@ button:hover{
   border: 2px solid #41FF00;
   text-align: center;
   padding: 5px;
+  margin-left: -100px;
 }
 
 .tank-choicer-header{
@@ -440,10 +437,12 @@ button:hover{
 
 .computer-score{
   color: red;
+  margin: -60px 0 0 0;
 }
 
 .customer-score{
   color: #41FF00;
+  margin: -60px 0 0 0;
 }
 
 .superpower{
