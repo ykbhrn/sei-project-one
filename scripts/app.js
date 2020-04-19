@@ -24,8 +24,8 @@ function init() {
   const choiceWrapper = document.querySelector('.side-choice-wrapper')
   const superpower = document.querySelector('.superpower')
   const enemy = document.querySelector('.enemy')
-  const computerImg = document.querySelector('computer-score img')
-  const customerImg = document.querySelector('customer-score img')
+  const computerImg = document.querySelector('.computer-score img')
+  const customerImg = document.querySelector('.customer-score img')
   let anthem
   let wavingFlagGif
   let chosenCountryName
@@ -687,8 +687,7 @@ function init() {
         bomb.volume = 0.4
         bomb.play()
       }
-      console.log(displayComputerScore)
-      console.log(displayCustomerScore)
+
       // Counting Customer Score
       displayCustomerScore = customerScoreArray.length
       // Displaying Customer Score
@@ -772,6 +771,8 @@ function init() {
           displayComputerScore = computerScoreArray.length
           //Displaying Computer Score
           compScoreText.textContent = chosenCountryNameArray[1]
+          // Displaying Destroyed Customer Ship
+          customerScore.children[1].src = './images/score2.png'
 
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('first-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('first-ship')
@@ -957,6 +958,8 @@ function init() {
           displayComputerScore = computerScoreArray.length
           //Displaying Computer Score
           compScoreText.textContent = chosenCountryNameArray[1]
+          // Displaying Destroyed Customer Ship
+          customerScore.children[2].src = './images/score2.png'
 
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('second-ship') )  {
           computerMoveCell = secondShipArray[1]
@@ -1001,6 +1004,8 @@ function init() {
           displayComputerScore = computerScoreArray.length
           //Displaying Computer Score
           compScoreText.textContent = chosenCountryNameArray[1]
+          // Displaying Destroyed Customer Ship
+          customerScore.children[3].src = './images/score2.png'
           
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('third-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('third-ship') )  {
@@ -1069,6 +1074,8 @@ function init() {
           displayComputerScore = computerScoreArray.length
           //Displaying Computer Score
           compScoreText.textContent = chosenCountryNameArray[1]
+          // Displaying Destroyed Customer Ship
+          customerScore.children[4].src = './images/score2.png'
           
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('fourth-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('fourth-ship')
@@ -1203,6 +1210,8 @@ function init() {
           displayComputerScore = computerScoreArray.length
           //Displaying Computer Score
           compScoreText.textContent = chosenCountryNameArray[1]
+          // Displaying Destroyed Customer Ship
+          customerScore.children[5].src = './images/score2.png'
           
         } else if (computerShotsArray[parseInt(computerShotsArray.length) - 1].classList.contains('fifth-ship') 
         && computerShotsArray[parseInt(computerShotsArray.length) - 2].classList.contains('fifth-ship')
@@ -1299,6 +1308,10 @@ function init() {
         }
         // Customer Win
         if (displayCustomerScore >= 23) {
+          computerGrid.style.display = 'none'
+          grid.style.display = 'none'
+          computerScore.style.display = 'none'
+          customerScore.style.display = 'none'
           resultWrapper.style.display = 'flex'
           battlefieldSounds.remove()
           russianBattleFieldSounds.remove()
@@ -1315,6 +1328,10 @@ function init() {
           resultDisplay.textContent = result
           return // Computer Win
         } else if (displayComputerScore >= 23) {
+          computerGrid.style.display = 'none'
+          grid.style.display = 'none'
+          computerScore.style.display = 'none'
+          customerScore.style.display = 'none'
           resultWrapper.style.display = 'flex'
           battlefieldSounds.remove()
           russianBattleFieldSounds.remove()
@@ -1332,7 +1349,7 @@ function init() {
           return
         } 
         isComputerPlaying = false
-      }, 5)
+      }, 3500)
     }
     
   }

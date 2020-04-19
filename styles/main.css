@@ -430,11 +430,20 @@ button:hover{
 .score{
   display: none;
   width: 100vw;
-  justify-content: space-around;
+  justify-content: space-evenly;
+}
+
+.computer-score-text{
+  text-align: center;
+}
+
+.customer-score-text{
+  text-align: center;
 }
 
 .computer-score{
   color: red;
+  text-align: center;
   
 }
 
@@ -465,7 +474,7 @@ button:hover{
 .result-wrapper {
   position: absolute;
   left: 20%;
-  top: 12%;
+  top: 23%;
   display: none;
   align-items: center;
   z-index: 4;
