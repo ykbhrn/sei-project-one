@@ -1,5 +1,4 @@
 function init() {
-
   // ELEMENTS
   const htmlElement = document.querySelector('html')
   const screen = document.querySelector('.full-screen')
