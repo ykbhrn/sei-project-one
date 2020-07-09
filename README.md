@@ -62,6 +62,10 @@ When the battle is over, you will see the flag of the winning side, and also the
 * Day 2 - 5 MVP was finished
 * Day 5 - 6 Extra feautures was finished, and also existing feautures were polished
 * Day 7 - Styling
+
+## Planning
+Our General Assembly lectors gave us a list of classic games, and we needed to pick one which we gonna do. After half day of playing online games, I choose battleships. I really enjoyed playing it, and I saw a lot of space to be creative with this game, so I choose it.
+After I choose the game, I set deadlines for the week and had a basic idea of how I gonna make it.
  
 ### ***Game logic***
 ### a) Attack
@@ -99,3 +103,10 @@ Positioning computer ships is also done with Math.random and setInterval. Once t
 ## Challenges
 * Computer artillery positions were one of the biggest challenges. Those artillery positions were sometimes cover each other, and sometimes they went out from the cells grid.
 * Another big challenge was making sure that once computer hit artillery position, then it gonna continue to hit around to hitting this artillery until it will be destroyed, otherwise, it wouldn't make sense if computer started to shot on the other side of the cells grid after it hit the artillery position.
+
+-------------------------
+
+## Key learnings 
+* I made big progress in JavaScript DOM manipulation. 
+* Very good practice for CSS flexbox.
+
