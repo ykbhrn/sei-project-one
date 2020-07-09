@@ -3,17 +3,17 @@
 ## **Overview.**
 This was an individual project in the General Assembly. It was made in pure JavaScript. I choose to do Tanks, and Artillery game based on the classic battleship game.
  
-***Timeframe*** for the project was one week
+***Timeframe*** for the project was one week.
  
 ![Artilery Home](images/home.png)
 -------------------------
 ## Brief
-* Render a game in the browser
-* Design logic for winning & visually display which player won
-* Include separate HTML / CSS / JavaScript files
-* Stick with KISS (Keep It Simple Stupid) and DRY (Don't Repeat Yourself) principles
-* Use **Javascript** for DOM manipulation
-* Deploy your game online, where the rest of the world can access it
+* Render a game in the browser.
+* Design logic for winning & visually display which player won.
+* Include separate HTML / CSS / JavaScript files.
+* Stick with KISS (Keep It Simple Stupid) and DRY (Don't Repeat Yourself) principles.
+* Use **Javascript** for DOM manipulation.
+* Deploy your game online, where the rest of the world can access it.
  
 -------------------------
  
@@ -31,7 +31,7 @@ This was an individual project in the General Assembly. It was made in pure Java
  
 ## How to use the App
 ### Picking sides
-Choose your superpower, and also an enemy superpower
+Choose your superpower, and also an enemy superpower.
  
 ![Pick](images/pick.png)
  
