@@ -56,6 +56,12 @@ When the battle is over, you will see the flag of the winning side, and also the
 -------------------------
  
 ## Development
+
+### Timeline 
+* Day 1 - Planning 
+* Day 2 - 5 MVP was finished
+* Day 5 - 6 Extra feautures was finished, and also existing feautures were polished
+* Day 7 - Styling
  
 ### ***Game logic***
 ### a) Attack
